@@ -1,12 +1,12 @@
-export const commonModuleName = 'common';
+import {defaultReducer} from 'utils';
 
-export const commonInitialState = {
+export const initialState = {
     data: {},
     isLoading: false,
     list: [],
 };
 
-export const commonReducer = {
+const getReducer = {
     ['@common/get start'](state) {
         return {
             ...state,
@@ -28,3 +28,23 @@ export const commonReducer = {
         };
     },
 };
+
+const sendReducer = {
+    ['@common/send start'](state) {
+        return {
+            ...state,
+            isLoading: true,
+        };
+    },
+    ['@common/send finish'](state) {
+        return {
+            ...state,
+            isLoading: false,
+        };
+    },
+};
+
+export const commonModuleReducer = defaultReducer(initialState, [
+    getReducer,
+    sendReducer,
+]);

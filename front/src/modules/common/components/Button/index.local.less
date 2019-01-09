@@ -1,0 +1,26 @@
+@import (reference) '~styles/variables';
+
+.container {
+    background-color: @cPrimary;
+    border: 2px solid @cPrimary;
+    cursor: default;
+    color: @cText;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 10px;
+    text-align: center;
+    transition: opacity @tMain, border-color @tMain;
+
+    &:active {
+        border: 2px solid @cPrimaryDark;
+    }
+
+    &:hover {
+        cursor: pointer;
+        opacity: .8;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}

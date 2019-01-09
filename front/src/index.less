@@ -1,3 +1,48 @@
+@import (reference) '~styles/variables';
+@import 'styles/flex';
+@import 'styles/height';
+@import 'styles/display';
+@import 'styles/text';
+@import 'styles/font';
+@import 'styles/padding';
+@import 'styles/margin';
+@import 'styles/background';
+@import 'styles/grid';
+
+* {
+    &,
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: @cText;
+    height: 100%;
+}
+
 body {
+    margin: 0;
+    height: 100%;
     padding: 0;
+    word-wrap: break-word;
+}
+
+#root {
+    height: 100%;
+}
+
+p {
+    margin: 10px 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 10px 0;
 }

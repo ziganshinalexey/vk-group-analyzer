@@ -1,0 +1,25 @@
+.generate-margin(30);
+
+.generate-margin(@n, @i: 0) when (@i =< @n) {
+    .m-@{i} {
+        margin: ~'@{i}px';
+    }
+
+    .mt-@{i} {
+        margin-top: ~'@{i}px';
+    }
+
+    .mr-@{i} {
+        margin-right: ~'@{i}px';
+    }
+
+    .mb-@{i} {
+        margin-bottom: ~'@{i}px';
+    }
+
+    .ml-@{i} {
+        margin-left: ~'@{i}px';
+    }
+
+    .generate-margin(@n, (@i + 1));
+}

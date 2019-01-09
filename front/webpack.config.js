@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const isProd = 'production' === process.env.NODE_ENV;
@@ -35,7 +36,28 @@ const optimizePlugin = new OptimizeCssAssetsPlugin({
         zIndex: false,
     },
 });
-let plugins = [cssPlugin, htmlPlugin, optimizePlugin];
+const favIconPlugin = new FaviconsWebpackPlugin({
+    background: '#000000',
+    emitStats: false,
+    icons: {
+        android: true,
+        appleIcon: true,
+        appleStartup: true,
+        coast: true,
+        favicons: true,
+        firefox: true,
+        opengraph: true,
+        twitter: true,
+        windows: true,
+        yandex: true,
+    },
+    inject: true,
+    logo: path.resolve(paths.src, 'favicon.svg'),
+    persistentCache: false,
+    prefix: 'build/icons/',
+    title: 'analyzer',
+});
+let plugins = [cssPlugin, htmlPlugin, favIconPlugin, optimizePlugin];
 
 if (isProd) {
     plugins = [new CleanWebpackPlugin([path.resolve(paths.dist, 'build/*')])].concat(plugins);
