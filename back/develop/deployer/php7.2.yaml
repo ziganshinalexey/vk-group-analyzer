@@ -1,0 +1,95 @@
+name: person-analyzer
+version: 3.0
+registry:
+  - hostname: cr.userstory.ru
+application_container: fpm
+caches:
+  redis:
+    type: redis
+    port: 6379
+databases:
+  db_1:
+    type: pgsql
+    port: 5432
+    username: postgres
+    password: '123'
+    name: person_analyzer
+wrappers:
+  composer: composer
+  codeception: codeception
+  nginx: nginx
+data_directories:
+  - db1
+  - db2
+  - redis
+  - mongodb
+runtime_directories:
+  - protected/runtime
+  - www/assets
+containers:
+  fpm:
+    image: cr.userstory.ru/userstory-dev/docker/touch-tv-back:php7.2-dev
+    volumes:
+      - '{{project-path}}/:/data:rw'
+      - '{{project-path}}/develop/deployer/configs/php/php7.2.ini:/etc/php/7.2/fpm/php.ini:rw'
+      - '{{project-path}}/develop/deployer/configs/php/php7.2.ini:/etc/php/7.2/cli/php.ini:rw'
+      - '{{project-path}}/develop/deployer/configs/php/xdebug.ini:/etc/php/7.2/mods-available/xdebug.ini:rw'
+      - '{{project-path}}/develop/deployer/configs/cron:/etc/cron.d/cron:rw'
+  nginx:
+    image: cr.userstory.ru/userstory-dev/docker/nginx:latest
+    volumes_from:
+      - fpm
+    volumes:
+      - '{{project-path}}/develop/deployer/configs/nginx/nginx.conf:/etc/nginx/nginx.conf:rw'
+      - '{{project-path}}/develop/deployer/configs/nginx/conf.d:/etc/nginx/conf.d:rw'
+  web:
+    image: cr.userstory.ru/userstory-dev/docker/haproxy:latest
+    volumes:
+      - '{{project-path}}/develop/deployer/configs/haproxy.cfg:/etc/haproxy/haproxy.cfg:rw'
+    hostnames:
+      - '{{project-name}}'
+      - 'xhprof.{{project-name}}'
+  db_1:
+    image: cr.userstory.ru/userstory-dev/docker/postgresql:10
+    volumes:
+      - '{{project-path}}/db1:/var/lib/postgresql/10/main:rw'
+      - '{{project-path}}/develop/deployer/configs/postgres_db1:/etc/postgresql/10/main:rw'
+    environment:
+      - POSTGRES_PASSWORD=123
+    run_after_start:
+      - bash -c "sleep 20"
+  db_2:
+    image: cr.userstory.ru/userstory-dev/docker/postgresql:10
+    volumes:
+      - '{{project-path}}/db2:/var/lib/postgresql/10/main:rw'
+      - '{{project-path}}/develop/deployer/configs/postgres_db2:/etc/postgresql/10/main:rw'
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_BACKUP_HOST=db_1
+      - POSTGRES_BACKUP_PASSWORD=123
+  redis:
+    image: cr.userstory.ru/userstory-dev/docker/redis:4
+    volumes:
+      - '{{project-path}}/redis:/data:rw'
+      - '{{project-path}}/develop/deployer/configs/redis/redis.conf:/etc/redis/redis.conf:rw'
+      - '{{project-path}}/logs_redis:/var/log/redis:rw'
+  pgadmin:
+    image: cr.userstory.ru/userstory-dev/docker/pgadmin:4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=12345
+    volumes:
+      - '{{project-path}}/develop/deployer/configs/pgadmin4.db:/var/lib/pgadmin/pgadmin4.db:rw'
+  smtp:
+    image: cr.userstory.ru/userstory-dev/docker/maildev:latest
+    hostnames:
+      - 'maildev.{{project-name}}'
+  composer:
+    image: cr.userstory.ru/userstory-dev/docker/composer:php7.2
+    volumes:
+      - '{{project-path}}/:/data:rw'
+      - '{{home-path}}/.ssh:/root/.ssh'
+  codeception:
+    image: cr.userstory.ru/userstory-dev/docker/codeception:php7.2
+    volumes:
+      - '{{project-path}}/:/data:rw'

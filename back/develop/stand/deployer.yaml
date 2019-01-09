@@ -1,0 +1,112 @@
+name: touch-tv-back
+version: 3.0
+registry:
+  - hostname: dr.userstory.ru
+    username: userstory
+    password: EptBrTec3
+command_set:
+  update:
+    - db-migrate
+    - cc
+application_container: fpm
+caches:
+  redis:
+    type: redis
+    port: 6379
+databases:
+  db_1:
+    type: pgsql
+    port: 5432
+    username: postgres
+    password: '123'
+    name: touch_tv_back
+  mongo:
+    type: mongo
+    port: 27017
+    migrate_command: php /data/protected/yiic mongodb-migrate
+    migrate_down_command: php /data/protected/yiic mongodb-migrate/down
+    username: root
+    password: '123'
+    name: touch_tv_back
+data_directories:
+  - db1
+  - db2
+  - redis
+  - mongodb
+runtime_directories:
+  - protected/runtime
+  - www/assets
+containers:
+  fpm:
+    image: cr.userstory.ru/userstory-dev/docker/touch-tv-back:php7.2-prod
+    volumes:
+      - '{{project-path}}/:/data:rw'
+      - '{{project-path}}/develop/stand/php/php7.2.ini:/etc/php/7.2/fpm/php.ini:rw'
+      - '{{project-path}}/develop/stand/php/php7.2.ini:/etc/php/7.2/cli/php.ini:rw'
+      - '{{project-path}}/develop/stand/cron:/etc/cron.d/cron:rw'
+    restart: always
+  nginx:
+    image: cr.userstory.ru/userstory-dev/docker/nginx:latest
+    volumes_from:
+      - fpm
+    volumes:
+      - '{{project-path}}/develop/stand/nginx/nginx.conf:/etc/nginx/nginx.conf:rw'
+      - '{{project-path}}/develop/stand/nginx/back.conf:/etc/nginx/conf.d/back.conf:rw'
+    restart: always
+  web:
+    image: cr.userstory.ru/userstory-dev/docker/haproxy:latest
+    volumes:
+      - '{{project-path}}/develop/stand/haproxy.cfg:/etc/haproxy/haproxy.cfg:rw'
+    hostnames:
+      - '{{project-name}}'
+      - 'xhprof.{{project-name}}'
+    restart: always
+  db_1:
+    image: dr.userstory.ru/postgresql:10
+    volumes:
+      - '{{project-path}}/db1:/var/lib/postgresql/10/main:rw'
+      - '{{project-path}}/develop/stand/postgres_db1:/etc/postgresql/10/main:rw'
+    environment:
+      - POSTGRES_PASSWORD=123
+    run_after_start:
+      - bash -c "sleep 20"
+    restart: always
+  db_2:
+    image: dr.userstory.ru/postgresql:10
+    volumes:
+      - '{{project-path}}/db2:/var/lib/postgresql/10/main:rw'
+      - '{{project-path}}/develop/stand/postgres_db2:/etc/postgresql/10/main:rw'
+    environment:
+      - POSTGRES_PASSWORD=123
+      - POSTGRES_BACKUP_HOST=db_1
+      - POSTGRES_BACKUP_PASSWORD=123
+    restart: always
+  redis:
+    image: dr.userstory.ru/redis:4
+    volumes:
+      - '{{project-path}}/redis:/data:rw'
+      - '{{project-path}}/develop/stand/redis/redis.conf:/etc/redis/redis.conf:rw'
+    restart: always
+  dba:
+    image: dr.userstory.ru/pgadmin:4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=12345
+    volumes:
+      - '{{project-path}}/develop/stand/pgadmin4.db:/var/lib/pgadmin/pgadmin4.db:rw'
+    restart: always
+  smtp:
+    image: dr.userstory.ru/maildev:1
+    hostnames:
+      - 'maildev.{{project-name}}'
+    restart: always
+  mongo:
+    image: dr.userstory.ru/mongo:4.1
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=123
+    volumes:
+      - '{{project-path}}/mongodb:/data/db:rw'
+    restart: always
+network:
+  static: true

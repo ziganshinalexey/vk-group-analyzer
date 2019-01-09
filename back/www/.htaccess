@@ -1,0 +1,14 @@
+RewriteEngine On
+Options FollowSymLinks
+AddDefaultCharset UTF-8
+
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule .* index.php [L,QSA]
+
+<IfModule mod_expires.c>
+  ExpiresActive on
+  ExpiresByType video/mp4 "access plus 1 month"
+</IfModule>

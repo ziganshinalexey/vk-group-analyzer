@@ -1,0 +1,8 @@
+{
+  "presets": ["env", "react", "flow", "stage-2"],
+  "env": {
+    "development": {
+      "plugins": ["flow-react-proptypes"]
+    }
+  }
+}

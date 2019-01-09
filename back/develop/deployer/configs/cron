@@ -1,0 +1,9 @@
+# m h dom mon dow user  command
+*/1  * * * *    root    php /data/protected/yiic category/fetch >> /data/protected/runtime/croncategoryfetch.log
+*/1  * * * *    root    php /data/protected/yiic channel/create >> /data/protected/runtime/cronchannelcreate.log
+*/1  * * * *    root    php /data/protected/yiic channel/update >> /data/protected/runtime/cronchannelupdate.log
+*/1  * * * *    root    php /data/protected/yiic channel/fetch >> /data/protected/runtime/cronchannelfetch.log
+*/1  * * * *    root    php /data/protected/yiic video-send/index >> /data/protected/runtime/cronvideosend.log
+*/1  * * * *    root    php /data/protected/yiic video/fetch >> /data/protected/runtime/cronvideofetch.log
+*/1  * * * *    root    php /data/protected/yiic video/update >> /data/protected/runtime/cronvideoupdate.log
+*/1  * * * *    root    php /data/protected/yiic deployer yiic video-schedule/epg >> /data/protected/runtime/cronvideoscheduleepg.log

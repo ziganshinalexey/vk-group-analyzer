@@ -1,0 +1,186 @@
+stages:
+  - common
+  - validator-pre
+  - cpd
+  - tests
+  - php7.2
+  - validator-manual
+  - validator-post
+  - stand
+  - packages-in-projects
+  - tag
+
+ci-config-check:
+  stage: common
+  script: /pub/ci/ci_config/ci_config.py
+
+changelog-check:
+  stage: common
+  script: /pub/ci/changelog/changelog.py
+  allow_failure: false
+
+validator-pre-global:
+  stage: validator-pre
+  variables:
+    TYPE: pre-global
+  script: /pub/ci/validator/project.py
+  allow_failure: false
+
+validator-pre-php:
+  stage: validator-pre
+  variables:
+    TYPE: pre-php
+  script: /pub/ci/validator/project.py
+  allow_failure: false
+
+validator-pre-js:
+  stage: validator-pre
+  variables:
+    TYPE: pre-js
+  script: /pub/ci/validator/project.py
+  allow_failure: false
+
+validator-pre-css:
+  stage: validator-pre
+  variables:
+    TYPE: pre-css
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-pre-jsx:
+  stage: validator-pre
+  variables:
+    TYPE: pre-jsx
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+cpd-php:
+  stage: cpd
+  variables:
+    LANGUAGE: php
+  script: /pub/ci/cpd/project.py
+  allow_failure: true
+
+cpd-js:
+  stage: cpd
+  variables:
+    LANGUAGE: js
+  script: /pub/ci/cpd/project.py
+  allow_failure: true
+
+cpd-css:
+  stage: cpd
+  variables:
+    LANGUAGE: css
+  script: /pub/ci/cpd/project.py
+  allow_failure: true
+
+phpmnd:
+  stage: cpd
+  script: /pub/ci/mnd/project.py
+  allow_failure: true
+
+tests-exists-api:
+  stage: tests
+  script: /pub/ci/tests_exists_api/project.py
+  allow_failure: false
+
+tests-check-skip:
+  stage: tests
+  script: /pub/ci/tests_check_skip/project.py
+  allow_failure: true
+
+vendors-versions-php7.2:
+  stage: php7.2
+  variables:
+    PHP_VERSION: 'php7.2'
+    PT_VERSION: 'dev-yii_2.0.15'
+  script: /pub/ci/vendors_versions/project.py
+  allow_failure: true
+
+php7.2-pgsql10:
+  stage: php7.2
+  variables:
+    DB_VERSION: 'pgsql10'
+    PHP_VERSION: 'php7.2'
+    PT_VERSION: 'dev-yii_2.0.15'
+  script: /pub/ci/backend/project.py
+  allow_failure: false
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - artifacts/*
+    when: on_failure
+
+validator-manual-php:
+  stage: validator-manual
+  variables:
+    TYPE: manual-php
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-manual-js:
+  stage: validator-manual
+  variables:
+    TYPE: manual-js
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-manual-css:
+  stage: validator-manual
+  variables:
+    TYPE: manual-css
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-manual-jsx:
+  stage: validator-manual
+  variables:
+    TYPE: manual-jsx
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-post-php:
+  stage: validator-post
+  variables:
+    TYPE: post-php
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-post-js:
+  stage: validator-post
+  variables:
+    TYPE: post-js
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-post-css:
+  stage: validator-post
+  variables:
+    TYPE: post-css
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+validator-post-jsx:
+  stage: validator-post
+  variables:
+    TYPE: post-jsx
+  script: /pub/ci/validator/project.py
+  allow_failure: true
+
+stand:
+  stage: stand
+  script: /pub/ci/stand/stand.py
+
+packages-in-projects:
+  stage: packages-in-projects
+  script: /pub/ci/packages_in_projects/packages_in_projects.py
+  allow_failure: true
+  only:
+    - master
+
+tag:
+  stage: tag
+  script: /pub/ci/tag/project.py
+  only:
+    - master

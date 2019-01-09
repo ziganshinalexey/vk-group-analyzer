@@ -1,0 +1,21 @@
+{
+  "root": true,
+  "extends": [
+    "@userstory/eslint-config",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "settings": {
+    "import/resolver": "webpack",
+    "react": {
+      "version": "16.4",
+      "flowVersion": "0.78"
+    }
+  },
+  "plugins": ["import"],
+  "rules": {
+    "import/newline-after-import": 2,
+    "import/order": 2,
+    "max-lines": 0
+  }
+}
