@@ -1,0 +1,13 @@
+{
+    "name"       : "userstory/yii2-exceptions",
+    "description": "US module",
+    "license"    : "proprietary",
+    "require"    : {
+        "php": ">=7.2"
+    },
+    "autoload"   : {
+        "psr-4": {
+            "Userstory\\Yii2Exceptions\\": ""
+        }
+    }
+}

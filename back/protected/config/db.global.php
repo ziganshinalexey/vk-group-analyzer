@@ -6,7 +6,7 @@ return [
     'components' => [
         'db' => [
             'class'             => Connection::class,
-            'dsn'               => 'pgsql:host=db_1;port=5432;dbname=touch_tv_back',
+            'dsn'               => 'pgsql:host=db_1;port=5432;dbname=person_analyzer',
             'username'          => 'postgres',
             'password'          => '123',
             'charset'           => 'utf8',
@@ -20,7 +20,7 @@ return [
                 ],
             ],
             'slaves'            => [
-                'main' => ['dsn' => 'pgsql:host=db_2;port=5432;dbname=touch_tv_back'],
+                'main' => ['dsn' => 'pgsql:host=db_2;port=5432;dbname=person_analyzer'],
             ],
         ],
     ],

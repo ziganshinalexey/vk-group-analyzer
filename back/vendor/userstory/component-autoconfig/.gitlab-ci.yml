@@ -1,0 +1,280 @@
+stages:
+  - validator-pre
+  - cpd
+  - api
+  - php5.6
+  - php7.0
+  - php7.1
+  - php7.2
+  - nodejs8
+  - validator-manual
+  - validator-post
+  - common
+  - tag
+
+validator-pre-php:
+  stage: validator-pre
+  variables:
+    TYPE: pre-php
+  script: /pub/ci/validator.py
+
+validator-pre-js:
+  stage: validator-pre
+  variables:
+    TYPE: pre-js
+  script: /pub/ci/validator.py
+
+validator-pre-jsx:
+  stage: validator-pre
+  variables:
+    TYPE: pre-jsx
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-pre-css:
+  stage: validator-pre
+  variables:
+    TYPE: pre-css
+  script: /pub/ci/validator.py
+  allow_failure: true
+  
+cpd-php:
+  stage: cpd
+  variables:
+    LANGUAGE: php
+  script: /pub/ci/cpd.py
+
+cpd-js:
+  stage: cpd
+  variables:
+    LANGUAGE: es
+  script: /pub/ci/cpd.py
+  allow_failure: true
+
+cpd-jsx:
+  stage: cpd
+  variables:
+    LANGUAGE: jsx
+  script: /pub/ci/cpd.py
+  allow_failure: true
+
+cpd-css:
+  stage: cpd
+  variables:
+    LANGUAGE: less
+  script: /pub/ci/cpd.py
+  allow_failure: true
+
+swagger:
+  stage: api
+  script: /pub/ci/api_swagger.py
+
+tests-exists:
+  stage: api
+  script: /pub/ci/api_tests_exists.py
+
+swagger-legacy:
+  stage: api
+  script: /pub/ci/api_swagger_legacy.py
+  allow_failure: true
+
+tests-exists-legacy:
+  stage: api
+  script: /pub/ci/api_tests_exists_legacy.py
+  allow_failure: true
+
+php5.6-mysql5.7:
+  stage: php5.6
+  variables:
+    DB_TYPE_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php5.6'
+  script: /pub/ci/backend.py
+
+php5.6-mysql8.0:
+  stage: php5.6
+  variables:
+    DB_TYPE_VERSION: 'mysql8.0'
+    PHP_VERSION: 'php5.6'
+  script: /pub/ci/backend.py
+  allow_failure: true
+
+php5.6-pgsql9.5:
+  stage: php5.6
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php5.6'
+  script: /pub/ci/backend.py
+
+php5.6-pgsql10.1:
+  stage: php5.6
+  variables:
+    DB_TYPE_VERSION: 'pgsql10.1'
+    PHP_VERSION: 'php5.6'
+  script: /pub/ci/backend.py
+
+php7.0-mysql5.7:
+  stage: php7.0
+  variables:
+    DB_TYPE_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php7.0'
+  script: /pub/ci/backend.py
+
+php7.0-mysql8.0:
+  stage: php7.0
+  variables:
+    DB_TYPE_VERSION: 'mysql8.0'
+    PHP_VERSION: 'php7.0'
+  script: /pub/ci/backend.py
+  allow_failure: true
+
+php7.0-pgsql9.5:
+  stage: php7.0
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php7.0'
+  script: /pub/ci/backend.py
+
+php7.0-pgsql10.1:
+  stage: php7.0
+  variables:
+    DB_TYPE_VERSION: 'pgsql10.1'
+    PHP_VERSION: 'php7.0'
+  script: /pub/ci/backend.py
+
+php7.1-mysql5.7:
+  stage: php7.1
+  variables:
+    DB_TYPE_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php7.1'
+  script: /pub/ci/backend.py
+
+php7.1-mysql8.0:
+  stage: php7.1
+  variables:
+    DB_TYPE_VERSION: 'mysql8.0'
+    PHP_VERSION: 'php7.1'
+  script: /pub/ci/backend.py
+  allow_failure: true
+
+php7.1-pgsql9.5:
+  stage: php7.1
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php7.1'
+  script: /pub/ci/backend.py
+
+php7.1-pgsql10.1:
+  stage: php7.1
+  variables:
+    DB_TYPE_VERSION: 'pgsql10.1'
+    PHP_VERSION: 'php7.1'
+  script: /pub/ci/backend.py
+
+php7.2-mysql5.7:
+  stage: php7.2
+  variables:
+    DB_TYPE_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: true
+
+php7.2-mysql8.0:
+  stage: php7.2
+  variables:
+    DB_TYPE_VERSION: 'mysql8.0'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: true
+
+php7.2-pgsql9.5:
+  stage: php7.2
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: true
+
+php7.2-pgsql10.1:
+  stage: php7.2
+  variables:
+    DB_TYPE_VERSION: 'pgsql10.1'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: true
+
+nodejs8:
+  stage: nodejs8
+  variables:
+    NODEJS_VERSION: 'nodejs8'
+  script: /pub/ci/frontend.py
+
+validator-manual-php:
+  stage: validator-manual
+  variables:
+    TYPE: manual-php
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-manual-js:
+  stage: validator-manual
+  variables:
+    TYPE: manual-js
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-manual-jsx:
+  stage: validator-manual
+  variables:
+    TYPE: manual-jsx
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-manual-css:
+  stage: validator-manual
+  variables:
+    TYPE: manual-css
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-post-php:
+  stage: validator-post
+  variables:
+    TYPE: post-php
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-post-js:
+  stage: validator-post
+  variables:
+    TYPE: post-js
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-post-jsx:
+  stage: validator-post
+  variables:
+    TYPE: post-jsx
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-post-css:
+  stage: validator-post
+  variables:
+    TYPE: post-css
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+ci-config-check:
+  stage: common
+  script: /pub/ci/ci_config.py
+  allow_failure: true
+
+changelog-check:
+  stage: common
+  script: /pub/ci/changelog.py
+
+tag:
+  stage: tag
+  script: /pub/ci/tag.py
+  only:
+    - master
