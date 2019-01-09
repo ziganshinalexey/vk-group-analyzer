@@ -2,8 +2,6 @@
 
 namespace app\controllers;
 
-use app\actions\CaptchaAction;
-use UserstoryTouchTv\Channel\traits\channel\ChannelComponentTrait;
 use yii\base\InvalidConfigException;
 use yii\httpclient\Exception;
 use yii\web\Controller;
@@ -16,8 +14,6 @@ use yii\web\ErrorAction;
  */
 class SiteController extends Controller
 {
-    use ChannelComponentTrait;
-
     /**
      * Свойство содержит необходимость рендера подложки.
      *
@@ -33,8 +29,7 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error'   => ErrorAction::class,
-            'captcha' => CaptchaAction::class,
+            'error' => ErrorAction::class,
         ];
     }
 
