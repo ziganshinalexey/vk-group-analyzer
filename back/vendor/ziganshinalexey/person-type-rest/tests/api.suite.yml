@@ -1,0 +1,16 @@
+class_name: ApiTester
+namespace: Ziganshinalexey\PersonTypeRest\tests
+modules:
+  enabled:
+  - \Userstory\UserRest\tests\Helper\UserDatabaseHelper
+  - \Ziganshinalexey\PersonTypeRest\tests\Helper\Api
+  - \Ziganshinalexey\PersonTypeRest\tests\Helper\PersonTypeDatabaseHelper
+  - PhpBrowser:
+      url: http://web
+  - REST:
+      depends: PhpBrowser
+      url: http://web
+  - Db
+  - Sequence:
+      prefix: '{id}'
+  - Asserts

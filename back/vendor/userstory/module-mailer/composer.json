@@ -1,0 +1,20 @@
+{
+    "name": "userstory/module-mailer",
+    "description": "US module for mail delivery",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.0",
+        "yiisoft/yii2": ">=2.0.8",
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "userstory/component-base": ">=0.2.55 <1.0",
+        "userstory/component-log": ">=0.2.4 <1.0",
+        "userstory/component-migration": ">=0.2.11 <1.0",
+        "userstory/component-autoconfig": ">=0.2.3 <1.0",
+        "userstory/component-helpers": ">=0.2.30 <1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Userstory\\ModuleMailer\\": ""
+        }
+    }
+}

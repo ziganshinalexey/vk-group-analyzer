@@ -1,0 +1,22 @@
+namespace: Ziganshinalexey\PersonTypeRest\tests
+paths:
+  tests: tests
+  output: tests/_output
+  data: tests/_data
+  support: tests/_support
+  envs: tests/_envs
+settings:
+  bootstrap: _bootstrap.php
+actor_suffix: Tester
+extensions:
+  enabled:
+  - Codeception\Extension\RunFailed
+modules:
+  config:
+    Db:
+      dsn: mysql:host=db;dbname=pt
+      user: root
+      password: "123"
+      charset: utf8
+      populate: false
+      cleanup: false

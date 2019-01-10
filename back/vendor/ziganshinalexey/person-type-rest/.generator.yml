@@ -1,0 +1,70 @@
+packageNamespace: ziganshinalexey/person-type
+packageTitle: Модуль типов личностей
+type: rest
+tables:
+  person_type:
+    __options:
+      type: entity
+      entityName: PersonType
+      entityTitle: Тип личности
+      tableComment: Типы личностей
+      tableUseTableAlias: true
+      tableAllowExistsTable: false
+      tableAppendSystemFields: false
+      setRestAccessMigration: migrations/m190109_151446_set_default_rest_permissions.php
+    id:
+      type: primaryKey
+      comment: Идентификатор
+    name:
+      type: string
+      size: 255
+      "null": false
+      comment: Название
+    __relations: []
+admin:
+  person_type:
+    fieldTypes: []
+    indexColumns: []
+    viewPage: []
+fileHashList:
+  Autoconfig.php: ec4fd5e1620a36e86b101a2891662ef2a2525b4bc8eb6e282ead454fb665408e
+  interfaces/personType/FactoryInterface.php: 715079399613da0ace83de9a32789f38841014b09f303f2b54173f90cd1f2437
+  factories/PersonTypeRestFactory.php: 7b53d1cebdffbe7ff7ace7cb4b364c84c6999bd54934d38b862b32fe5120c5c6
+  interfaces/personType/ListFormInterface.php: d5002ab2cc6975819c3f80ee81b98bd72cbe6b70f236e6589d835521eaba5b79
+  interfaces/personType/RestComponentInterface.php: 1c5f39496eb2d2821a047386138dcf6d3427eb9587e2f7c74a61e88ca5f99f72
+  components/PersonTypeRestComponent.php: 3ab7386a289f100b91db635d9603a4df6c039802d806df442a67ea9c6df84c35
+  migrations/m190109_151446_set_default_rest_permissions.php: 04cf0229b5c632d2baced81dcda06e7104ad6c8e230bffbc15c421e8cec209e5
+  api/v1/hydrators/personType/Hydrator.php: d0d97a9d8c5a5ccda710dcfc82dceb712f77e1ece60ee763da344106d217fd22
+  api/v1/hydrators/personType/FilterHydrator.php: b59b1440af020a10a5f6b2f5697c560fcda07025dddbc62a6a11a34697a69863
+  api/v1/formatters/personType/CreateFormatter.php: f0e4a03f1dfb8f3622c3931c6ba2950af6e4c88ee33c41a64c867db87c5c0cb0
+  api/v1/formatters/personType/DeleteFormatter.php: 19bee7f75ca0da43981f55b46e7386a007c590261fd249e505a908dbce7f2dfb
+  api/v1/formatters/personType/ListFormatter.php: 69b74595637587d56a3698c3401420c8c099f104c44cf786eae53c30baa18638
+  api/v1/actions/personType/CreateAction.php: 8ef8f99721d09a23deca2e127a331b622a3b1f4198badda4ebe72ba258e71790
+  api/v1/actions/personType/DeleteAction.php: 3b28720d37c842a0731b408490ca42b975e1f04e13c18d76141d86a9ca27c5ae
+  api/v1/actions/personType/UpdateAction.php: 39200d80f1acdd18846de03f40c0af1fbaa20c67ed55ea08d9a81d360d0b6a29
+  api/v1/actions/personType/ListAction.php: 22ea4c4f90162dc9f4489cd2b6abc7df52fcbe5e15c9b552e03aad40940de1a4
+  api/v1/actions/personType/ViewAction.php: deb70993a52ef133ac8430d9d6ca963eb8e147db4dc8eadbc5850f502ffb45bf
+  api/v1/forms/personType/CreateForm.php: 784f2ccffa48049bc75ff8b0263fb6bc554bbf9d87b32b9634c90cadf854fa83
+  api/v1/forms/personType/UpdateForm.php: 9a68ad734ab8bdebcca76cc63017a4d1ce65fda02e9bd9089374b96b8d8fc4b4
+  api/v1/forms/personType/ViewForm.php: 4eb846f59122bae36a97b3843d22199a433fb1a05c5b40227689c9b97a5f5d63
+  api/v1/forms/personType/DeleteForm.php: c842bb55ef26f112dc3057d5c41c889ff5a32c5ec298984d44612b86edd1dc08
+  api/v1/forms/personType/ListForm.php: d876b693d28c8a7a18ccd5e4e62528611a7221a593eadce904763238b52cdb69
+  traits/personType/PersonTypeRestComponentTrait.php: c6aaad5948ab5610ee97883408ac490b1791028903623a3b1eb4ccf21e509c9d
+  codeception.yml: cdfcaf62fb5f1d551a76bd48e0c57694f39f24c6c0d81a2a5afea2244ea4c954
+  tests/api/_bootstrap.php: 0000982237768023cd0beb66ab018594ca43524f3d4d486a613017de3ef492e6
+  tests/api/PersonTypeCreateActionCest.php: 04e653a56275edf1a41aa59f35c2f5790091d77ab4bbb42bf34b81118aa9743d
+  tests/api/PersonTypeUpdateActionCest.php: 4c2a0c8aa390851d6015b80803996596f8f4612c384dd3de40ba9ca16f7e458e
+  tests/api/PersonTypeDeleteActionCest.php: 4039e5123323102c203157f9d5cee1edd06b034ff5a9e71a3078394f0a7f608d
+  tests/api/PersonTypeViewActionCest.php: 05f604289442bc091c104e9911acc7940f348f23a95f92c5bd4bda153d999190
+  tests/api/PersonTypeListActionCest.php: 80bdcb264f57615983ad3bb80a117a4f6a236762f30a070c745cfa0b52d8184a
+  tests/_support/ApiTester.php: a4994f1624f096c55dad251f461f2038c358b4ad49725f0e10788d793ef9f5b3
+  tests/_support/Helper/Api.php: ed116fa0964aa0bb470e849647e3a32032dc57aeb3d54c26b73123492fc29df3
+  tests/_support/Helper/PersonTypeDatabaseHelper.php: db72068b6974d873b57a3487975611a19d972d64950eab38b885948ad2205a8e
+  tests/api.suite.yml: a91a37af3d4cc93c6085abc528c93848cbf007c5646fffe7b1e3854afa26ece6
+  docs/api/swagger/swagger.yml: e62826320c9a56ea8e23e905c845ece01dcf9f37766a0f1f301047042d2497f6
+  composer.json: 89fa80732865c6d172fc5023f4959c914743911ca1cb32a7eb94d21ba4e32d4c
+  config/apiServer.component.global.php: ebc4fa208de376e4e74921fddf3e71d2693418a82cf7e6eac91071906a253f6b
+  config/authManager.component.global.php: 367e58204c22d75d24b1bc43b57184e37ac99d8a7834368ecc68698035b5e224
+  config/personTypeRest.component.global.php: 9f4b4db6f7530ad64b41e3c0363cbd02ba3dd9e48eefdd5fcb955f612954e074
+  config/console.config.php: 7dfe3795c322b479d9157794b10fc6b10376699bbe77a2fbd251b94a69e512cf
+  config/web.config.php: 7b18e4a24a52a9dd5a44d9249bc7ddd4e838b16a8c49a56bd99542809842f601

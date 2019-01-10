@@ -1,0 +1,55 @@
+packageNamespace: ziganshinalexey/person-type
+packageTitle: Модуль типов личностей
+type: admin
+tables:
+  person_type:
+    __options:
+      type: entity
+      entityName: PersonType
+      entityTitle: Тип личности
+      tableComment: Типы личностей
+      tableUseTableAlias: true
+      tableAllowExistsTable: false
+      tableAppendSystemFields: false
+      setAdminAccessMigration: migrations/m190109_151441_set_default_admin_permissions.php
+    id:
+      type: primaryKey
+      comment: Идентификатор
+    name:
+      type: string
+      size: 255
+      "null": false
+      comment: Название
+    __relations: []
+admin:
+  person_type:
+    fieldTypes: []
+    indexColumns: []
+    viewPage: []
+fileHashList:
+  Autoconfig.php: 5ccca55cae85f60bbf2e2656ae8f337b8389f591c35003b7a1d67e9dac93e914
+  interfaces/personType/AdminComponentInterface.php: 8c7fa41c974da903639e42cf8ecb2cc4685f82a7cd3930a7685ca8a93e41a979
+  components/PersonTypeAdminComponent.php: 1f0b3281317773cde8bbf6516500544e313876f15c6afac616170145987d5df3
+  interfaces/personType/FactoryInterface.php: 146e0d2a32c9b7f3428d4af8bf0442cd5aea630e10c6dc04c17c406db36c89c6
+  factories/PersonTypeAdminFactory.php: 9a5232fb488f3ae929ad5b2b45555b76291dd5cc0a415455655c18a1c86218b4
+  migrations/m190109_151441_set_default_admin_permissions.php: f32309c91e858c889ae9c92514aa41fd173ef0381e935592d0e286a348f2f130
+  controllers/PersonTypeController.php: 1a3c2b94b5f2f1c8171f1b6bffc571485a6cbb66ad9a678fe5a37da5db98e03d
+  forms/personType/UpdateForm.php: 4227d3cac1179cf697e50b47bea60b06e0cb3eb4c1fca0262f4ec1cc86ce990d
+  forms/personType/CreateForm.php: c0791f79fda7796dc852fef90c34f0a69ef8ef49f785838d43219058f132c5eb
+  forms/personType/DeleteForm.php: e35ca0573832afaf9736c2baf4cee718f4237368405be385e1c06f2cda1e4aa3
+  forms/personType/FindForm.php: 858e6b8b126b4c2f90db01b3d21f8a4f37bdf83b3f94df035965d0e02372ca29
+  forms/personType/ViewForm.php: 4ea1f58af9260d74c57a4b5e2e79bde5ba09acd4377841f47220af32453ae837
+  traits/personType/PersonTypeAdminComponentTrait.php: 54fca2f3906d3997cbdbf9a5deaa313ecd6f6c8fb230b1d8d62e148a061946bf
+  views/personType/index.php: 5c7de7138af9151f2d12503052e5644e81216a4d3562db41f4e74eb67180fcd8
+  views/personType/view.php: 972e0f15c18d2237c427dc31c1550638e8bd9cfff19c023ae14b5fd9d87d862c
+  views/personType/create.php: 404f492706b5c6d770df842e220ca3b8a4e4b71f1ce37d2fbdf6a2d4f7d637e5
+  views/personType/_form-modal.php: 4c2dc781f233ba87906d82a7c68de51a68c51bb17d6daa7432d9d6e70df66664
+  views/personType/update.php: d156aa3d220296896d07923f15821b7dcbfb437a52aa86445bedb001a5fef126
+  views/personType/_form.php: da27475f7c6b0a0aac765245f59b29e158245ef8ca468e895b272fe00163c6a9
+  composer.json: 9cf92acb387bd87b6b576e4874ace1bde03b5cb3724941850b7bb4a28251913c
+  config/authManager.component.global.php: 45d337c241dce36f3ef591c054bf45682241fe5229d6b58e31c23773821507b6
+  config/competingView.component.global.php: b23856c7713b13e60cff681daf6aca550b40355c672e24f3ab8fde2cff67e227
+  config/menu.component.global.php: ea9b28cad4266e4be2259e842555852df446700da0a87dcad55bc7b2403570a3
+  config/personTypeAdmin.component.global.php: e67fbd14952fc135a837a056fa0eeeef67cc562fb56a5ca404fd014badb69934
+  config/console.config.php: 90ca1d3558d4c4bb7b83485b993249cb15c9262d79d0882e146449dba04b07ef
+  config/web.config.php: cbdb60b60b0c4eba9300a7da31e098e7e870b5696d644176b4dc5e43dc0400b2

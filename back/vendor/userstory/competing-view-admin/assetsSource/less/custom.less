@@ -1,0 +1,27 @@
+.notifications {
+    &.bottom-right {
+        right: 15px;
+    }
+    .alert {
+        padding-top: 12px;
+        padding-bottom: 10px;
+        &:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+        .glyphicon {
+            font-size: 18px;
+        }
+        .notty-body {
+            float: right;
+            margin-left: 15px;
+        }
+        .close {
+            position: absolute;
+            right: 6px;
+            top: 0px;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,74 @@
+packageNamespace: ziganshinalexey/person-type
+packageTitle: Модуль типов личностей
+type: logic
+tables:
+  person_type:
+    __options:
+      type: entity
+      entityName: PersonType
+      entityTitle: Тип личности
+      tableComment: Типы личностей
+      tableUseTableAlias: true
+      tableAllowExistsTable: false
+      tableAppendSystemFields: false
+      createTableMigration: migrations/m190109_151435_create_persontype_table.php
+    id:
+      type: primaryKey
+      comment: Идентификатор
+    name:
+      type: string
+      size: 255
+      "null": false
+      comment: Название
+    __relations: []
+admin:
+  person_type:
+    fieldTypes: []
+    indexColumns: []
+    viewPage: []
+fileHashList:
+  Autoconfig.php: 515a1f8ddca2c59e0a23cb17b63cc08181c40c6fb077d37b48afafbe750cbfd4
+  interfaces/personType/ComponentInterface.php: 6c02b4f65568e52b80553e6d8dac163dcf880f34090d3423957bdbeae428afed
+  interfaces/personType/QueryInterface.php: a6857f98958c90bacc7357df47ffd2a0c2ca818071cd05315ecd4419b0cdb5c3
+  interfaces/personType/FactoryInterface.php: 8f834f35293885cd8e0da09103c97e14ca48609a26274d6743391da6b419876f
+  interfaces/personType/dto/OperationListResultInterface.php: 76a7e3091f53eaffe92f2d221250fe1690bed78440a8af0340bfdade5c1375f9
+  interfaces/personType/dto/OperationResultInterface.php: 46eceb77d9ba7256b29cb7eb798c8952b4c5f8aa4d7c118a5d0022aef54edb10
+  interfaces/personType/operations/BaseFindOperationInterface.php: 2cb855d2b6d684fc4ac600ff7b2962d6ea391173fa0f930d68e6076796f50994
+  interfaces/personType/operations/MultiDeleteOperationInterface.php: 206fb5827e6b74568271bc4b584563c171c7be9c6809cd6e4b509512c1d25f4e
+  interfaces/personType/operations/MultiFindOperationInterface.php: 71618ca85a834c376f511ba0d9e829eafecb02eae0f5a1943f43ff319f85bc0e
+  interfaces/personType/operations/SingleCreateOperationInterface.php: f6e28eb5fa09e747a2b9bc4d1fb69a7156eafd45301a8d943c1a0898c22c9c18
+  interfaces/personType/operations/SingleFindOperationInterface.php: c9230fc51dcbd71872aef010029e68f28f9b3d7a7c4277e17eedf17c971bb0c0
+  interfaces/personType/operations/SingleUpdateOperationInterface.php: 6aa082f7e488b1ff77247b9b6708a69007b0e48e874879640646940ae22e5ceb
+  interfaces/personType/filters/BaseFilterInterface.php: 3aa3eaa3c8875bb3a5436fb320eb8fce13b057d3c8cd931d851d6d191820e886
+  interfaces/personType/filters/BaseFilterOperationInterface.php: 0a69f4870aa0baecfdcb0a1967063b88f387d3516e850caf9a86a9ee11b49982
+  interfaces/personType/filters/MultiFilterInterface.php: 90844e97faa66f89afb6e7eddbc35027ef71ac80d025be78af41bb459fbdf21c
+  interfaces/personType/filters/MultiFilterOperationInterface.php: 83bc2a88a565e93886ab2e6112107c2c9ec619b18da43273ac75ff0e33495aee
+  interfaces/personType/filters/SingleFilterInterface.php: 52ed573f1de4118d2d356d91e6771e27df3aa4e8749ce8d12284573154010880
+  interfaces/personType/filters/SingleFilterOperationInterface.php: 6dabe77d1fee557239c66e73612be3af53ba23d5ce6f4a6d013061f293af5707
+  migrations/m190109_151435_create_persontype_table.php: 2a1fe890e8badc7db508b1f317e16d776fb4f4e20aaea1daea1a965823ec5062
+  queries/PersonTypeQuery.php: 9b089ae90d045dbcffba7cb8aecda74dc339eede538e911ae1f9554dda8e5860
+  entities/PersonTypeActiveRecord.php: 8ead3eb421d7a8eb6697becd256b728c2359e174c0848513e6e3b34b3fdd4dcd
+  dataTransferObjects/personType/OperationResult.php: 71570925502a9528e880f2a41f08177a78f3797892084f5c916d3a34e7e88d33
+  dataTransferObjects/personType/OperationListResult.php: 5102bb35d6bc1e6a8901af6f9c969a7a1fdb2710105647f64e89bd19c09e7586
+  hydrators/PersonTypeDatabaseHydrator.php: 45f4b67583ad14e01b0ec176ef7aa277d0d4cd51dfbf81772227f2822eae6d19
+  traits/personType/DatabaseHydratorTrait.php: 25eacf0be9f98dd329a49263e84e9158e939ff170631d0d7f53f3cf46db5a010
+  traits/personType/PersonTypeComponentTrait.php: 3044315cc9b982c1d3863c2877b8da9dfb4dc2b0308b434913f2bc281329f074
+  factories/PersonTypeFactory.php: 2115a73cddc093a4db9945816e7a0c18dc9524898115e55b4dcb5fa6c88ebf22
+  operations/personType/SingleUpdateOperation.php: 6099b50cd5f9ab9642d7a6afca16cbc572e75f5d687c58fcfa5a6d82dcc87557
+  operations/personType/MultiDeleteOperation.php: 409f8c3c89f15aa987139d4db2614c071c0518c45e28ed3e542d6017deceaac7
+  operations/personType/SingleCreateOperation.php: df91c27915b65e5b890f142fbe3c67bfa2e3e12dc2e9e4445d79fa9846ab2b8b
+  operations/personType/BaseFindOperation.php: ee7efcbac7ff2704bd4908cbab35f93fb37b4879d9a80d8121d7fa9feb57b424
+  operations/personType/SingleFindOperation.php: c9464241d35b8883ecd8824e999ecb44f764c64d9146010836da218766c5bc1a
+  operations/personType/MultiFindOperation.php: 39bdb68ca7ebc1140a8d31d0c2bd994a83183a53c525e0401a1bb90f101a7b91
+  filters/personType/BaseFilter.php: 4c58ce87c7720fc8484813caba61f1d3ad8d53f81559544886e1cac258817f59
+  filters/personType/SingleFilter.php: cf89a2ad8b0947e6cee13762a1bc494d514106a1b5dee9317c417f5f41425535
+  filters/personType/MultiFilter.php: ff45943f22337ce9c6051b470b7efb59c6423692e68b54a91664c24492294354
+  validators/personType/PersonTypeFilterValidator.php: 3e7f99bee4d8cebf6aaed40ca618752074ec6c05847f7756ced4630e7d2f9d8f
+  components/PersonTypeComponent.php: 8e53763450377b5629274195ac901fae1443cc4ecd9ab59deb9789c98d946918
+  dataTransferObjects/personType/PersonType.php: 3e5e69eddf2784a2001aa09bc594756894cedc13fd81d2ea9a803cc60cda3ffb
+  interfaces/personType/dto/PersonTypeInterface.php: bcd18228476b164a980ad584c88e486a861fa64af44dfb80ef23f26eee9d90b1
+  validators/personType/PersonTypeValidator.php: 0b0f1333c8c2a0c0cb77f1d8d2ba908b106e3a8000258b4685996edb684c5a2f
+  composer.json: 99fc0a32db9ab46ca1b86e20e963806229770d98c60810d61474bad8f0c4e3c9
+  config/personType.component.global.php: 380c365d821e92b0db1fba666e9c9e1de5299ffab0bf6fd8c3c3e95e882ba8a8
+  config/console.config.php: 5ac79a28b697485c9cfac85b7f41d0c765b791abd7d3a84c85368443e65e2903
+  config/web.config.php: 91d0023f9e77031dc409b29041963c69122cf23c248e823cc9f98af2308ffa50

@@ -1,0 +1,130 @@
+stages:
+  - phpcpd
+  - swagger
+  - php5.6-mysql5.7
+  - php5.6-pgsql9.5
+  - php5.6-pgsql9.6
+  - php7.0-mysql5.7
+  - php7.0-pgsql9.5
+  - php7.0-pgsql9.6
+  - php7.1-mysql5.7
+  - php7.1-pgsql9.5
+  - php7.1-pgsql9.6
+  - node8.2
+  
+phpcpd:
+  stage: phpcpd
+  script: /pub/ci/phpcpd.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - phpcpd.txt
+
+swagger:
+  stage: swagger
+  script: /pub/ci/swagger.py
+
+php5.6-mysql5.7:
+  stage: php5.6-mysql5.7
+  variables:
+    DB_TYPE_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php5.6'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:      
+    - _build
+
+php5.6-pgsql9.5:
+  stage: php5.6-pgsql9.5
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php5.6'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+php5.6-pgsql9.6:
+  stage: php5.6-pgsql9.6
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.6'
+    PHP_VERSION: 'php5.6'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+php7.0-mysql5.7:
+  stage: php7.0-mysql5.7
+  variables:
+    DB_TYPE_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php7.0'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+php7.0-pgsql9.5:
+  stage: php7.0-pgsql9.5
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php7.0'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+php7.0-pgsql9.6:
+  stage: php7.0-pgsql9.6
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.6'
+    PHP_VERSION: 'php7.0'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+php7.1-mysql5.7:
+  stage: php7.1-mysql5.7
+  variables:
+    DB_TYPE_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php7.1'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+php7.1-pgsql9.5:
+  stage: php7.1-pgsql9.5
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php7.1'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+php7.1-pgsql9.6:
+  stage: php7.1-pgsql9.6
+  variables:
+    DB_TYPE_VERSION: 'pgsql9.6'
+    PHP_VERSION: 'php7.1'
+  script: /pub/ci/backend.py
+  artifacts:
+    expire_in: 2 week
+    paths:
+    - _build
+
+node8.2:
+  stage: node8.2
+  variables:
+    NODE_VERSION: 'node8.2'
+  script: /pub/ci/frontend.py

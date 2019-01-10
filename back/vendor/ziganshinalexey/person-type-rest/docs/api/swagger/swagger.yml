@@ -1,0 +1,342 @@
+openapi: 3.0.0
+info:
+  title: Модуль типов личностей (REST-модуль)
+  version: "1.0"
+servers:
+- url: http://pt.local/api/v1
+  description: Сервер на рыбе проектов USERSTORY
+paths:
+  /person-type:
+    post:
+      summary: Создать Тип личности
+      operationId: create-person-type
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - CREATE
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1.Person.Type'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: Идентификатор
+                            minimum: 1
+                            maximum: 2147483647
+                      - $ref: '#/components/schemas/v1.Person.Type'
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      id: 147
+                      name: Название
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+    get:
+      summary: Получить список Тип личности
+      operationId: view-list-person-type
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        description: Лимит получаемых элементов
+      - in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        description: Смещение относительно начала списка
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                              allOf:
+                              - type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                    description: Идентификатор
+                                    minimum: 1
+                                    maximum: 2147483647
+                              - $ref: '#/components/schemas/v1.Person.Type'
+                          more:
+                            type: boolean
+                            description: Есть ли еще записи для текущего списка
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      list:
+                      - id: 1
+                        name: Тип личности
+                      more: true
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+  /person-type/{id}:
+    put:
+      summary: Обновить Тип личности
+      operationId: update-person-type
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1.Person.Type'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: Идентификатор
+                            minimum: 1
+                            maximum: 2147483647
+                      - $ref: '#/components/schemas/v1.Person.Type'
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      id: 88
+                      name: Название
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+    delete:
+      summary: Удалить Тип личности
+      operationId: delete-person-type
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        success:
+                          type: boolean
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      success: true
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+    get:
+      summary: Получить Тип личности
+      operationId: view-person-type
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: Идентификатор
+                            minimum: 1
+                            maximum: 2147483647
+                      - $ref: '#/components/schemas/v1.Person.Type'
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      id: 222
+                      name: Название
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+components:
+  schemas:
+    v1.Person.Type:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Название
+          maxLength: 255
+      example:
+        name: Название
+    v1.403.Response:
+      allOf:
+      - $ref: '#/components/schemas/v1.BaseResponse'
+      - type: object
+        properties:
+          data:
+            type: object
+      example:
+        errors:
+        - code: 403
+          title: Доступ запрещен
+          detail: ""
+          data: []
+        notice: []
+        data: []
+    v1.BaseResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1.Error'
+        notice:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1.Notice'
+        data:
+          type: object
+    v1.Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+    v1.Notice:
+      type: object
+      properties:
+        code:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        data:
+          type: array
+          items:
+            type: object

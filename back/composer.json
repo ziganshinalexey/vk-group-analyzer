@@ -27,7 +27,13 @@
         "yiisoft/yii2-mongodb": "^2.1",
         "rmrevin/yii2-fontawesome": "^2.17.0",
         "userstory/component-autoconfig": "^0.2.3",
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ziganshinalexey/keyword": "^1.0",
+        "ziganshinalexey/keyword-admin": "1.0.1",
+        "ziganshinalexey/keyword-rest": "^1.0",
+        "ziganshinalexey/person-type": "^1.0",
+        "ziganshinalexey/person-type-admin": "^1.0",
+        "ziganshinalexey/person-type-rest": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

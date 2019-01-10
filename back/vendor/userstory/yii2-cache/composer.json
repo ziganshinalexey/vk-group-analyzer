@@ -1,0 +1,15 @@
+{
+    "name"       : "userstory/yii2-cache",
+    "description": "Пакет для упрощения работы с кэшем Yii2",
+    "license"    : "proprietary",
+    "require"    : {
+        "php"                      : "^7.2.0",
+        "userstory/yii2-exceptions": ">=0.2 <1.0",
+        "yiisoft/yii2"             : "^2.0.13"
+    },
+    "autoload"   : {
+        "psr-4": {
+            "Userstory\\Yii2Cache\\": ""
+        }
+    }
+}

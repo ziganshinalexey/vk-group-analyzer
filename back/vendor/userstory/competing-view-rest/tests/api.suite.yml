@@ -1,0 +1,11 @@
+class_name: ApiTester
+namespace: Userstory\CompetingViewRest\tests\
+modules:
+    enabled:
+        - \Userstory\CompetingViewRest\tests\Helper\Api
+        - PhpBrowser:
+            url: http://web/
+        - REST:
+            depends: PhpBrowser
+            url: http://web/api/
+        - Db

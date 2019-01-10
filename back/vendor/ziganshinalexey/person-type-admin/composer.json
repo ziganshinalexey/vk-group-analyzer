@@ -1,0 +1,21 @@
+{
+    "name": "ziganshinalexey/person-type-admin",
+    "description": "Модуль типов личностей (ADMIN-модуль)",
+    "license": "proprietary",
+    "require": {
+        "php": "~7.2.0",
+        "userstory/competing-view-admin": ">=0.2.2 <1.0",
+        "userstory/component-autoconfig": ">=0.2.3 <1.0",
+        "userstory/component-base": ">=0.5.0 <1.0",
+        "userstory/component-migration": ">=0.4.0 <1.0",
+        "userstory/module-admin": ">=0.5.0 <1.0",
+        "userstory/user": ">=1.0.3 <2.0",
+        "userstory/yii2-forms": ">=0.1.4 <1.0",
+        "yiisoft/yii2": "~2.0.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ziganshinalexey\\PersonTypeAdmin\\": ""
+        }
+    }
+}

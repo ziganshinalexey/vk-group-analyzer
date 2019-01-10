@@ -1,0 +1,22 @@
+{
+    "name": "ziganshinalexey/person-type-rest",
+    "description": "Модуль типов личностей (REST-модуль)",
+    "license": "proprietary",
+    "require": {
+        "php": "~7.2.0",
+        "userstory/component-api-server": ">=0.4.0 <1.0",
+        "userstory/component-autoconfig": ">=0.2.3 <1.0",
+        "userstory/component-base": ">=0.5.0 <1.0",
+        "userstory/component-hydrator": ">=0.3.0 <1.0",
+        "userstory/component-migration": ">=0.4.0 <1.0",
+        "userstory/user": ">=1.0.3 <2.0",
+        "userstory/yii2-exceptions": ">=0.1.1 <1.0",
+        "userstory/yii2-forms": ">=0.1.4 <1.0",
+        "yiisoft/yii2": "~2.0.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ziganshinalexey\\PersonTypeRest\\": ""
+        }
+    }
+}

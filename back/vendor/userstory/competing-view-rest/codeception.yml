@@ -1,0 +1,22 @@
+namespace: Userstory\CompetingViewRest\tests
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+settings:
+    bootstrap: _bootstrap.php
+actor_suffix: Tester
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+modules:
+    config:
+        Db:
+            dsn: 'pgsql:host=db_1;dbname=test'
+            user: 'postgres'
+            password: '123'
+            charset: 'utf8'
+            populate: false
+            cleanup: false

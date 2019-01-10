@@ -1,0 +1,107 @@
+.grid-view {
+    .pagination {
+        float: right;
+        margin: 0;
+    }
+    .summary {
+        float: left;
+        height: 34px;
+        line-height: 34px;
+        display: inline-block;
+    }
+    .pagination, .summary {
+        margin: 10px 0;
+    }
+    .kv-grid-container {
+        clear: both;
+        .table {
+            margin: 0;
+            td, th {
+                text-align: center;
+                &:nth-of-type(2) {
+                    text-align: left;
+                }
+            }
+            &.table-bordered {
+                & > thead, & > tbody, & > tfoot {
+                    & > tr {
+                        & > th, & > td {
+                            vertical-align: middle;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .table {
+        &__sorted-link {
+            display: block;
+            margin: -8px;
+            padding: 8px 30px 8px 8px;
+            position: relative;
+            &:after {
+                content: "\e150"; /* sort */
+                position: absolute;
+                bottom: 8px;
+                right: 8px;
+                display: block;
+                font-family: 'Glyphicons Halflings';
+                opacity: 0.2;
+            }
+            &_asc:after {
+                content: "\e155"; /* sort-by-attributes */
+                opacity: 0.5;
+            }
+            &_desc:after {
+                content: "\e156"; /* sort-by-attributes-alt */
+                opacity: 0.5;
+            }
+        }
+
+        &__action-icon {
+            padding: .2em .5em .15em;
+        }
+
+        &__action-form {
+            &_icon {
+                display: inline-block;
+            }
+        }
+
+        &__action-column {
+            width: 130px;
+        }
+
+        &__filter {
+            position: relative;
+        }
+        &__filter-input {
+            overflow: hidden;
+            padding-right: 30px;
+            text-overflow: ellipsis;
+        }
+        &__filter-icon {
+            position: absolute;
+            display: block;
+            top: 10px;
+            right: 8px;
+        }
+
+        &__popover-content {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: @screen-xs-max) {
+        .kv-grid-container {
+            .table {
+                td, th {
+                    &:nth-of-type(2) {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

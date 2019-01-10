@@ -1,0 +1,80 @@
+packageNamespace: ziganshinalexey/keyword
+packageTitle: Модуль ключевых фраз
+type: rest
+tables:
+  keyword:
+    __options:
+      type: entity
+      entityName: Keyword
+      entityTitle: Ключевое фраза
+      tableComment: Ключевые фразы
+      tableUseTableAlias: true
+      tableAllowExistsTable: false
+      tableAppendSystemFields: false
+      setRestAccessMigration: migrations/m190109_151420_set_default_rest_permissions.php
+    __relations:
+      personTypeId:
+        type: many-to-one
+        targetClass: Ziganshinalexey\PersonType\entities\PersonTypeActiveRecord::class
+        targetField: id
+        displayField: id
+        createRelationMigration: ~
+    id:
+      type: primaryKey
+      comment: Идентификатор
+    text:
+      type: text
+      "null": false
+      comment: Название
+    personTypeId:
+      type: integer
+      "null": false
+      comment: Идентификатор типа личности
+      relation: personTypeId
+admin:
+  keyword:
+    fieldTypes: []
+    indexColumns: []
+    viewPage: []
+fileHashList:
+  Autoconfig.php: 6ee6d84ff34f5c2d42cd8b0b2f1c02812771480cd8c96407d2831dd14db82ddb
+  interfaces/keyword/FactoryInterface.php: faf5d866b9235dd7922ab45797c3732ddf61287da0ad50dcce8610b8fa15f74e
+  factories/KeywordRestFactory.php: d5ea3452471612883cbe6e43d877caa42fb0ea2f0548ec724c1b5b652c84ec37
+  interfaces/keyword/ListFormInterface.php: 1782d4310e5048726326038a9c000604fc33af621e517be69ccfde2c0c5a431a
+  interfaces/keyword/RestComponentInterface.php: 924d106464852fbe54a0e9bedc00e363c8d754a40e7d9bea66ba6101b34d755f
+  components/KeywordRestComponent.php: e7053484498e2aabd3ddad10fb0ffbca77ddbc9d4be10a7d7b2c443ce2a77591
+  migrations/m190109_151420_set_default_rest_permissions.php: 0e7ba37856fad17239c99406b36baa4d1c2bf9d81c31dbe747cbbd9886635978
+  api/v1/hydrators/keyword/Hydrator.php: 49fb5e0925b867cd08ff0bdc1e19cf2684fcb60730608da4e61e3b44dd5e6b6b
+  api/v1/hydrators/keyword/FilterHydrator.php: 24b6afde2355dc54626a04a9afc48e135987da57cfb1c1be04b916ba71aa7df5
+  api/v1/formatters/keyword/CreateFormatter.php: fc8094690f05eb0743002e1d7fe1fabb6a43dbfa2d61931ef4b9a3c5ad205f57
+  api/v1/formatters/keyword/DeleteFormatter.php: 98cb6ad24b48e7942c4f353519b434fbc8da6c75b98bf2a1aa850164dba0b71f
+  api/v1/formatters/keyword/ListFormatter.php: 7e07e26565a9cd91239e6fb1283f701da32a7ddeaabb2182585fb6226a75517f
+  api/v1/actions/keyword/CreateAction.php: bbbd1ee84bf5072122da88e1662ce2128a0cbb814feb102a49950b5ac079b5e6
+  api/v1/actions/keyword/DeleteAction.php: a10ebe880fe2be2b45cd133bf0f160474c94d968d84fe0a4e339c880b7499371
+  api/v1/actions/keyword/UpdateAction.php: e9f003f16ae232ef946e3e2e767b20a8afb5adb10abb0b722df8ebdf83e4fd86
+  api/v1/actions/keyword/ListAction.php: 34f9356b3e4c68b4442aa9dc61b0fec3daed880859ac645fed70f0bb74fe9016
+  api/v1/actions/keyword/ViewAction.php: a0e9a13915c9f438611bd853ea020c311e9c5c7ca9899e922b8e1dcd9dab52e8
+  api/v1/forms/keyword/CreateForm.php: 9a77e9fba037391686655621ed233913df7617d3b31b64aabcb5e910c4cecc02
+  api/v1/forms/keyword/UpdateForm.php: 031f18d89e2b64f50fb7adc9c3b21dc2e6d453d1333fe2f4e860a9018d4321e2
+  api/v1/forms/keyword/ViewForm.php: f11bf47a9c8d8d902906d1b1465452fb345e8ce7ac385233b9551fc09e13fc63
+  api/v1/forms/keyword/DeleteForm.php: dddb1f8bd4f00f8008a7e1063a549ce6a5cd59b58a9a5cbf1796eb8ac22a1714
+  api/v1/forms/keyword/ListForm.php: 99de551fdd52fe5bdef90c2c8f70fcb35bbac5957ef59c30381745ed60b894b1
+  traits/keyword/KeywordRestComponentTrait.php: 6854d8b39a324be30eb08ba372432feb93086d1d3f204dd20c3b601f2c4db7a2
+  codeception.yml: 56d4b594a54aa0699e179163ace60726011cf96d3eb7735299c49076abdcd66a
+  tests/api/_bootstrap.php: 0000982237768023cd0beb66ab018594ca43524f3d4d486a613017de3ef492e6
+  tests/api/KeywordCreateActionCest.php: 303b20ef48835da0cca4eee956ba09fc7d3c65b8d5ebecc14a37a1a1793122ae
+  tests/api/KeywordUpdateActionCest.php: aa8bc87ad095c0e43c5f4066a65b66704a63d5665cf9494b486f8f9ae4659af6
+  tests/api/KeywordDeleteActionCest.php: 39370ecc184896e83adb3da436470441a5ebf29f063c707a03b830f47158bcd3
+  tests/api/KeywordViewActionCest.php: 6041abb8f269dbeb61698c0607be6f716bb9dd128e3d251086635963c2cacee5
+  tests/api/KeywordListActionCest.php: 47df41162178d7044489e88213c72d8d53d96b04b6d0cf7a53219e0ff2b59aa7
+  tests/_support/ApiTester.php: e71bbc3e9da0a35e1e74b7ab1199d14dcb2bf09fc89cfeb103b15b74d9f5da14
+  tests/_support/Helper/Api.php: 8818cc86aa7775d465790d706fd958ebe6529700ff887bc9403a12d0c4317b38
+  tests/_support/Helper/KeywordDatabaseHelper.php: af8ea00920979997cbc3c241156a3bbe39e60053db82ae464d6a2f583f8f5c65
+  tests/api.suite.yml: 5b9129d81f0727b21f351f4401e66ddd1ea8a1fe4e7364473d66b17fa29bc6e9
+  docs/api/swagger/swagger.yml: a977cebcccd8c2645df3df30e08ff4f7555a38b0cbd0d98905f786cb6593e65f
+  composer.json: 941073fcf1e15f500dd5e58dbee8591de70e579b534e8d25612388348995eb47
+  config/apiServer.component.global.php: 47901fab8f1948efdecb035fd9a53c84ea5cd1dae1065e1841a7ff851a9ace14
+  config/authManager.component.global.php: 2f8d49166143ddfdb04a92a3052a9b43122e9b640dd6a9c87db5df5a462576a9
+  config/keywordRest.component.global.php: 8c5139150e1dc7e5af7a649df7663561100e656c3573582ffd5255e2672fade1
+  config/console.config.php: 1fc5ea1b09d339bb4f41103ef207e95dac472f5be660106f94957f3b779dbe0c
+  config/web.config.php: 75069643ea5e16185ac0577458c0fffedfe9f069673de9684d331bea9a669611

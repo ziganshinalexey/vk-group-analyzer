@@ -1,0 +1,23 @@
+{
+    "name": "ziganshinalexey/person-type",
+    "description": "Модуль типов личностей",
+    "license": "proprietary",
+    "require": {
+        "php": "~7.2.0",
+        "userstory/component-autoconfig": ">=0.2.3 <1.0",
+        "userstory/component-base": ">=0.5.0 <1.0",
+        "userstory/component-hydrator": ">=0.3.0 <1.0",
+        "userstory/component-migration": ">=0.4.0 <1.0",
+        "userstory/database": ">=0.2.2 <1.0",
+        "userstory/i18n": ">=0.5.0 <1.0",
+        "userstory/user": ">=1.0.3 <2.0",
+        "userstory/yii2-cache": ">=1.1.0 <2.0",
+        "userstory/yii2-exceptions": ">=0.1.1 <1.0",
+        "yiisoft/yii2": "~2.0.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ziganshinalexey\\PersonType\\": ""
+        }
+    }
+}

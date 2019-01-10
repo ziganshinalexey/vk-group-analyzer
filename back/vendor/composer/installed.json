@@ -1,5 +1,125 @@
 [
     {
+        "name": "2amigos/yii2-tinymce-widget",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/2amigos/yii2-tinymce-widget.git",
+            "reference": "a58b7a59a1508f4251a8cea9e010d31c9733bde4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/2amigos/yii2-tinymce-widget/zipball/a58b7a59a1508f4251a8cea9e010d31c9733bde4",
+            "reference": "a58b7a59a1508f4251a8cea9e010d31c9733bde4",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "tinymce/tinymce": ">=4",
+            "yiisoft/yii2": "^2.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*"
+        },
+        "time": "2018-11-01T20:46:52+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            },
+            "asset-installer-paths": {
+                "bower-asset-library": "vendor/bower"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "dosamigos\\tinymce\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "2amigOS! Consulting Group",
+                "email": "hola@2amigos.us",
+                "homepage": "http://2amigos.us",
+                "role": "Developer"
+            }
+        ],
+        "description": "TinyMCE widget for Yii2.",
+        "homepage": "http://yiiwheels.com/extension/tinymce-widget",
+        "keywords": [
+            "2amigos",
+            "extension",
+            "tinymce",
+            "widget",
+            "yii",
+            "yii 2",
+            "yii2"
+        ]
+    },
+    {
+        "name": "almasaeed2010/adminlte",
+        "version": "v2.4.8",
+        "version_normalized": "2.4.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/almasaeed2010/AdminLTE.git",
+            "reference": "d9e68301848a95dff2e2dbef6569e617a9b3fa30"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/d9e68301848a95dff2e2dbef6569e617a9b3fa30",
+            "reference": "d9e68301848a95dff2e2dbef6569e617a9b3fa30",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.9.0 <4.0.0",
+            "composer/installers": "1.*"
+        },
+        "time": "2018-07-15T18:48:11+00:00",
+        "type": "template",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Abdullah Almsaeed",
+                "email": "abdullah@almsaeedstudio.com"
+            }
+        ],
+        "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
+        "homepage": "https://adminlte.io/",
+        "keywords": [
+            "JS",
+            "admin",
+            "back-end",
+            "css",
+            "less",
+            "responsive",
+            "template",
+            "theme",
+            "web"
+        ]
+    },
+    {
         "name": "bower-asset/bootstrap",
         "version": "v3.3.7",
         "version_normalized": "3.3.7.0",
@@ -232,6 +352,184 @@
         ]
     },
     {
+        "name": "components/jquery",
+        "version": "3.3.1",
+        "version_normalized": "3.3.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/components/jquery.git",
+            "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/components/jquery/zipball/459648cda77875519c5da3ae1dd0ed5d170aa649",
+            "reference": "459648cda77875519c5da3ae1dd0ed5d170aa649",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "time": "2018-03-04T13:23:48+00:00",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "jquery.js"
+                ],
+                "files": [
+                    "jquery.min.js",
+                    "jquery.min.map",
+                    "jquery.slim.js",
+                    "jquery.slim.min.js",
+                    "jquery.slim.min.map"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "JS Foundation and other contributors"
+            }
+        ],
+        "description": "jQuery JavaScript Library",
+        "homepage": "http://jquery.com"
+    },
+    {
+        "name": "composer/installers",
+        "version": "v1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+            "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "composer-plugin-api": "^1.0"
+        },
+        "replace": {
+            "roundcube/plugin-installer": "*",
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "^4.8.36"
+        },
+        "time": "2018-08-27T06:10:37+00:00",
+        "type": "composer-plugin",
+        "extra": {
+            "class": "Composer\\Installers\\Plugin",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Composer\\Installers\\": "src/Composer/Installers"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "https://composer.github.io/installers/",
+        "keywords": [
+            "Craft",
+            "Dolibarr",
+            "Eliasis",
+            "Hurad",
+            "ImageCMS",
+            "Kanboard",
+            "Lan Management System",
+            "MODX Evo",
+            "Mautic",
+            "Maya",
+            "OXID",
+            "Plentymarkets",
+            "Porto",
+            "RadPHP",
+            "SMF",
+            "Thelia",
+            "WolfCMS",
+            "agl",
+            "aimeos",
+            "annotatecms",
+            "attogram",
+            "bitrix",
+            "cakephp",
+            "chef",
+            "cockpit",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "dokuwiki",
+            "drupal",
+            "eZ Platform",
+            "elgg",
+            "expressionengine",
+            "fuelphp",
+            "grav",
+            "installer",
+            "itop",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lavalite",
+            "lithium",
+            "magento",
+            "majima",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "modx",
+            "moodle",
+            "osclass",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "puppet",
+            "pxcms",
+            "reindex",
+            "roundcube",
+            "shopware",
+            "silverstripe",
+            "sydes",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "yawik",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
         "name": "ezyang/htmlpurifier",
         "version": "v4.10.0",
         "version_normalized": "4.10.0.0",
@@ -401,6 +699,289 @@
         ]
     },
     {
+        "name": "markbaker/complex",
+        "version": "1.4.7",
+        "version_normalized": "1.4.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/MarkBaker/PHPComplex.git",
+            "reference": "1ea674a8308baf547cbcbd30c5fcd6d301b7c000"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/MarkBaker/PHPComplex/zipball/1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
+            "reference": "1ea674a8308baf547cbcbd30c5fcd6d301b7c000",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^5.6.0|^7.0.0"
+        },
+        "require-dev": {
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+            "phpcompatibility/php-compatibility": "^8.0",
+            "phpdocumentor/phpdocumentor": "2.*",
+            "phploc/phploc": "2.*",
+            "phpmd/phpmd": "2.*",
+            "phpunit/phpunit": "^4.8.35|^5.4.0",
+            "sebastian/phpcpd": "2.*",
+            "squizlabs/php_codesniffer": "^3.3.0"
+        },
+        "time": "2018-10-13T23:28:42+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Complex\\": "classes/src/"
+            },
+            "files": [
+                "classes/src/functions/abs.php",
+                "classes/src/functions/acos.php",
+                "classes/src/functions/acosh.php",
+                "classes/src/functions/acot.php",
+                "classes/src/functions/acoth.php",
+                "classes/src/functions/acsc.php",
+                "classes/src/functions/acsch.php",
+                "classes/src/functions/argument.php",
+                "classes/src/functions/asec.php",
+                "classes/src/functions/asech.php",
+                "classes/src/functions/asin.php",
+                "classes/src/functions/asinh.php",
+                "classes/src/functions/atan.php",
+                "classes/src/functions/atanh.php",
+                "classes/src/functions/conjugate.php",
+                "classes/src/functions/cos.php",
+                "classes/src/functions/cosh.php",
+                "classes/src/functions/cot.php",
+                "classes/src/functions/coth.php",
+                "classes/src/functions/csc.php",
+                "classes/src/functions/csch.php",
+                "classes/src/functions/exp.php",
+                "classes/src/functions/inverse.php",
+                "classes/src/functions/ln.php",
+                "classes/src/functions/log2.php",
+                "classes/src/functions/log10.php",
+                "classes/src/functions/negative.php",
+                "classes/src/functions/pow.php",
+                "classes/src/functions/rho.php",
+                "classes/src/functions/sec.php",
+                "classes/src/functions/sech.php",
+                "classes/src/functions/sin.php",
+                "classes/src/functions/sinh.php",
+                "classes/src/functions/sqrt.php",
+                "classes/src/functions/tan.php",
+                "classes/src/functions/tanh.php",
+                "classes/src/functions/theta.php",
+                "classes/src/operations/add.php",
+                "classes/src/operations/subtract.php",
+                "classes/src/operations/multiply.php",
+                "classes/src/operations/divideby.php",
+                "classes/src/operations/divideinto.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mark Baker",
+                "email": "mark@lange.demon.co.uk"
+            }
+        ],
+        "description": "PHP Class for working with complex numbers",
+        "homepage": "https://github.com/MarkBaker/PHPComplex",
+        "keywords": [
+            "complex",
+            "mathematics"
+        ]
+    },
+    {
+        "name": "markbaker/matrix",
+        "version": "1.1.4",
+        "version_normalized": "1.1.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/MarkBaker/PHPMatrix.git",
+            "reference": "6ea97472b5baf12119b4f31f802835b820dd6d64"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/MarkBaker/PHPMatrix/zipball/6ea97472b5baf12119b4f31f802835b820dd6d64",
+            "reference": "6ea97472b5baf12119b4f31f802835b820dd6d64",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^5.6.0|^7.0.0"
+        },
+        "require-dev": {
+            "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3",
+            "phpcompatibility/php-compatibility": "^8.0",
+            "phpdocumentor/phpdocumentor": "2.*",
+            "phploc/phploc": "2.*",
+            "phpmd/phpmd": "2.*",
+            "phpunit/phpunit": "^4.8.35|^5.4.0",
+            "sebastian/phpcpd": "2.*",
+            "squizlabs/php_codesniffer": "^3.3.0"
+        },
+        "time": "2018-11-04T22:12:12+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Matrix\\": "classes/src/"
+            },
+            "files": [
+                "classes/src/functions/adjoint.php",
+                "classes/src/functions/antidiagonal.php",
+                "classes/src/functions/cofactors.php",
+                "classes/src/functions/determinant.php",
+                "classes/src/functions/diagonal.php",
+                "classes/src/functions/identity.php",
+                "classes/src/functions/inverse.php",
+                "classes/src/functions/minors.php",
+                "classes/src/functions/trace.php",
+                "classes/src/functions/transpose.php",
+                "classes/src/operations/add.php",
+                "classes/src/operations/directsum.php",
+                "classes/src/operations/subtract.php",
+                "classes/src/operations/multiply.php",
+                "classes/src/operations/divideby.php",
+                "classes/src/operations/divideinto.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Mark Baker",
+                "email": "mark@lange.demon.co.uk"
+            }
+        ],
+        "description": "PHP Class for working with matrices",
+        "homepage": "https://github.com/MarkBaker/PHPMatrix",
+        "keywords": [
+            "mathematics",
+            "matrix",
+            "vector"
+        ]
+    },
+    {
+        "name": "phpoffice/phpspreadsheet",
+        "version": "1.6.0",
+        "version_normalized": "1.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
+            "reference": "bf00f0cc5f55c354018f9a9ef15e6e3e1a229051"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/bf00f0cc5f55c354018f9a9ef15e6e3e1a229051",
+            "reference": "bf00f0cc5f55c354018f9a9ef15e6e3e1a229051",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "ext-ctype": "*",
+            "ext-dom": "*",
+            "ext-fileinfo": "*",
+            "ext-gd": "*",
+            "ext-iconv": "*",
+            "ext-libxml": "*",
+            "ext-mbstring": "*",
+            "ext-simplexml": "*",
+            "ext-xml": "*",
+            "ext-xmlreader": "*",
+            "ext-xmlwriter": "*",
+            "ext-zip": "*",
+            "ext-zlib": "*",
+            "markbaker/complex": "^1.4",
+            "markbaker/matrix": "^1.1",
+            "php": "^5.6|^7.0",
+            "psr/simple-cache": "^1.0"
+        },
+        "require-dev": {
+            "doctrine/instantiator": "^1.0.0",
+            "dompdf/dompdf": "^0.8.0",
+            "friendsofphp/php-cs-fixer": "@stable",
+            "jpgraph/jpgraph": "^4.0",
+            "mpdf/mpdf": "^7.0.0",
+            "phpcompatibility/php-compatibility": "^8.0",
+            "phpunit/phpunit": "^5.7",
+            "squizlabs/php_codesniffer": "^3.3",
+            "tecnickcom/tcpdf": "^6.2"
+        },
+        "suggest": {
+            "dompdf/dompdf": "Option for rendering PDF with PDF Writer",
+            "jpgraph/jpgraph": "Option for rendering charts, or including charts with PDF or HTML Writers",
+            "mpdf/mpdf": "Option for rendering PDF with PDF Writer",
+            "tecnickcom/tcpdf": "Option for rendering PDF with PDF Writer"
+        },
+        "time": "2019-01-02T04:42:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PhpOffice\\PhpSpreadsheet\\": "src/PhpSpreadsheet"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Erik Tilt"
+            },
+            {
+                "name": "Adrien Crivelli"
+            },
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "https://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker",
+                "homepage": "https://markbakeruk.net"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "https://rootslabs.net"
+            }
+        ],
+        "description": "PHPSpreadsheet - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "https://github.com/PHPOffice/PhpSpreadsheet",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "gnumeric",
+            "ods",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
+        ]
+    },
+    {
         "name": "phpspec/php-diff",
         "version": "v1.1.0",
         "version_normalized": "1.1.0.0",
@@ -445,6 +1026,62 @@
             }
         ],
         "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays)."
+    },
+    {
+        "name": "psr/simple-cache",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/simple-cache.git",
+            "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/simple-cache/zipball/408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+            "reference": "408d5eafb83c57f6365a3ca330ff23aa4a5fa39b",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-10-23T01:57:42+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\SimpleCache\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interfaces for simple caching",
+        "keywords": [
+            "cache",
+            "caching",
+            "psr",
+            "psr-16",
+            "simple-cache"
+        ]
     },
     {
         "name": "rmrevin/yii2-fontawesome",
@@ -717,6 +1354,234 @@
         "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it"
     },
     {
+        "name": "swiftmailer/swiftmailer",
+        "version": "v5.4.12",
+        "version_normalized": "5.4.12.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swiftmailer/swiftmailer.git",
+            "reference": "181b89f18a90f8925ef805f950d47a7190e9b950"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/181b89f18a90f8925ef805f950d47a7190e9b950",
+            "reference": "181b89f18a90f8925ef805f950d47a7190e9b950",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.1",
+            "symfony/phpunit-bridge": "~3.2"
+        },
+        "time": "2018-07-31T09:26:32+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "5.4-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "lib/swift_required.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chris Corbyn"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Swiftmailer, free feature-rich PHP mailer",
+        "homepage": "https://swiftmailer.symfony.com",
+        "keywords": [
+            "email",
+            "mail",
+            "mailer"
+        ]
+    },
+    {
+        "name": "tinymce/tinymce",
+        "version": "4.9.2",
+        "version_normalized": "4.9.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tinymce/tinymce-dist.git",
+            "reference": "f2b1a9b593f6b5d5453af16f726a34fd364bbb1f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/f2b1a9b593f6b5d5453af16f726a34fd364bbb1f",
+            "reference": "f2b1a9b593f6b5d5453af16f726a34fd364bbb1f",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "time": "2018-12-17T11:59:26+00:00",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "tinymce.js",
+                    "plugins/*/plugin.js",
+                    "themes/*/theme.js"
+                ],
+                "files": [
+                    "tinymce.min.js",
+                    "plugins/*/plugin.min.js",
+                    "themes/*/theme.min.js",
+                    "skins/**"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1-only"
+        ],
+        "description": "Web based JavaScript HTML WYSIWYG editor control.",
+        "homepage": "http://www.tinymce.com",
+        "keywords": [
+            "editor",
+            "html",
+            "javascript",
+            "richtext",
+            "tinymce",
+            "wysiwyg"
+        ]
+    },
+    {
+        "name": "userstory/competing-view",
+        "version": "0.2.0",
+        "version_normalized": "0.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/competing-view.git",
+            "reference": "8708d2c6d29899fd637f0e2f3a795b213c5208d3"
+        },
+        "require": {
+            "php": ">=5.6",
+            "userstory/component-autoconfig": ">=0.2",
+            "userstory/component-hydrator": ">=0.2",
+            "userstory/component-migration": ">=0.2",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\CompetingView\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US module competing view"
+    },
+    {
+        "name": "userstory/competing-view-admin",
+        "version": "0.2.3",
+        "version_normalized": "0.2.3.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/competing-view-admin.git",
+            "reference": "b00169fd34eecc104a376c62b2d4c085294719be"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/competing-view-rest": "*",
+            "userstory/module-admin": ">=0.3 <1.0",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\CompetingViewAdmin\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US module competing view"
+    },
+    {
+        "name": "userstory/competing-view-rest",
+        "version": "0.2.2",
+        "version_normalized": "0.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/competing-view-rest.git",
+            "reference": "e134d1e2119e54de906f65ebc02809b5f7fbdcbe"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/competing-view": "*",
+            "userstory/component-api-server": ">=0.2",
+            "userstory/component-autoconfig": ">=0.2",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\CompetingViewRest\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US module competing view"
+    },
+    {
+        "name": "userstory/component-api-server",
+        "version": "0.4.1",
+        "version_normalized": "0.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/component-api-server.git",
+            "reference": "575908de773ab52e5314a32277a1be4c32cd2816"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/component-helpers": ">=0.2.30 <1.0",
+            "userstory/component-log": ">=0.2.4 <1.0",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ComponentApiServer\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US api server"
+    },
+    {
         "name": "userstory/component-autoconfig",
         "version": "0.2.3",
         "version_normalized": "0.2.3.0",
@@ -741,6 +1606,60 @@
             "proprietary"
         ],
         "description": "US Autoconfig component"
+    },
+    {
+        "name": "userstory/component-base",
+        "version": "0.5.4",
+        "version_normalized": "0.5.4.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/component-base.git",
+            "reference": "7a2282aaeb7b350bbe09ddd253015620be858284"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/component-helpers": ">=0.2.30 <1.0",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ComponentBase\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US useful components"
+    },
+    {
+        "name": "userstory/component-fieldset",
+        "version": "0.4.0",
+        "version_normalized": "0.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/component-fieldset.git",
+            "reference": "755dfe7216fb5a3f84dcdd0338ef02bb69f6a922"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/component-migration": ">=0.2.11 <1.0",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ComponentFieldset\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US fieldset components"
     },
     {
         "name": "userstory/component-helpers",
@@ -769,6 +1688,261 @@
         "description": "US Helpers"
     },
     {
+        "name": "userstory/component-hydrator",
+        "version": "0.5.0",
+        "version_normalized": "0.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/component-hydrator.git",
+            "reference": "e3e20d97e493769fdcb0395155a0bb04e1e77341"
+        },
+        "require": {
+            "php": ">=7.2",
+            "yiisoft/yii2": ">=2.0.13"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ComponentHydrator\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US hydrator"
+    },
+    {
+        "name": "userstory/component-log",
+        "version": "0.4.0",
+        "version_normalized": "0.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/component-log.git",
+            "reference": "6ff6a1241a8bad35cc57155402b4b2b525f3c4c1"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-helpers": ">=0.2.30 <1.0",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ComponentLog\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US logs"
+    },
+    {
+        "name": "userstory/component-migration",
+        "version": "0.4.1",
+        "version_normalized": "0.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/component-migration.git",
+            "reference": "c1beb8cee0120f7ccf57b83b7628312428cfa572"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-helpers": ">=0.2.30 <1.0",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ComponentMigration\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "Extends for migration component"
+    },
+    {
+        "name": "userstory/database",
+        "version": "0.3.0",
+        "version_normalized": "0.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/database.git",
+            "reference": "5f741997e88ad650ba7d1e17b3916d39e3767430"
+        },
+        "require": {
+            "php": ">=7.2",
+            "userstory/yii2-exceptions": ">=0.4 <1.0",
+            "yiisoft/yii2": "^2.0.13"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\Database\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US database tools improvement"
+    },
+    {
+        "name": "userstory/i18n",
+        "version": "0.5.1",
+        "version_normalized": "0.5.1.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/i18n.git",
+            "reference": "e0c4bb3b401f403bc63e3dd9c60d6107ba2e41b8"
+        },
+        "require": {
+            "php": ">=7.0",
+            "phpoffice/phpspreadsheet": ">=1.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/component-helpers": ">=0.2.30 <1.0",
+            "userstory/component-hydrator": ">=0.2.3 <1.0",
+            "userstory/component-migration": ">=0.2.11 <1.0",
+            "yiisoft/yii2": ">=2.0.8"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\I18n\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US KIPS i18n"
+    },
+    {
+        "name": "userstory/module-admin",
+        "version": "0.5.0",
+        "version_normalized": "0.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/module-admin.git",
+            "reference": "0f8bb8ffb3aa9b94ea565f8bc4c75bd6a23a717a"
+        },
+        "require": {
+            "almasaeed2010/adminlte": "~2.4",
+            "components/jquery": "*",
+            "php": ">=7.0",
+            "rmrevin/yii2-fontawesome": "~2.9",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/i18n": ">=0.3.15 <1.0",
+            "yiisoft/yii2-bootstrap": "~2.0"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ModuleAdmin\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "Userstory Admin Module"
+    },
+    {
+        "name": "userstory/module-mailer",
+        "version": "0.4.0",
+        "version_normalized": "0.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/module-mailer.git",
+            "reference": "cbd2d0bd542049ed74e08b4aab0d85a809887ab3"
+        },
+        "require": {
+            "php": ">=7.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/component-helpers": ">=0.2.30 <1.0",
+            "userstory/component-log": ">=0.2.4 <1.0",
+            "userstory/component-migration": ">=0.2.11 <1.0",
+            "yiisoft/yii2": ">=2.0.8",
+            "yiisoft/yii2-swiftmailer": "~2.0.0"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\ModuleMailer\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US module for mail delivery"
+    },
+    {
+        "name": "userstory/user",
+        "version": "1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/user.git",
+            "reference": "70e3ce2172468bdccfa8cdecdc729da8d2dccfcb"
+        },
+        "require": {
+            "php": ">=7.2",
+            "userstory/component-autoconfig": ">=0.2 <1.0",
+            "userstory/component-base": ">=0.2 <1.0",
+            "userstory/component-fieldset": ">=0.2 <1.0",
+            "userstory/component-helpers": ">=0.2 <1.0",
+            "userstory/component-migration": ">=0.2 <1.0",
+            "userstory/i18n": ">=0.3 <1.0",
+            "userstory/module-mailer": ">=0.2 <1.0"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\User\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US module"
+    },
+    {
+        "name": "userstory/yii2-cache",
+        "version": "1.2.1",
+        "version_normalized": "1.2.1.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/yii2-cache.git",
+            "reference": "8784fa09fc22bdbf273b1530981a3ad14c1f42f4"
+        },
+        "require": {
+            "php": "^7.2.0",
+            "userstory/yii2-exceptions": ">=0.2 <1.0",
+            "yiisoft/yii2": "^2.0.13"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\Yii2Cache\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "Пакет для упрощения работы с кэшем Yii2"
+    },
+    {
         "name": "userstory/yii2-exceptions",
         "version": "0.5.1",
         "version_normalized": "0.5.1.0",
@@ -785,6 +1959,31 @@
         "autoload": {
             "psr-4": {
                 "Userstory\\Yii2Exceptions\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US module"
+    },
+    {
+        "name": "userstory/yii2-forms",
+        "version": "0.1.5",
+        "version_normalized": "0.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/yii2-forms.git",
+            "reference": "ee26dc179c3ce48186e3667bfec6690e2b72080c"
+        },
+        "require": {
+            "php": ">=7.0",
+            "yiisoft/yii2": "~2.0.13"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\Yii2Forms\\": ""
             }
         },
         "license": [
@@ -1367,5 +2566,346 @@
             "session",
             "yii2"
         ]
+    },
+    {
+        "name": "yiisoft/yii2-swiftmailer",
+        "version": "2.0.7",
+        "version_normalized": "2.0.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
+            "reference": "8a03a62cbcb82e7697d3002eb43a8d2637f566ec"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/8a03a62cbcb82e7697d3002eb43a8d2637f566ec",
+            "reference": "8a03a62cbcb82e7697d3002eb43a8d2637f566ec",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "swiftmailer/swiftmailer": "~5.0",
+            "yiisoft/yii2": "~2.0.4"
+        },
+        "time": "2017-05-01T08:29:00+00:00",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "yii\\swiftmailer\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Paul Klimov",
+                "email": "klimov.paul@gmail.com"
+            }
+        ],
+        "description": "The SwiftMailer integration for the Yii framework",
+        "keywords": [
+            "email",
+            "mail",
+            "mailer",
+            "swift",
+            "swiftmailer",
+            "yii2"
+        ]
+    },
+    {
+        "name": "ziganshinalexey/keyword",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ziganshinalexey/keyword.git",
+            "reference": "51541861701bfe4be0d76fa29d2bd664207126ac"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ziganshinalexey/keyword/zipball/51541861701bfe4be0d76fa29d2bd664207126ac",
+            "reference": "51541861701bfe4be0d76fa29d2bd664207126ac",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "~7.2.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.5.0 <1.0",
+            "userstory/component-hydrator": ">=0.3.0 <1.0",
+            "userstory/component-migration": ">=0.4.0 <1.0",
+            "userstory/database": ">=0.2.2 <1.0",
+            "userstory/i18n": ">=0.5.0 <1.0",
+            "userstory/user": ">=1.0.3 <2.0",
+            "userstory/yii2-cache": ">=1.1.0 <2.0",
+            "userstory/yii2-exceptions": ">=0.1.1 <1.0",
+            "yiisoft/yii2": "~2.0.15"
+        },
+        "time": "2019-01-09T15:16:55+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ziganshinalexey\\Keyword\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "Модуль ключевых фраз"
+    },
+    {
+        "name": "ziganshinalexey/keyword-admin",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ziganshinalexey/keyword-admin.git",
+            "reference": "33ea18ce68aaa11deb3288723b02f2f1782e180d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ziganshinalexey/keyword-admin/zipball/33ea18ce68aaa11deb3288723b02f2f1782e180d",
+            "reference": "33ea18ce68aaa11deb3288723b02f2f1782e180d",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "2amigos/yii2-tinymce-widget": "^1.1.2",
+            "php": "~7.2.0",
+            "userstory/competing-view-admin": ">=0.2.2 <1.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.5.0 <1.0",
+            "userstory/component-migration": ">=0.4.0 <1.0",
+            "userstory/module-admin": ">=0.5.0 <1.0",
+            "userstory/user": ">=1.0.3 <2.0",
+            "userstory/yii2-forms": ">=0.1.4 <1.0",
+            "yiisoft/yii2": "~2.0.15"
+        },
+        "time": "2019-01-09T15:33:43+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ziganshinalexey\\KeywordAdmin\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "Модуль ключевых фраз (ADMIN-модуль)"
+    },
+    {
+        "name": "ziganshinalexey/keyword-rest",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ziganshinalexey/keyword-rest.git",
+            "reference": "d5565632c7b4c9df84023f7dc984d3e009705078"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ziganshinalexey/keyword-rest/zipball/d5565632c7b4c9df84023f7dc984d3e009705078",
+            "reference": "d5565632c7b4c9df84023f7dc984d3e009705078",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "~7.2.0",
+            "userstory/component-api-server": ">=0.4.0 <1.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.5.0 <1.0",
+            "userstory/component-hydrator": ">=0.3.0 <1.0",
+            "userstory/component-migration": ">=0.4.0 <1.0",
+            "userstory/user": ">=1.0.3 <2.0",
+            "userstory/yii2-exceptions": ">=0.1.1 <1.0",
+            "userstory/yii2-forms": ">=0.1.4 <1.0",
+            "yiisoft/yii2": "~2.0.15"
+        },
+        "time": "2019-01-09T15:34:21+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ziganshinalexey\\KeywordRest\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "Модуль ключевых фраз (REST-модуль)"
+    },
+    {
+        "name": "ziganshinalexey/person-type",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ziganshinalexey/person-type.git",
+            "reference": "b5aef33648edbc9970ff81fe64a90d197b09a834"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ziganshinalexey/person-type/zipball/b5aef33648edbc9970ff81fe64a90d197b09a834",
+            "reference": "b5aef33648edbc9970ff81fe64a90d197b09a834",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "~7.2.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.5.0 <1.0",
+            "userstory/component-hydrator": ">=0.3.0 <1.0",
+            "userstory/component-migration": ">=0.4.0 <1.0",
+            "userstory/database": ">=0.2.2 <1.0",
+            "userstory/i18n": ">=0.5.0 <1.0",
+            "userstory/user": ">=1.0.3 <2.0",
+            "userstory/yii2-cache": ">=1.1.0 <2.0",
+            "userstory/yii2-exceptions": ">=0.1.1 <1.0",
+            "yiisoft/yii2": "~2.0.15"
+        },
+        "time": "2019-01-09T15:17:47+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ziganshinalexey\\PersonType\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "Модуль типов личностей"
+    },
+    {
+        "name": "ziganshinalexey/person-type-admin",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ziganshinalexey/person-type-admin.git",
+            "reference": "a05317acb03dd89059325ea3d7538708416a65a1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ziganshinalexey/person-type-admin/zipball/a05317acb03dd89059325ea3d7538708416a65a1",
+            "reference": "a05317acb03dd89059325ea3d7538708416a65a1",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "~7.2.0",
+            "userstory/competing-view-admin": ">=0.2.2 <1.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.5.0 <1.0",
+            "userstory/component-migration": ">=0.4.0 <1.0",
+            "userstory/module-admin": ">=0.5.0 <1.0",
+            "userstory/user": ">=1.0.3 <2.0",
+            "userstory/yii2-forms": ">=0.1.4 <1.0",
+            "yiisoft/yii2": "~2.0.15"
+        },
+        "time": "2019-01-09T15:34:44+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ziganshinalexey\\PersonTypeAdmin\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "Модуль типов личностей (ADMIN-модуль)"
+    },
+    {
+        "name": "ziganshinalexey/person-type-rest",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ziganshinalexey/person-type-rest.git",
+            "reference": "9947b5d996c10259b0d359ef9627509218b0870c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ziganshinalexey/person-type-rest/zipball/9947b5d996c10259b0d359ef9627509218b0870c",
+            "reference": "9947b5d996c10259b0d359ef9627509218b0870c",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "~7.2.0",
+            "userstory/component-api-server": ">=0.4.0 <1.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "userstory/component-base": ">=0.5.0 <1.0",
+            "userstory/component-hydrator": ">=0.3.0 <1.0",
+            "userstory/component-migration": ">=0.4.0 <1.0",
+            "userstory/user": ">=1.0.3 <2.0",
+            "userstory/yii2-exceptions": ">=0.1.1 <1.0",
+            "userstory/yii2-forms": ">=0.1.4 <1.0",
+            "yiisoft/yii2": "~2.0.15"
+        },
+        "time": "2019-01-09T15:35:11+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ziganshinalexey\\PersonTypeRest\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "Модуль типов личностей (REST-модуль)"
     }
 ]

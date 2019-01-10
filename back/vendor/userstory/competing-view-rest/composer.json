@@ -1,0 +1,17 @@
+{
+    "name": "userstory/competing-view-rest",
+    "description": "US module competing view",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.0",
+        "yiisoft/yii2": ">=2.0.8",
+        "userstory/competing-view": "*",
+        "userstory/component-autoconfig": ">=0.2",
+        "userstory/component-api-server": ">=0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Userstory\\CompetingViewRest\\": ""
+        }
+    }
+}

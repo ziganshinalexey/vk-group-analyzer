@@ -1,0 +1,14 @@
+{
+    "name": "userstory/component-hydrator",
+    "description": "US hydrator",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.2",
+        "yiisoft/yii2": ">=2.0.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Userstory\\ComponentHydrator\\": ""
+        }
+    }
+}

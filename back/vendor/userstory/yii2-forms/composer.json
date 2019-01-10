@@ -1,0 +1,14 @@
+{
+    "name": "userstory/yii2-forms",
+    "description": "US module",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.0",
+        "yiisoft/yii2": "~2.0.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Userstory\\Yii2Forms\\": ""
+        }
+    }
+}

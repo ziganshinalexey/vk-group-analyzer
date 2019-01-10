@@ -1,0 +1,49 @@
+.modal {
+    text-align: center;
+    padding: 0!important;
+    &:before {
+        content: '';
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    min-width: 300px;
+    margin: 0;
+}
+
+.modal-center {
+    text-align: center;
+    padding: 0 !important;
+
+    &::before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+    // Prevents strange text selection of ::before element
+    &::selection {
+        background: none;
+    }
+}
+
+.modal-body {
+    &__overflow-container {
+        overflow: auto;
+        max-height: 500px; // fallback
+        max-height: ~'calc(100vh - 200px)';
+        word-break: break-word;
+    }
+}
+
+.modal-title {
+    word-wrap: break-word;
+}

@@ -1,0 +1,65 @@
+packageNamespace: ziganshinalexey/keyword
+packageTitle: Модуль ключевых фраз
+type: admin
+tables:
+  keyword:
+    __options:
+      type: entity
+      entityName: Keyword
+      entityTitle: Ключевое фраза
+      tableComment: Ключевые фразы
+      tableUseTableAlias: true
+      tableAllowExistsTable: false
+      tableAppendSystemFields: false
+      setAdminAccessMigration: migrations/m190109_151417_set_default_admin_permissions.php
+    __relations:
+      personTypeId:
+        type: many-to-one
+        targetClass: Ziganshinalexey\PersonType\entities\PersonTypeActiveRecord::class
+        targetField: id
+        displayField: id
+        createRelationMigration: ~
+    id:
+      type: primaryKey
+      comment: Идентификатор
+    text:
+      type: text
+      "null": false
+      comment: Название
+    personTypeId:
+      type: integer
+      "null": false
+      comment: Идентификатор типа личности
+      relation: personTypeId
+admin:
+  keyword:
+    fieldTypes: []
+    indexColumns: []
+    viewPage: []
+fileHashList:
+  Autoconfig.php: e3997220bfbba23e7f00ca34b4c2d837b6b2a366d531135608a04537fea1dbdf
+  interfaces/keyword/AdminComponentInterface.php: a818c27605d5a31386398d8e622674bf856fad7ea7c8ad379551ee68089b4a30
+  components/KeywordAdminComponent.php: 6adf1bc05274f3458440d1e91d0f0617b0b6e5fd1e2206b2c707f5e1ca0cd67a
+  interfaces/keyword/FactoryInterface.php: e6bd4bccb1e1194533146be1a9ac357714ab9cb55576d01afcc8952fb5f4fd9a
+  factories/KeywordAdminFactory.php: 3fa4376145c6f60aee1fe4513a70d5ad74ae511d08917d9dbe3ea4f65b432f75
+  migrations/m190109_151417_set_default_admin_permissions.php: dcb10cd1967071b8b5383b2c63c3d2b938b03fdd2dab6031ad578e28ad1d984c
+  controllers/KeywordController.php: 59ed0317c12060c9a93cfc8592195dda27d79698c88c24460c1ad3410bd7d6c2
+  forms/keyword/UpdateForm.php: f61f6ca789830a559128594bae889965cad55108972ff77541e64cfe220ceae2
+  forms/keyword/CreateForm.php: 8d18b6a11bf259d7d35a6dd95c315452f21cc62946d1a431fb719cf7f5922f0e
+  forms/keyword/DeleteForm.php: 02aaf2048074e5dc54d37fff76ef9d3690478300d924f6ec35848e699774aaaf
+  forms/keyword/FindForm.php: 9fbeea9d09443358cae65e2001432b74027e12bab305a7447d51297fd92efb04
+  forms/keyword/ViewForm.php: c46f6d2b71b7c15c4dc24e8cd42004692a764aeeca9d6ef31362503aef141c6e
+  traits/keyword/KeywordAdminComponentTrait.php: f231c69a9789717f135125116b8f073c66281e792874b04ef3db3827c36eb285
+  views/keyword/index.php: ce44286ddc165be02489f0f7d954aa291ab31d932365ada170ee3b8335d46645
+  views/keyword/view.php: 7125f1b85982464ae3f27cfc89e8d223407b3946a74ea62a0eabedb08e9cdaa6
+  views/keyword/create.php: f699ff23e23d808c6f9c16f3099cb855dff9daa7b74a9bee38ad1314cf2d88e6
+  views/keyword/_form-modal.php: 8cb138a74370098bf984912b5967fa509da8c26eeca4fb47b8f770fadb5ceaf5
+  views/keyword/update.php: da23f33bcfa934fad794ae65faffd9e51cd75ff7ab3ce4256649ffae0298117e
+  views/keyword/_form.php: f413ca86a97595973af9a1a37dc3e453e754fbfe75c89a9be579e05698753205
+  composer.json: 830bc347d641ac2ba05ba0c2f01e731fe1c5b2b99c0fe8e0282005a44582803a
+  config/authManager.component.global.php: b15b06dd2b4dbe39a8257c38d2dcbe7b42c86d8d72d984c1eb7af679630f6dfc
+  config/competingView.component.global.php: f8f798464e686652d63c58d7529776e064d41c3fef27df186749697897d23f6d
+  config/menu.component.global.php: 5f6cc0c855785e3d692bfaa09afe8d3adb998f57f76c4767831ca4acc447a3f6
+  config/keywordAdmin.component.global.php: 4b0d8b12794081cc23bd04a6920ff3bc8c034df279e4f897bd35a25c68bdaf7b
+  config/console.config.php: eb1807422e6e507a90082414b4b57155647d5c6766fa6db9fcc22e74f404c219
+  config/web.config.php: 59db6b5fbeff50c2ca909fd67c369df17b0782e4f10f360f080d9d3edcc2e6fb

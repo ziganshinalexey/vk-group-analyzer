@@ -1,0 +1,352 @@
+openapi: 3.0.0
+info:
+  title: Модуль ключевых фраз (REST-модуль)
+  version: "1.0"
+servers:
+- url: http://pt.local/api/v1
+  description: Сервер на рыбе проектов USERSTORY
+paths:
+  /keyword:
+    post:
+      summary: Создать Ключевое фраза
+      operationId: create-keyword
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - CREATE
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1.Keyword'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: Идентификатор
+                            minimum: 1
+                            maximum: 2147483647
+                      - $ref: '#/components/schemas/v1.Keyword'
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      id: 203
+                      text: Название
+                      personTypeId: 116
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+    get:
+      summary: Получить список Ключевое фраза
+      operationId: view-list-keyword
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: query
+        name: limit
+        required: false
+        schema:
+          type: integer
+        description: Лимит получаемых элементов
+      - in: query
+        name: offset
+        required: false
+        schema:
+          type: integer
+        description: Смещение относительно начала списка
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          list:
+                            type: array
+                            items:
+                              allOf:
+                              - type: object
+                                properties:
+                                  id:
+                                    type: integer
+                                    description: Идентификатор
+                                    minimum: 1
+                                    maximum: 2147483647
+                              - $ref: '#/components/schemas/v1.Keyword'
+                          more:
+                            type: boolean
+                            description: Есть ли еще записи для текущего списка
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      list:
+                      - id: 1
+                        name: Ключевое фраза
+                      more: true
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+  /keyword/{id}:
+    put:
+      summary: Обновить Ключевое фраза
+      operationId: update-keyword
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/v1.Keyword'
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: Идентификатор
+                            minimum: 1
+                            maximum: 2147483647
+                      - $ref: '#/components/schemas/v1.Keyword'
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      id: 235
+                      text: Название
+                      personTypeId: 153
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+    delete:
+      summary: Удалить Ключевое фраза
+      operationId: delete-keyword
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        success:
+                          type: boolean
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      success: true
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+    get:
+      summary: Получить Ключевое фраза
+      operationId: view-keyword
+      parameters:
+      - in: header
+        name: X-http-method-override
+        required: true
+        schema:
+          type: string
+          enum:
+          - PUT
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 2147483647
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/v1.BaseResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                      - type: object
+                        properties:
+                          id:
+                            type: integer
+                            description: Идентификатор
+                            minimum: 1
+                            maximum: 2147483647
+                      - $ref: '#/components/schemas/v1.Keyword'
+                  example:
+                    errors: []
+                    notice: []
+                    data:
+                      id: 157
+                      text: Название
+                      personTypeId: 8
+        403:
+          description: Доступ запрещен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/v1.403.Response'
+components:
+  schemas:
+    v1.Keyword:
+      type: object
+      required:
+      - text
+      - personTypeId
+      properties:
+        text:
+          type: string
+          description: Название
+          maxLength: 65535
+        personTypeId:
+          type: integer
+          description: Идентификатор типа личности
+          minimum: -2147483648
+          maximum: 2147483647
+      example:
+        text: Название
+        personTypeId: 156
+    v1.403.Response:
+      allOf:
+      - $ref: '#/components/schemas/v1.BaseResponse'
+      - type: object
+        properties:
+          data:
+            type: object
+      example:
+        errors:
+        - code: 403
+          title: Доступ запрещен
+          detail: ""
+          data: []
+        notice: []
+        data: []
+    v1.BaseResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1.Error'
+        notice:
+          type: array
+          items:
+            $ref: '#/components/schemas/v1.Notice'
+        data:
+          type: object
+    v1.Error:
+      type: object
+      properties:
+        code:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
+    v1.Notice:
+      type: object
+      properties:
+        code:
+          type: integer
+        title:
+          type: string
+        detail:
+          type: string
+        data:
+          type: array
+          items:
+            type: object
