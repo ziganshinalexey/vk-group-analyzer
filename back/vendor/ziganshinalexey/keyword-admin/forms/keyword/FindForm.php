@@ -99,7 +99,11 @@ class FindForm extends AbstractFindForm
                 'skipOnEmpty' => 1,
             ],
             [
-                ['personTypeId'],
+                [
+                    'ratio',
+                    'coincidenceCount',
+                    'personTypeId',
+                ],
                 'integer',
                 'min' => -2147483648,
                 'max' => 2147483647,

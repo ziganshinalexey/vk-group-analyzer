@@ -8,7 +8,7 @@ use Ziganshinalexey\Keyword\entities\KeywordActiveRecord;
 /**
  * Класс реализует миграцию для создания основной таблицы пакета.
  */
-class m190109_151415_create_keyword_table extends AbstractMigration
+class m190110_132042_create_keyword_table extends AbstractMigration
 {
     /**
      * Имя класса сущности, связанного с миграцией.
@@ -25,9 +25,11 @@ class m190109_151415_create_keyword_table extends AbstractMigration
     public function safeUp(): void
     {
         $this->createTable($this->tableName, [
-            'id'           => $this->primaryKey()->comment('Идентификатор'),
-            'text'         => $this->text()->notNull()->comment('Название'),
-            'personTypeId' => $this->integer()->notNull()->comment('Идентификатор типа личности'),
+            'id'               => $this->primaryKey()->comment('Идентификатор'),
+            'text'             => $this->text()->notNull()->comment('Название'),
+            'ratio'            => $this->integer()->notNull()->defaultValue('1')->comment('Коэффициент'),
+            'coincidenceCount' => $this->integer()->notNull()->defaultValue('1')->comment('Количество совпадений'),
+            'personTypeId'     => $this->integer()->null()->comment('Идентификатор типа личности'),
         ], $this->getTableOptions(['comment' => 'Ключевые фразы']));
     }
 }

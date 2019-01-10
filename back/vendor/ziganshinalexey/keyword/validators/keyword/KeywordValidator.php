@@ -13,9 +13,11 @@ use function get_class;
 /**
  * Валидатор атрибутов DTO сущности "Ключевое фраза".
  *
- * @property int    $id           Идентификатор.
- * @property int    $personTypeId Идентификатор типа личности.
- * @property string $text         Название.
+ * @property int    $coincidenceCount Количество совпадений.
+ * @property int    $id               Идентификатор.
+ * @property int    $personTypeId     Идентификатор типа личности.
+ * @property int    $ratio            Коэффициент.
+ * @property string $text             Название.
  */
 class KeywordValidator extends BaseDTOValidator
 {
@@ -33,7 +35,11 @@ class KeywordValidator extends BaseDTOValidator
             'skipOnEmpty' => 1,
         ],
         [
-            ['personTypeId'],
+            [
+                'ratio',
+                'coincidenceCount',
+                'personTypeId',
+            ],
             'integer',
             'min' => -2147483648,
             'max' => 2147483647,
@@ -44,10 +50,7 @@ class KeywordValidator extends BaseDTOValidator
             'max' => 65535,
         ],
         [
-            [
-                'text',
-                'personTypeId',
-            ],
+            ['text'],
             'required',
         ],
         [
@@ -57,6 +60,7 @@ class KeywordValidator extends BaseDTOValidator
             'targetAttribute' => [
                 'personTypeId' => 'id',
             ],
+            'skipOnEmpty'     => 1,
         ],
     ];
 

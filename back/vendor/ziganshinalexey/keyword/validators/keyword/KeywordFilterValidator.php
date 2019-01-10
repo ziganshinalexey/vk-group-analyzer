@@ -10,9 +10,11 @@ use Userstory\Yii2Forms\validators\rest\AbstractFilterValidator;
 /**
  * Валидатор атрибутов фильтра сущности "Ключевое фраза".
  *
- * @property int    $id           Идентификатор.
- * @property int    $personTypeId Идентификатор типа личности.
- * @property string $text         Название.
+ * @property int    $coincidenceCount Количество совпадений.
+ * @property int    $id               Идентификатор.
+ * @property int    $personTypeId     Идентификатор типа личности.
+ * @property int    $ratio            Коэффициент.
+ * @property string $text             Название.
  */
 class KeywordFilterValidator extends AbstractFilterValidator
 {

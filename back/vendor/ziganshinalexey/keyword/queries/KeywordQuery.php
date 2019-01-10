@@ -14,6 +14,23 @@ use Ziganshinalexey\Keyword\interfaces\keyword\QueryInterface;
 class KeywordQuery extends Query implements QueryInterface
 {
     /**
+     * Выборка по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int    $coincidenceCount Атрибут "Количество совпадений" сущности.
+     * @param string $operator         Оператор сравнения при поиске.
+     *
+     * @return QueryInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount, string $operator = '='): QueryInterface
+    {
+        return $this->andWhere([
+            $operator,
+            'coincidenceCount',
+            $coincidenceCount,
+        ]);
+    }
+
+    /**
      * Выборка по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int    $id       Атрибут "Идентификатор" сущности.
@@ -60,6 +77,23 @@ class KeywordQuery extends Query implements QueryInterface
             $operator,
             'personTypeId',
             $personTypeId,
+        ]);
+    }
+
+    /**
+     * Выборка по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int    $ratio    Атрибут "Коэффициент" сущности.
+     * @param string $operator Оператор сравнения при поиске.
+     *
+     * @return QueryInterface
+     */
+    public function byRatio(int $ratio, string $operator = '='): QueryInterface
+    {
+        return $this->andWhere([
+            $operator,
+            'ratio',
+            $ratio,
         ]);
     }
 

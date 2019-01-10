@@ -11,7 +11,7 @@ tables:
       tableUseTableAlias: true
       tableAllowExistsTable: false
       tableAppendSystemFields: false
-      setRestAccessMigration: migrations/m190109_151420_set_default_rest_permissions.php
+      setRestAccessMigration: migrations/m190110_132056_set_default_rest_permissions.php
     __relations:
       personTypeId:
         type: many-to-one
@@ -26,9 +26,19 @@ tables:
       type: text
       "null": false
       comment: Название
-    personTypeId:
+    ratio:
       type: integer
       "null": false
+      defaultValue: 1
+      comment: Коэффициент
+    coincidenceCount:
+      type: integer
+      "null": false
+      defaultValue: 1
+      comment: Количество совпадений
+    personTypeId:
+      type: integer
+      "null": true
       comment: Идентификатор типа личности
       relation: personTypeId
 admin:
@@ -43,7 +53,7 @@ fileHashList:
   interfaces/keyword/ListFormInterface.php: 1782d4310e5048726326038a9c000604fc33af621e517be69ccfde2c0c5a431a
   interfaces/keyword/RestComponentInterface.php: 924d106464852fbe54a0e9bedc00e363c8d754a40e7d9bea66ba6101b34d755f
   components/KeywordRestComponent.php: e7053484498e2aabd3ddad10fb0ffbca77ddbc9d4be10a7d7b2c443ce2a77591
-  migrations/m190109_151420_set_default_rest_permissions.php: 0e7ba37856fad17239c99406b36baa4d1c2bf9d81c31dbe747cbbd9886635978
+  migrations/m190110_132056_set_default_rest_permissions.php: aa6e4fa17f17ff11861cc6417a59a124dac05029dfee14ae31ce04835c0d555e
   api/v1/hydrators/keyword/Hydrator.php: 49fb5e0925b867cd08ff0bdc1e19cf2684fcb60730608da4e61e3b44dd5e6b6b
   api/v1/hydrators/keyword/FilterHydrator.php: 24b6afde2355dc54626a04a9afc48e135987da57cfb1c1be04b916ba71aa7df5
   api/v1/formatters/keyword/CreateFormatter.php: fc8094690f05eb0743002e1d7fe1fabb6a43dbfa2d61931ef4b9a3c5ad205f57
@@ -69,9 +79,9 @@ fileHashList:
   tests/api/KeywordListActionCest.php: 47df41162178d7044489e88213c72d8d53d96b04b6d0cf7a53219e0ff2b59aa7
   tests/_support/ApiTester.php: e71bbc3e9da0a35e1e74b7ab1199d14dcb2bf09fc89cfeb103b15b74d9f5da14
   tests/_support/Helper/Api.php: 8818cc86aa7775d465790d706fd958ebe6529700ff887bc9403a12d0c4317b38
-  tests/_support/Helper/KeywordDatabaseHelper.php: af8ea00920979997cbc3c241156a3bbe39e60053db82ae464d6a2f583f8f5c65
+  tests/_support/Helper/KeywordDatabaseHelper.php: 1e1ef99cc871c497272e7d69c57c5f2bbe771a08bf9fc1117c435ce0b487bd94
   tests/api.suite.yml: 5b9129d81f0727b21f351f4401e66ddd1ea8a1fe4e7364473d66b17fa29bc6e9
-  docs/api/swagger/swagger.yml: a977cebcccd8c2645df3df30e08ff4f7555a38b0cbd0d98905f786cb6593e65f
+  docs/api/swagger/swagger.yml: 6d6a334aae2949504a8bee524ca07a3705e6dc21c4d7c71ff5f060f3f5abf304
   composer.json: 941073fcf1e15f500dd5e58dbee8591de70e579b534e8d25612388348995eb47
   config/apiServer.component.global.php: 47901fab8f1948efdecb035fd9a53c84ea5cd1dae1065e1841a7ff851a9ace14
   config/authManager.component.global.php: 2f8d49166143ddfdb04a92a3052a9b43122e9b640dd6a9c87db5df5a462576a9

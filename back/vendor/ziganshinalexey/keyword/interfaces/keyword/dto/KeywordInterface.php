@@ -14,6 +14,13 @@ use Userstory\ComponentBase\interfaces\PrototypeInterface;
 interface KeywordInterface extends PrototypeInterface, ObjectWithErrorsInterface, DataTransferObjectInterface
 {
     /**
+     * Метод возвращает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @return int
+     */
+    public function getCoincidenceCount(): int;
+
+    /**
      * Метод возвращает атрибут "Идентификатор" сущности "Ключевое фраза".
      *
      * @return int|null
@@ -23,9 +30,16 @@ interface KeywordInterface extends PrototypeInterface, ObjectWithErrorsInterface
     /**
      * Метод возвращает атрибут "Идентификатор типа личности" сущности "Ключевое фраза".
      *
+     * @return int|null
+     */
+    public function getPersonTypeId(): ?int;
+
+    /**
+     * Метод возвращает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
      * @return int
      */
-    public function getPersonTypeId(): int;
+    public function getRatio(): int;
 
     /**
      * Метод возвращает атрибут "Название" сущности "Ключевое фраза".
@@ -33,6 +47,15 @@ interface KeywordInterface extends PrototypeInterface, ObjectWithErrorsInterface
      * @return string
      */
     public function getText(): string;
+
+    /**
+     * Метод устанавливает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return KeywordInterface
+     */
+    public function setCoincidenceCount(int $value): KeywordInterface;
 
     /**
      * Метод устанавливает атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -51,6 +74,15 @@ interface KeywordInterface extends PrototypeInterface, ObjectWithErrorsInterface
      * @return KeywordInterface
      */
     public function setPersonTypeId(int $value): KeywordInterface;
+
+    /**
+     * Метод устанавливает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return KeywordInterface
+     */
+    public function setRatio(int $value): KeywordInterface;
 
     /**
      * Метод устанавливает атрибут "Название" сущности "Ключевое фраза".

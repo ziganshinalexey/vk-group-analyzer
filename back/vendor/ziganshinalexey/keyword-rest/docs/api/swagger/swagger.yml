@@ -48,9 +48,11 @@ paths:
                     errors: []
                     notice: []
                     data:
-                      id: 203
+                      id: 130
                       text: Название
-                      personTypeId: 116
+                      ratio: 9
+                      coincidenceCount: 122
+                      personTypeId: 68
         403:
           description: Доступ запрещен
           content:
@@ -172,9 +174,11 @@ paths:
                     errors: []
                     notice: []
                     data:
-                      id: 235
+                      id: 218
                       text: Название
-                      personTypeId: 153
+                      ratio: 95
+                      coincidenceCount: 229
+                      personTypeId: 185
         403:
           description: Доступ запрещен
           content:
@@ -267,9 +271,11 @@ paths:
                     errors: []
                     notice: []
                     data:
-                      id: 157
+                      id: 40
                       text: Название
-                      personTypeId: 8
+                      ratio: 98
+                      coincidenceCount: 59
+                      personTypeId: 176
         403:
           description: Доступ запрещен
           content:
@@ -282,12 +288,23 @@ components:
       type: object
       required:
       - text
-      - personTypeId
+      - ratio
+      - coincidenceCount
       properties:
         text:
           type: string
           description: Название
           maxLength: 65535
+        ratio:
+          type: integer
+          description: Коэффициент
+          minimum: -2147483648
+          maximum: 2147483647
+        coincidenceCount:
+          type: integer
+          description: Количество совпадений
+          minimum: -2147483648
+          maximum: 2147483647
         personTypeId:
           type: integer
           description: Идентификатор типа личности
@@ -295,7 +312,9 @@ components:
           maximum: 2147483647
       example:
         text: Название
-        personTypeId: 156
+        ratio: 34
+        coincidenceCount: 122
+        personTypeId: 224
     v1.403.Response:
       allOf:
       - $ref: '#/components/schemas/v1.BaseResponse'

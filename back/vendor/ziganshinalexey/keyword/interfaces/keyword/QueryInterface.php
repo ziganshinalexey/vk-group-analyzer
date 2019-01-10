@@ -13,6 +13,16 @@ use yii\db\QueryInterface as YiiQueryInterface;
 interface QueryInterface extends YiiQueryInterface
 {
     /**
+     * Выборка по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int    $coincidenceCount Атрибут "Количество совпадений" сущности.
+     * @param string $operator         Оператор сравнения при поиске.
+     *
+     * @return QueryInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount, string $operator = '='): QueryInterface;
+
+    /**
      * Выборка по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int    $id       Атрибут "Идентификатор" сущности.
@@ -40,6 +50,16 @@ interface QueryInterface extends YiiQueryInterface
      * @return QueryInterface
      */
     public function byPersonTypeId(int $personTypeId, string $operator = '='): QueryInterface;
+
+    /**
+     * Выборка по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int    $ratio    Атрибут "Коэффициент" сущности.
+     * @param string $operator Оператор сравнения при поиске.
+     *
+     * @return QueryInterface
+     */
+    public function byRatio(int $ratio, string $operator = '='): QueryInterface;
 
     /**
      * Выборка по атрибуту "Название" сущности "Ключевое фраза".

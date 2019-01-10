@@ -19,6 +19,15 @@ interface SingleFilterInterface extends BaseFilterInterface
     public function applyFilter(SingleFilterOperationInterface $operation): SingleFilterOperationInterface;
 
     /**
+     * Метод устанавливает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return SingleFilterInterface
+     */
+    public function setCoincidenceCount(int $value): SingleFilterInterface;
+
+    /**
      * Метод устанавливает атрибут "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int $value Новое значение.
@@ -35,6 +44,15 @@ interface SingleFilterInterface extends BaseFilterInterface
      * @return SingleFilterInterface
      */
     public function setPersonTypeId(int $value): SingleFilterInterface;
+
+    /**
+     * Метод устанавливает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return SingleFilterInterface
+     */
+    public function setRatio(int $value): SingleFilterInterface;
 
     /**
      * Метод устанавливает атрибут "Название" сущности "Ключевое фраза".

@@ -30,6 +30,12 @@ class MultiFilter extends BaseFilter implements MultiFilterInterface
         if ($this->getText()) {
             $operation->byText((string)$this->getText(), 'like');
         }
+        if ($this->getRatio()) {
+            $operation->byRatio((int)$this->getRatio());
+        }
+        if ($this->getCoincidenceCount()) {
+            $operation->byCoincidenceCount((int)$this->getCoincidenceCount());
+        }
         if ($this->getPersonTypeId()) {
             $operation->byPersonTypeId((int)$this->getPersonTypeId());
         }
@@ -40,6 +46,19 @@ class MultiFilter extends BaseFilter implements MultiFilterInterface
             $operation->limit($this->getLimit() + 1);
         }
         return $operation;
+    }
+
+    /**
+     * Метод устанавливает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return MultiFilterInterface
+     */
+    public function setCoincidenceCount(int $value): MultiFilterInterface
+    {
+        $this->coincidenceCount = $value;
+        return $this;
     }
 
     /**
@@ -91,6 +110,19 @@ class MultiFilter extends BaseFilter implements MultiFilterInterface
     public function setPersonTypeId(int $value): MultiFilterInterface
     {
         $this->personTypeId = $value;
+        return $this;
+    }
+
+    /**
+     * Метод устанавливает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return MultiFilterInterface
+     */
+    public function setRatio(int $value): MultiFilterInterface
+    {
+        $this->ratio = $value;
         return $this;
     }
 

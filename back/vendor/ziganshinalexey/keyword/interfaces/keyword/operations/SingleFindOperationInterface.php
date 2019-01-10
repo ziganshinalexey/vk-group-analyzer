@@ -13,6 +13,16 @@ use Ziganshinalexey\Keyword\interfaces\keyword\filters\SingleFilterOperationInte
 interface SingleFindOperationInterface extends BaseFindOperationInterface, SingleFilterOperationInterface
 {
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int    $coincidenceCount Атрибут "Количество совпадений" сущности "Ключевое фраза".
+     * @param string $operator         Оператор сравнения при поиске.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount, string $operator = '='): SingleFindOperationInterface;
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int    $id       Атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -42,6 +52,16 @@ interface SingleFindOperationInterface extends BaseFindOperationInterface, Singl
     public function byPersonTypeId(int $personTypeId, string $operator = '='): SingleFindOperationInterface;
 
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int    $ratio    Атрибут "Коэффициент" сущности "Ключевое фраза".
+     * @param string $operator Оператор сравнения при поиске.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function byRatio(int $ratio, string $operator = '='): SingleFindOperationInterface;
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Название" сущности "Ключевое фраза".
      *
      * @param string $text     Атрибут "Название" сущности "Ключевое фраза".
@@ -57,6 +77,15 @@ interface SingleFindOperationInterface extends BaseFindOperationInterface, Singl
      * @return KeywordInterface|null
      */
     public function doOperation(): ?KeywordInterface;
+
+    /**
+     * Устанавливает сортировку результатов запроса по полю "coincidenceCount".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function sortByCoincidenceCount(string $sortType = 'ASC'): SingleFindOperationInterface;
 
     /**
      * Устанавливает сортировку результатов запроса по полю "id".
@@ -75,6 +104,15 @@ interface SingleFindOperationInterface extends BaseFindOperationInterface, Singl
      * @return SingleFindOperationInterface
      */
     public function sortByPersonTypeId(string $sortType = 'ASC'): SingleFindOperationInterface;
+
+    /**
+     * Устанавливает сортировку результатов запроса по полю "ratio".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function sortByRatio(string $sortType = 'ASC'): SingleFindOperationInterface;
 
     /**
      * Устанавливает сортировку результатов запроса по полю "text".

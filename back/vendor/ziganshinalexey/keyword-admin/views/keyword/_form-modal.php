@@ -47,6 +47,12 @@ $form = ActiveForm::begin([
         ],
         'language' => 'ru',
     ]);
+    echo $form->field($model, 'ratio')->textInput([
+        'maxlength' => true,
+    ]);
+    echo $form->field($model, 'coincidenceCount')->textInput([
+        'maxlength' => true,
+    ]);
     echo $form->field($model, 'personTypeId')->textInput([
         'maxlength' => true,
     ]);

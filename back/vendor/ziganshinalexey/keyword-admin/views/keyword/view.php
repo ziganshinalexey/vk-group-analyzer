@@ -48,6 +48,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attributes' => [
                     'id',
                     'text:html',
+                    'ratio',
+                    'coincidenceCount',
                     'personTypeId' => [
                         'attribute' => 'personTypeId',
                         'value'     => function() use ($personType) {

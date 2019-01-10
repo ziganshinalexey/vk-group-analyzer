@@ -20,6 +20,16 @@ interface MultiFindOperationInterface extends BaseFindOperationInterface, MultiF
     public function allAsArray(): array;
 
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int    $coincidenceCount Атрибут "Количество совпадений" сущности "Ключевое фраза".
+     * @param string $operator         Оператор сравнения при поиске.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount, string $operator = '='): MultiFindOperationInterface;
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int    $id       Атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -47,6 +57,16 @@ interface MultiFindOperationInterface extends BaseFindOperationInterface, MultiF
      * @return MultiFindOperationInterface
      */
     public function byPersonTypeId(int $personTypeId, string $operator = '='): MultiFindOperationInterface;
+
+    /**
+     * Задает критерий фильтрации выборки по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int    $ratio    Атрибут "Коэффициент" сущности "Ключевое фраза".
+     * @param string $operator Оператор сравнения при поиске.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function byRatio(int $ratio, string $operator = '='): MultiFindOperationInterface;
 
     /**
      * Задает критерий фильтрации выборки по атрибуту "Название" сущности "Ключевое фраза".
@@ -84,6 +104,15 @@ interface MultiFindOperationInterface extends BaseFindOperationInterface, MultiF
     public function offset(int $offset): MultiFindOperationInterface;
 
     /**
+     * Устанавливает сортировку результатов запроса по полю "coincidenceCount".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function sortByCoincidenceCount(string $sortType = 'ASC'): MultiFindOperationInterface;
+
+    /**
      * Устанавливает сортировку результатов запроса по полю "id".
      *
      * @param string $sortType Тип сортировки - ASC или DESC.
@@ -100,6 +129,15 @@ interface MultiFindOperationInterface extends BaseFindOperationInterface, MultiF
      * @return MultiFindOperationInterface
      */
     public function sortByPersonTypeId(string $sortType = 'ASC'): MultiFindOperationInterface;
+
+    /**
+     * Устанавливает сортировку результатов запроса по полю "ratio".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function sortByRatio(string $sortType = 'ASC'): MultiFindOperationInterface;
 
     /**
      * Устанавливает сортировку результатов запроса по полю "text".

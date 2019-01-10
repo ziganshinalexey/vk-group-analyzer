@@ -33,6 +33,15 @@ interface MultiFilterInterface extends BaseFilterInterface
     public function getOffset();
 
     /**
+     * Метод устанавливает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return MultiFilterInterface
+     */
+    public function setCoincidenceCount(int $value): MultiFilterInterface;
+
+    /**
      * Метод устанавливает атрибут "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int $value Новое значение.
@@ -67,6 +76,15 @@ interface MultiFilterInterface extends BaseFilterInterface
      * @return MultiFilterInterface
      */
     public function setPersonTypeId(int $value): MultiFilterInterface;
+
+    /**
+     * Метод устанавливает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return MultiFilterInterface
+     */
+    public function setRatio(int $value): MultiFilterInterface;
 
     /**
      * Метод устанавливает атрибут "Название" сущности "Ключевое фраза".

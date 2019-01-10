@@ -40,6 +40,19 @@ class MultiDeleteOperation extends Component implements MultiDeleteOperationInte
     protected $resultPrototype;
 
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $coincidenceCount Атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @return MultiDeleteOperationInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount): MultiDeleteOperationInterface
+    {
+        $this->filter = array_merge($this->filter, ['coincidenceCount' => $coincidenceCount]);
+        return $this;
+    }
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int $id Атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -82,6 +95,19 @@ class MultiDeleteOperation extends Component implements MultiDeleteOperationInte
     public function byPersonTypeId(int $personTypeId): MultiDeleteOperationInterface
     {
         $this->filter = array_merge($this->filter, ['personTypeId' => $personTypeId]);
+        return $this;
+    }
+
+    /**
+     * Задает критерий фильтрации выборки по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $ratio Атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @return MultiDeleteOperationInterface
+     */
+    public function byRatio(int $ratio): MultiDeleteOperationInterface
+    {
+        $this->filter = array_merge($this->filter, ['ratio' => $ratio]);
         return $this;
     }
 

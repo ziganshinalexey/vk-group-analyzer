@@ -15,6 +15,15 @@ interface MultiDeleteOperationInterface
     public const DO_EVENT = 'DO_DELETE';
 
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $coincidenceCount Атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @return MultiDeleteOperationInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount): MultiDeleteOperationInterface;
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int $id Атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -40,6 +49,15 @@ interface MultiDeleteOperationInterface
      * @return MultiDeleteOperationInterface
      */
     public function byPersonTypeId(int $personTypeId): MultiDeleteOperationInterface;
+
+    /**
+     * Задает критерий фильтрации выборки по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $ratio Атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @return MultiDeleteOperationInterface
+     */
+    public function byRatio(int $ratio): MultiDeleteOperationInterface;
 
     /**
      * Задает критерий фильтрации выборки по атрибуту "Название" сущности "Ключевое фраза".

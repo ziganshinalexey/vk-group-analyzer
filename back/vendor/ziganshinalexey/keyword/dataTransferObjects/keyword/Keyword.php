@@ -13,6 +13,13 @@ use Ziganshinalexey\Keyword\interfaces\keyword\dto\KeywordInterface;
 class Keyword extends Model implements KeywordInterface
 {
     /**
+     * Свойство хранит атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @var int
+     */
+    protected $coincidenceCount = 1;
+
+    /**
      * Свойство хранит атрибут "Идентификатор" сущности "Ключевое фраза".
      *
      * @var int|null
@@ -22,9 +29,16 @@ class Keyword extends Model implements KeywordInterface
     /**
      * Свойство хранит атрибут "Идентификатор типа личности" сущности "Ключевое фраза".
      *
+     * @var int|null
+     */
+    protected $personTypeId;
+
+    /**
+     * Свойство хранит атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
      * @var int
      */
-    protected $personTypeId = 0;
+    protected $ratio = 1;
 
     /**
      * Свойство хранит атрибут "Название" сущности "Ключевое фраза".
@@ -44,6 +58,16 @@ class Keyword extends Model implements KeywordInterface
     }
 
     /**
+     * Метод возвращает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @return int
+     */
+    public function getCoincidenceCount(): int
+    {
+        return (int)$this->coincidenceCount;
+    }
+
+    /**
      * Метод возвращает атрибут "Идентификатор" сущности "Ключевое фраза".
      *
      * @return int|null
@@ -56,11 +80,21 @@ class Keyword extends Model implements KeywordInterface
     /**
      * Метод возвращает атрибут "Идентификатор типа личности" сущности "Ключевое фраза".
      *
+     * @return int|null
+     */
+    public function getPersonTypeId(): ?int
+    {
+        return null === $this->personTypeId ? null : (int)$this->personTypeId;
+    }
+
+    /**
+     * Метод возвращает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
      * @return int
      */
-    public function getPersonTypeId(): int
+    public function getRatio(): int
     {
-        return (int)$this->personTypeId;
+        return (int)$this->ratio;
     }
 
     /**
@@ -71,6 +105,19 @@ class Keyword extends Model implements KeywordInterface
     public function getText(): string
     {
         return (string)$this->text;
+    }
+
+    /**
+     * Метод устанавливает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return KeywordInterface
+     */
+    public function setCoincidenceCount(int $value): KeywordInterface
+    {
+        $this->coincidenceCount = $value;
+        return $this;
     }
 
     /**
@@ -96,6 +143,19 @@ class Keyword extends Model implements KeywordInterface
     public function setPersonTypeId(int $value): KeywordInterface
     {
         $this->personTypeId = $value;
+        return $this;
+    }
+
+    /**
+     * Метод устанавливает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return KeywordInterface
+     */
+    public function setRatio(int $value): KeywordInterface
+    {
+        $this->ratio = $value;
         return $this;
     }
 

@@ -11,14 +11,14 @@ tables:
       tableUseTableAlias: true
       tableAllowExistsTable: false
       tableAppendSystemFields: false
-      createTableMigration: migrations/m190109_151415_create_keyword_table.php
+      createTableMigration: migrations/m190110_132042_create_keyword_table.php
     __relations:
       personTypeId:
         type: many-to-one
         targetClass: Ziganshinalexey\PersonType\entities\PersonTypeActiveRecord::class
         targetField: id
         displayField: id
-        createRelationMigration: migrations/m190109_151416_create_foreign_key_keyword_table_persontypeid.php
+        createRelationMigration: migrations/m190110_132043_create_foreign_key_keyword_table_persontypeid.php
     id:
       type: primaryKey
       comment: Идентификатор
@@ -26,9 +26,19 @@ tables:
       type: text
       "null": false
       comment: Название
-    personTypeId:
+    ratio:
       type: integer
       "null": false
+      defaultValue: 1
+      comment: Коэффициент
+    coincidenceCount:
+      type: integer
+      "null": false
+      defaultValue: 1
+      comment: Количество совпадений
+    personTypeId:
+      type: integer
+      "null": true
       comment: Идентификатор типа личности
       relation: personTypeId
 admin:
@@ -39,46 +49,46 @@ admin:
 fileHashList:
   Autoconfig.php: b1fbf943dba53a3c63f9805793779c22ea4068f314d5c264a91c0a64fb188f45
   interfaces/keyword/ComponentInterface.php: 012d4478dd7945222a35fa745be0db50babf8d1b175f92e40e7835a60ec9c7c8
-  interfaces/keyword/QueryInterface.php: 54eea02d19f4ca1b0babfa3f631cc2def11b99f7658863b78b534591213d1a55
+  interfaces/keyword/QueryInterface.php: df8a255b02c28ddee0334cb1420587ba2bb55e2a83fc06369f04227782f91efb
   interfaces/keyword/FactoryInterface.php: 3187b0c8e27e57344bc5c9612174ff87f87f98ee4fc8e608facc18dea7135d40
   interfaces/keyword/dto/OperationListResultInterface.php: 2935607753def5b4dc48b8a506ecec7efa092f97b7c9317f770f92ff8541948d
   interfaces/keyword/dto/OperationResultInterface.php: 1114bd7bfed600c741d6148001ab8faafb1f6757d8e53df41c0a0fa792db0caf
   interfaces/keyword/operations/BaseFindOperationInterface.php: 3ea9e11ee5496f8d138ca38b137542f4f6bafa990e048727c5465d449370d71a
-  interfaces/keyword/operations/MultiDeleteOperationInterface.php: ef8eb5e1ae9935410e744d50edfd81b2955632635de212bfa309499b801e3b57
-  interfaces/keyword/operations/MultiFindOperationInterface.php: b115d3fde57443d863c2c4229118f850cd5a2b96c99ef1e4e3cf8a5c3eee4084
+  interfaces/keyword/operations/MultiDeleteOperationInterface.php: 8bd91ef6986bb28ad7514b8a5e3861df33c40ac22300611817718426a1474f6b
+  interfaces/keyword/operations/MultiFindOperationInterface.php: 4eeadd5ce87acde68d7f616c3ae9368d0f0a4a647fcafdeb96af0029917e08e2
   interfaces/keyword/operations/SingleCreateOperationInterface.php: 037c1db695191e640b460703056a3ee0d6c4d192ff5ba04c199e40a72a982db3
-  interfaces/keyword/operations/SingleFindOperationInterface.php: b5bea01e6776083ddb6c09b6d2ccb43fef8afdcc8fb443fe5cff8247c9212654
+  interfaces/keyword/operations/SingleFindOperationInterface.php: 9749aac3fcd821b70c3faa31ec18852742e8b6a33810ef308894dcb9eff4d5d5
   interfaces/keyword/operations/SingleUpdateOperationInterface.php: 0d3f01c87ba563ac33f0a36aa0f3aca68b91cbe66620e0ef61600fbaa79f8fc3
-  interfaces/keyword/filters/BaseFilterInterface.php: 318643b5faec62fbf90034fd7cab244799c98f51cbeb133e7889c581bada3842
-  interfaces/keyword/filters/BaseFilterOperationInterface.php: 5f75e4451938f03a23807aff64293f48a11d3c85d9f7a7e0140c5cfe8f556677
-  interfaces/keyword/filters/MultiFilterInterface.php: c7bb529312519d96738ae0af4f2390b22c13d05a9cc0a9e7db4c0a3f70a72a5e
+  interfaces/keyword/filters/BaseFilterInterface.php: 5ae2f868ed1b6daf997d0659039c6d8ceff224254e9b39d6aee74ea87ab5eeda
+  interfaces/keyword/filters/BaseFilterOperationInterface.php: b96a79af5fa406cd3502575afdab46d300b562d3e034452c3e8ba70708c5a5ff
+  interfaces/keyword/filters/MultiFilterInterface.php: fd8a55b8760283f02fa1f39f133c1da620b39b898682a810e2cf792d948ca3db
   interfaces/keyword/filters/MultiFilterOperationInterface.php: 4c07cb1a8e1063f7364968858033a3149502282f881dd9cb7c705eb4aba980ea
-  interfaces/keyword/filters/SingleFilterInterface.php: 071b90d5145fe72a6aa6f612d9ed2ca54c1eaa638adb5b06dd46ddc5dd71ce97
+  interfaces/keyword/filters/SingleFilterInterface.php: 26dd1ebb3bd5ed44f413a0425afac12440bc6413afd3181581ec4b4f5a2f308c
   interfaces/keyword/filters/SingleFilterOperationInterface.php: 49e0cf63f95cb293ba49cead963ebe7cd844544a37374888a68ef6ab5d023922
-  migrations/m190109_151415_create_keyword_table.php: 899638d176d37f23de52e8bb9ae726c704d3c4fb4a36245063d797649b6b6028
-  queries/KeywordQuery.php: f566e305d45734e088a8d2ec3eb1c186b4b524a0541251b77051451d9ab2b87f
-  entities/KeywordActiveRecord.php: f981b9a7d7e9e90d5189f7cb5103c3c58304bcc983e033557084c62fd2d9c524
+  migrations/m190110_132042_create_keyword_table.php: 9eb49a9390e6c72d7cbf7231fa9358f8eb79226fcd0fc7922710de2e383b9ee0
+  queries/KeywordQuery.php: 6431eec0ead7b795b109049c0df1b49ae7c2a903d923fcf353b4a27f28cf31f9
+  entities/KeywordActiveRecord.php: 50afc39bf37963258642fb957841f4a94993cdd6862736c138da1940b3d376d6
   dataTransferObjects/keyword/OperationResult.php: 4c42ff8efa31ff5dfc2b67cad933aeaffe10863127d90c23ab18195c677282ff
   dataTransferObjects/keyword/OperationListResult.php: 4c30b9a89c283b9c44497e4717dfd1700dc7f7b74e1b074413510eba153019d1
-  hydrators/KeywordDatabaseHydrator.php: 86af00ae23cc0c37ba44eb27dabde466e200c3618a0e5cc474798b6b59647ac4
+  hydrators/KeywordDatabaseHydrator.php: 8549e3b324befc943afe36d5e7d96653c326bf3a61176f07ea0e0a59afbd6ff5
   traits/keyword/DatabaseHydratorTrait.php: 56c92efd2c6299289cee6444a99be7f45ddfc2d221d9fbf8a9429db3c2d78619
   traits/keyword/KeywordComponentTrait.php: d5a83a72cc8d774609ca2a55bb2ed5709fb9259a3c4db5e82928c0adb19e4601
   factories/KeywordFactory.php: ab71a96b4e75dc4985d9d9e697490c5705f10489cf8bd3fc81d9cbeb15f6c96a
   operations/keyword/SingleUpdateOperation.php: 1f1df6ce20d23e5d12627026d00787f94efe9dea2ef711ea303a59139b04c777
-  operations/keyword/MultiDeleteOperation.php: ed99e52a8433da087402b0142204dc465b6a82e0a25f246fa964642e555a006f
+  operations/keyword/MultiDeleteOperation.php: 24f2ec02d81a4808b1d318f1af79d53aa9f5a5e44635ea2c1db8e1712cc29bdf
   operations/keyword/SingleCreateOperation.php: 919bc5acbefe36a2d48a79f9479ab0c7c4fad2adeed68944803e9d072e04ca6d
   operations/keyword/BaseFindOperation.php: 4567ac4c0bec4bf5c613ca203f5e3f6316e4c67e9279502b69d95a949a7542ef
-  operations/keyword/SingleFindOperation.php: 05cd0317503101584c58f6ca749efc9dd79e8929d05fc8f3b8af086bbe3a2e9f
-  operations/keyword/MultiFindOperation.php: 392a38a1d03705261f781687d0549350a5e5ac824c8dfef343c9f4267eba5010
-  filters/keyword/BaseFilter.php: 35987c4e13b79f713e2b580a6052d9b0cf3d14250036685b62b97f78b4e05f26
-  filters/keyword/SingleFilter.php: ac2ef9a7484011288aea492bc8da8ccaf75b8445a6a165ada318af375a491486
-  filters/keyword/MultiFilter.php: 61a0edb00fff6ca4fb25282a6fa7f1ef574c0f8c5c9153875e56c847c7c02354
-  validators/keyword/KeywordFilterValidator.php: 500eebba93cf68a3b7b463ecd3fe5d91f19505105284f0452b4c424e1e4bd514
+  operations/keyword/SingleFindOperation.php: 49d9e989c6d5ef117a59bf623a0fae6f28fefb34d919373847d7ade1c650c93a
+  operations/keyword/MultiFindOperation.php: 748b5ad9dc22adefd421c3dd21cd94137e649da3fcb0ae6e9057b60b99e0f14d
+  filters/keyword/BaseFilter.php: 4d26d269ccb520ff3850ba9ebec9e89893f3d979ec0a67024cca7159997222c0
+  filters/keyword/SingleFilter.php: ec72710c530766c5e516780518468b95306efa8fb9b1ced394b92b47632e0932
+  filters/keyword/MultiFilter.php: 1d73ff9941a0bdb9ffc12f5961498f8663396b22a1406cdce017ea16abdcfe1b
+  validators/keyword/KeywordFilterValidator.php: da449adcb62e1cb0f9debb11936b114612d4f5cb7c861351724d5117d4571ea4
   components/KeywordComponent.php: ab3f8144ab36891e6a8dcb7a1e00e5a4f727301ccfcd3ee5aaeaa792fe59c2bb
-  dataTransferObjects/keyword/Keyword.php: 54eb404337cf2148a4a726a27e5058bfa71fcb16a63b652114342847edf66f1c
-  interfaces/keyword/dto/KeywordInterface.php: 9a2415fd4f2a35d6298ffea502242503022cdef27bcd978fc022f50805b39c4b
-  validators/keyword/KeywordValidator.php: ccbcf2dfd49ea41af7899e0283f33a0aadf685f8998b33ca8a976d59ab242f35
-  migrations/m190109_151416_create_foreign_key_keyword_table_persontypeid.php: 0a7c8c5f027b597d83ef0a60a51c79524962435d24058ff8eead3d6be831eb96
+  dataTransferObjects/keyword/Keyword.php: c35d4e5f684371b86350c0fd4932b6dc0025aece7cea691c413bcbc9c6ba90c9
+  interfaces/keyword/dto/KeywordInterface.php: dbbe03679a9077646f172f7a0d1f96aeed8bf619d70d986f6032c510371996d6
+  validators/keyword/KeywordValidator.php: 2378a4bdf61003c8a3519224bbb2ccbe34ffc674596ee64ea7036a0bae28511a
+  migrations/m190110_132043_create_foreign_key_keyword_table_persontypeid.php: d2c892a522cadbbc77277a07998aefea608df8119ec96ab4d25105c0006f842d
   composer.json: 87255fbd3c5f720ceaf55a52478d4b1d1475c16b492f35de803de220f55ab7e4
   config/keyword.component.global.php: 7fb5bd8adeace8328043103d6fe0fac7873064e1a7422f41574c1ab938d7e764
   config/console.config.php: 560b04a4eeb69db6f881b62bf626177f82d182ae17e384fe8addf0ad92566c0c

@@ -12,6 +12,13 @@ use Userstory\ComponentBase\interfaces\AbstractFilterInterface;
 interface BaseFilterInterface extends AbstractFilterInterface
 {
     /**
+     * Метод возвращает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @return int
+     */
+    public function getCoincidenceCount();
+
+    /**
      * Метод возвращает атрибут "Идентификатор" сущности "Ключевое фраза".
      *
      * @return int
@@ -24,6 +31,13 @@ interface BaseFilterInterface extends AbstractFilterInterface
      * @return int
      */
     public function getPersonTypeId();
+
+    /**
+     * Метод возвращает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @return int
+     */
+    public function getRatio();
 
     /**
      * Метод возвращает атрибут "Название" сущности "Ключевое фраза".

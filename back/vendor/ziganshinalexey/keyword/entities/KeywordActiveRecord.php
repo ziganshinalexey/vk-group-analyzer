@@ -14,9 +14,11 @@ use Ziganshinalexey\Keyword\validators\keyword\KeywordValidator;
  * Не использовать сохранение модели через метод save() за пределами Save-операции пакета.
  * Желательно, вообще не использовать.
  *
- * @property int    $id           Идентификатор.
- * @property int    $personTypeId Идентификатор типа личности.
- * @property string $text         Название.
+ * @property int    $coincidenceCount Количество совпадений.
+ * @property int    $id               Идентификатор.
+ * @property int    $personTypeId     Идентификатор типа личности.
+ * @property int    $ratio            Коэффициент.
+ * @property string $text             Название.
  */
 class KeywordActiveRecord extends ActiveRecord
 {
@@ -55,6 +57,8 @@ class KeywordActiveRecord extends ActiveRecord
         return [
             'id',
             'text',
+            'ratio',
+            'coincidenceCount',
             'personTypeId',
         ];
     }
@@ -67,9 +71,11 @@ class KeywordActiveRecord extends ActiveRecord
     public static function labels(): array
     {
         return [
-            'id'           => Yii::t(self::TRANSLATE_CATEGORY, 'field.id', 'Идентификатор'),
-            'text'         => Yii::t(self::TRANSLATE_CATEGORY, 'field.text', 'Название'),
-            'personTypeId' => Yii::t(self::TRANSLATE_CATEGORY, 'field.personTypeId', 'Идентификатор типа личности'),
+            'id'               => Yii::t(self::TRANSLATE_CATEGORY, 'field.id', 'Идентификатор'),
+            'text'             => Yii::t(self::TRANSLATE_CATEGORY, 'field.text', 'Название'),
+            'ratio'            => Yii::t(self::TRANSLATE_CATEGORY, 'field.ratio', 'Коэффициент'),
+            'coincidenceCount' => Yii::t(self::TRANSLATE_CATEGORY, 'field.coincidenceCount', 'Количество совпадений'),
+            'personTypeId'     => Yii::t(self::TRANSLATE_CATEGORY, 'field.personTypeId', 'Идентификатор типа личности'),
         ];
     }
 

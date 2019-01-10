@@ -12,6 +12,16 @@ use Userstory\ComponentBase\interfaces\ObjectWithErrorsInterface;
 interface BaseFilterOperationInterface extends ObjectWithErrorsInterface
 {
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int    $coincidenceCount Атрибут "Количество совпадений" сущности "Ключевое фраза".
+     * @param string $operator         Оператор сравнения при поиске.
+     *
+     * @return BaseFilterOperationInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount, string $operator = '=');
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int    $id       Атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -41,6 +51,16 @@ interface BaseFilterOperationInterface extends ObjectWithErrorsInterface
     public function byPersonTypeId(int $personTypeId, string $operator = '=');
 
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int    $ratio    Атрибут "Коэффициент" сущности "Ключевое фраза".
+     * @param string $operator Оператор сравнения при поиске.
+     *
+     * @return BaseFilterOperationInterface
+     */
+    public function byRatio(int $ratio, string $operator = '=');
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Название" сущности "Ключевое фраза".
      *
      * @param string $text     Атрибут "Название" сущности "Ключевое фраза".
@@ -49,6 +69,15 @@ interface BaseFilterOperationInterface extends ObjectWithErrorsInterface
      * @return BaseFilterOperationInterface
      */
     public function byText(string $text, string $operator = '=');
+
+    /**
+     * Устанавливает сортировку результатов запроса по полю "coincidenceCount".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @return BaseFilterOperationInterface
+     */
+    public function sortByCoincidenceCount(string $sortType = 'ASC');
 
     /**
      * Устанавливает сортировку результатов запроса по полю "id".
@@ -67,6 +96,15 @@ interface BaseFilterOperationInterface extends ObjectWithErrorsInterface
      * @return BaseFilterOperationInterface
      */
     public function sortByPersonTypeId(string $sortType = 'ASC');
+
+    /**
+     * Устанавливает сортировку результатов запроса по полю "ratio".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @return BaseFilterOperationInterface
+     */
+    public function sortByRatio(string $sortType = 'ASC');
 
     /**
      * Устанавливает сортировку результатов запроса по полю "text".

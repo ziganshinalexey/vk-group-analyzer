@@ -18,6 +18,22 @@ use function is_int;
 class SingleFindOperation extends BaseFindOperation implements SingleFindOperationInterface
 {
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int    $coincidenceCount Атрибут "Количество совпадений" сущности "Ключевое фраза".
+     * @param string $operator         Оператор сравнения при поиске.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount, string $operator = '='): SingleFindOperationInterface
+    {
+        $this->getQuery()->byCoincidenceCount($coincidenceCount, $operator);
+        return $this;
+    }
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int    $id       Атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -71,6 +87,22 @@ class SingleFindOperation extends BaseFindOperation implements SingleFindOperati
     }
 
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int    $ratio    Атрибут "Коэффициент" сущности "Ключевое фраза".
+     * @param string $operator Оператор сравнения при поиске.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function byRatio(int $ratio, string $operator = '='): SingleFindOperationInterface
+    {
+        $this->getQuery()->byRatio($ratio, $operator);
+        return $this;
+    }
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Название" сущности "Ключевое фраза".
      *
      * @param string $text     Атрибут "Название" сущности "Ключевое фраза".
@@ -117,6 +149,21 @@ class SingleFindOperation extends BaseFindOperation implements SingleFindOperati
     }
 
     /**
+     * Устанавливает сортировку результатов запроса по полю "coincidenceCount".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function sortByCoincidenceCount(string $sortType = 'ASC'): SingleFindOperationInterface
+    {
+        $this->getQuery()->sortBy('coincidenceCount', $sortType);
+        return $this;
+    }
+
+    /**
      * Устанавливает сортировку результатов запроса по полю "id".
      *
      * @param string $sortType Тип сортировки - ASC или DESC.
@@ -143,6 +190,21 @@ class SingleFindOperation extends BaseFindOperation implements SingleFindOperati
     public function sortByPersonTypeId(string $sortType = 'ASC'): SingleFindOperationInterface
     {
         $this->getQuery()->sortBy('personTypeId', $sortType);
+        return $this;
+    }
+
+    /**
+     * Устанавливает сортировку результатов запроса по полю "ratio".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return SingleFindOperationInterface
+     */
+    public function sortByRatio(string $sortType = 'ASC'): SingleFindOperationInterface
+    {
+        $this->getQuery()->sortBy('ratio', $sortType);
         return $this;
     }
 

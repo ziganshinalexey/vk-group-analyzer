@@ -27,10 +27,29 @@ class SingleFilter extends BaseFilter implements SingleFilterInterface
         if ($this->getText()) {
             $operation->byText((string)$this->getText(), 'like');
         }
+        if ($this->getRatio()) {
+            $operation->byRatio((int)$this->getRatio());
+        }
+        if ($this->getCoincidenceCount()) {
+            $operation->byCoincidenceCount((int)$this->getCoincidenceCount());
+        }
         if ($this->getPersonTypeId()) {
             $operation->byPersonTypeId((int)$this->getPersonTypeId());
         }
         return $operation;
+    }
+
+    /**
+     * Метод устанавливает атрибут "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return SingleFilterInterface
+     */
+    public function setCoincidenceCount(int $value): SingleFilterInterface
+    {
+        $this->coincidenceCount = $value;
+        return $this;
     }
 
     /**
@@ -56,6 +75,19 @@ class SingleFilter extends BaseFilter implements SingleFilterInterface
     public function setPersonTypeId(int $value): SingleFilterInterface
     {
         $this->personTypeId = $value;
+        return $this;
+    }
+
+    /**
+     * Метод устанавливает атрибут "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int $value Новое значение.
+     *
+     * @return SingleFilterInterface
+     */
+    public function setRatio(int $value): SingleFilterInterface
+    {
+        $this->ratio = $value;
         return $this;
     }
 

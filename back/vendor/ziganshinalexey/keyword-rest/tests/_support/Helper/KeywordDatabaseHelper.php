@@ -28,8 +28,10 @@ class KeywordDatabaseHelper extends Module
     protected function addKeywordEntity(array $params): int
     {
         return $this->getModuleDb()->haveInDatabase($this->getKeywordTableName(), [
-            'text'         => ArrayHelper::getValue($params, 'text', sqs('text')),
-            'personTypeId' => ArrayHelper::getValue($params, 'personTypeId', 1),
+            'text'             => ArrayHelper::getValue($params, 'text', sqs('text')),
+            'ratio'            => ArrayHelper::getValue($params, 'ratio', 1),
+            'coincidenceCount' => ArrayHelper::getValue($params, 'coincidenceCount', 1),
+            'personTypeId'     => ArrayHelper::getValue($params, 'personTypeId', 1),
         ]);
     }
 
@@ -111,8 +113,10 @@ class KeywordDatabaseHelper extends Module
     protected function updateKeywordEntityById(int $id, array $params): void
     {
         $this->getModuleDb()->updateInDatabase($this->getKeywordTableName(), [
-            'text'         => ArrayHelper::getValue($params, 'text', sqs('text')),
-            'personTypeId' => ArrayHelper::getValue($params, 'personTypeId', 1),
+            'text'             => ArrayHelper::getValue($params, 'text', sqs('text')),
+            'ratio'            => ArrayHelper::getValue($params, 'ratio', 1),
+            'coincidenceCount' => ArrayHelper::getValue($params, 'coincidenceCount', 1),
+            'personTypeId'     => ArrayHelper::getValue($params, 'personTypeId', 1),
         ], [
             'id' => $id,
         ]);

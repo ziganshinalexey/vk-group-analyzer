@@ -36,6 +36,22 @@ class MultiFindOperation extends BaseFindOperation implements MultiFindOperation
     }
 
     /**
+     * Задает критерий фильтрации выборки по атрибуту "Количество совпадений" сущности "Ключевое фраза".
+     *
+     * @param int    $coincidenceCount Атрибут "Количество совпадений" сущности "Ключевое фраза".
+     * @param string $operator         Оператор сравнения при поиске.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function byCoincidenceCount(int $coincidenceCount, string $operator = '='): MultiFindOperationInterface
+    {
+        $this->getQuery()->byCoincidenceCount($coincidenceCount, $operator);
+        return $this;
+    }
+
+    /**
      * Задает критерий фильтрации выборки по атрибуту "Идентификатор" сущности "Ключевое фраза".
      *
      * @param int    $id       Атрибут "Идентификатор" сущности "Ключевое фраза".
@@ -85,6 +101,22 @@ class MultiFindOperation extends BaseFindOperation implements MultiFindOperation
     public function byPersonTypeId(int $personTypeId, string $operator = '='): MultiFindOperationInterface
     {
         $this->getQuery()->byPersonTypeId($personTypeId, $operator);
+        return $this;
+    }
+
+    /**
+     * Задает критерий фильтрации выборки по атрибуту "Коэффициент" сущности "Ключевое фраза".
+     *
+     * @param int    $ratio    Атрибут "Коэффициент" сущности "Ключевое фраза".
+     * @param string $operator Оператор сравнения при поиске.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function byRatio(int $ratio, string $operator = '='): MultiFindOperationInterface
+    {
+        $this->getQuery()->byRatio($ratio, $operator);
         return $this;
     }
 
@@ -160,6 +192,21 @@ class MultiFindOperation extends BaseFindOperation implements MultiFindOperation
     }
 
     /**
+     * Устанавливает сортировку результатов запроса по полю "coincidenceCount".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function sortByCoincidenceCount(string $sortType = 'ASC'): MultiFindOperationInterface
+    {
+        $this->getQuery()->sortBy('coincidenceCount', $sortType);
+        return $this;
+    }
+
+    /**
      * Устанавливает сортировку результатов запроса по полю "id".
      *
      * @param string $sortType Тип сортировки - ASC или DESC.
@@ -186,6 +233,21 @@ class MultiFindOperation extends BaseFindOperation implements MultiFindOperation
     public function sortByPersonTypeId(string $sortType = 'ASC'): MultiFindOperationInterface
     {
         $this->getQuery()->sortBy('personTypeId', $sortType);
+        return $this;
+    }
+
+    /**
+     * Устанавливает сортировку результатов запроса по полю "ratio".
+     *
+     * @param string $sortType Тип сортировки - ASC или DESC.
+     *
+     * @throws InvalidConfigException Исключение генерируется в случае неверной инициализации команды.
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function sortByRatio(string $sortType = 'ASC'): MultiFindOperationInterface
+    {
+        $this->getQuery()->sortBy('ratio', $sortType);
         return $this;
     }
 

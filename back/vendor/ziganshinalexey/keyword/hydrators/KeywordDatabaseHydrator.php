@@ -29,8 +29,10 @@ class KeywordDatabaseHydrator implements HydratorInterface
         }
 
         return [
-            'text'         => $item->getText(),
-            'personTypeId' => $item->getPersonTypeId(),
+            'text'             => $item->getText(),
+            'ratio'            => $item->getRatio(),
+            'coincidenceCount' => $item->getCoincidenceCount(),
+            'personTypeId'     => $item->getPersonTypeId(),
         ];
     }
 
@@ -52,6 +54,8 @@ class KeywordDatabaseHydrator implements HydratorInterface
 
         $object->setId((int)$data['id']);
         $object->setText((string)$data['text']);
+        $object->setRatio((int)$data['ratio']);
+        $object->setCoincidenceCount((int)$data['coincidenceCount']);
         $object->setPersonTypeId((int)$data['personTypeId']);
 
         return $object;
