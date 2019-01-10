@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Ziganshinalexey\Keyword\hydrators;
 
 use Userstory\ComponentHydrator\interfaces\HydratorInterface;
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\ExtendsMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\ExtendsMismatchException;
 use Ziganshinalexey\Keyword\interfaces\keyword\dto\KeywordInterface;
 
 /**

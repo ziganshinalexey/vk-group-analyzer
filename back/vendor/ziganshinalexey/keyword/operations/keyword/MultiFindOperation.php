@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Ziganshinalexey\Keyword\operations\keyword;
 
 use Userstory\ComponentBase\events\FindOperationEvent;
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\IntMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\IntMismatchException;
 use yii;
 use yii\base\InvalidConfigException;
 use Ziganshinalexey\Keyword\interfaces\keyword\dto\KeywordInterface;

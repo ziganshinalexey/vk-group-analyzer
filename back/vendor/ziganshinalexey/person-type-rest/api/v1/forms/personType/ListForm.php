@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Ziganshinalexey\PersonTypeRest\api\v1\forms\personType;
 
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\ExtendsMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\ExtendsMismatchException;
 use Userstory\Yii2Forms\forms\rest\AbstractListRestForm;
 use yii\base\InvalidConfigException;
 use Ziganshinalexey\PersonType\interfaces\personType\dto\PersonTypeInterface;

@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Ziganshinalexey\PersonType\operations\personType;
 
 use Userstory\ComponentBase\events\FindOperationEvent;
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\IntMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\IntMismatchException;
 use yii;
 use yii\base\InvalidConfigException;
 use Ziganshinalexey\PersonType\interfaces\personType\dto\PersonTypeInterface;

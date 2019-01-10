@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Ziganshinalexey\Keyword\validators\keyword;
 
 use Userstory\ComponentBase\validators\BaseDTOValidator;
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\ExtendsMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\ExtendsMismatchException;
 use Ziganshinalexey\Keyword\interfaces\keyword\dto\KeywordInterface;
 use Ziganshinalexey\PersonType\entities\PersonTypeActiveRecord;
 use function get_class;

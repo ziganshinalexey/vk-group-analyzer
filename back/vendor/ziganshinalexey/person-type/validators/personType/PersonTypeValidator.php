@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace Ziganshinalexey\PersonType\validators\personType;
 
 use Userstory\ComponentBase\validators\BaseDTOValidator;
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\ExtendsMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\ExtendsMismatchException;
 use Ziganshinalexey\PersonType\interfaces\personType\dto\PersonTypeInterface;
 use function get_class;
 

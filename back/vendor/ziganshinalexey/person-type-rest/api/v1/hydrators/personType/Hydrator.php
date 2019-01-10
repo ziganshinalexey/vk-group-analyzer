@@ -6,7 +6,7 @@ namespace Ziganshinalexey\PersonTypeRest\api\v1\hydrators\personType;
 
 use ReflectionException;
 use Userstory\ComponentHydrator\hydrators\ArrayHydrator;
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\ExtendsMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\ExtendsMismatchException;
 use Ziganshinalexey\PersonType\interfaces\personType\dto\PersonTypeInterface;
 
 /**

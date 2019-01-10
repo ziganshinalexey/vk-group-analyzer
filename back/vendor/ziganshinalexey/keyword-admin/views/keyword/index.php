@@ -7,7 +7,9 @@ use Userstory\ModuleAdmin\widgets\GridView\GridView;
 use Userstory\ModuleAdmin\widgets\Modal;
 use yii\data\ArrayDataProvider;
 use yii\helpers\Html;
+use Ziganshinalexey\Keyword\dataTransferObjects\keyword\Keyword;
 use Ziganshinalexey\KeywordAdmin\forms\keyword\FindForm;
+use Ziganshinalexey\PersonType\components\PersonTypeComponent;
 
 $this->title                   = Yii::t('Admin.Keyword.Keyword', 'title', 'Список Ключевое фраза');
 $this->params['contentTitle']  = $this->title;
@@ -45,6 +47,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     'class' => 'table table-bordered table-hover',
                 ],
                 'columns'      => [
+                    'text',
+                    'ratio',
+                    'coincidenceCount',
+                    [
+                        'attribute' => 'personTypeId',
+                        'value'     => function(Keyword $model) {
+                            /* @var PersonTypeComponent $personTypeComponent */
+                            $personTypeComponent = Yii::$app->get('person-type');
+                            $personType          = $personTypeComponent->findOne()->byId((int)$model->getPersonTypeId())->doOperation();
+                            return $personType ? $personType->getName() : null;
+                        },
+                    ],
                     [
                         'class'          => ActionColumn::class,
                         'header'         => Yii::t('Admin.Keyword.Keyword', 'actionsHeader', 'Действия'),

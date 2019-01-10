@@ -9,6 +9,9 @@ $config = [
     'vendorPath' => dirname(__DIR__, 2) . '/vendor',
     'language'   => 'ru',
     'bootstrap'  => ['log'],
+    'aliases'    => [
+        '@bower' => dirname(__DIR__, 2) . '/vendor/bower-asset',
+    ],
     'components' => [
         'request'      => [
             'cookieValidationKey' => 'vC_BeH6kTR8ruoMlH8EdNx58fYDiyEKk',

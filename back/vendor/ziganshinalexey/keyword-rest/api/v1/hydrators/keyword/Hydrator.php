@@ -6,7 +6,7 @@ namespace Ziganshinalexey\KeywordRest\api\v1\hydrators\keyword;
 
 use ReflectionException;
 use Userstory\ComponentHydrator\hydrators\ArrayHydrator;
-use Userstory\Yii2Exceptions\exceptions\typeMismatch\ExtendsMismatchException;
+use Userstory\Yii2Exceptions\exceptions\types\ExtendsMismatchException;
 use Ziganshinalexey\Keyword\interfaces\keyword\dto\KeywordInterface;
 
 /**
