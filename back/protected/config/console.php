@@ -1,7 +1,7 @@
 <?php
 
 $config = [
-    'id'                  => 'TouchTV Core',
+    'id'                  => 'Person Analyzer Core',
     'basePath'            => dirname(__DIR__),
     'vendorPath'          => dirname(__DIR__, 2) . '/vendor',
     'language'            => 'ru',
