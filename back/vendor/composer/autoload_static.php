@@ -110,6 +110,8 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
             'Userstory\\Yii2Exceptions\\' => 25,
             'Userstory\\Yii2Cache\\' => 20,
             'Userstory\\User\\' => 15,
+            'Userstory\\UserAdmin\\' => 20,
+            'Userstory\\ModuleSms\\' => 20,
             'Userstory\\ModuleMailer\\' => 23,
             'Userstory\\ModuleAdmin\\' => 22,
             'Userstory\\I18n\\' => 15,
@@ -238,6 +240,14 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         'Userstory\\User\\' => 
         array (
             0 => __DIR__ . '/..' . '/userstory/user',
+        ),
+        'Userstory\\UserAdmin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/userstory/user-admin',
+        ),
+        'Userstory\\ModuleSms\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/userstory/module-sms',
         ),
         'Userstory\\ModuleMailer\\' => 
         array (

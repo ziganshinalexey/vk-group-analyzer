@@ -3,9 +3,8 @@
 declare(strict_types = 1);
 
 $config = [
-    'id'         => 'TouchTV Core',
-    'name'       => 'TouchTV',
-    'homeUrl'    => 'http://demo.touch-tv-back.stands.userstory.ru',
+    'id'         => 'Person Analyzer',
+    'name'       => 'Person Analyzer',
     'basePath'   => dirname(__DIR__),
     'vendorPath' => dirname(__DIR__, 2) . '/vendor',
     'language'   => 'ru',

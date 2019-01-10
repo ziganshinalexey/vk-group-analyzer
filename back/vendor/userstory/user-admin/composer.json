@@ -1,0 +1,20 @@
+{
+    "name": "userstory/user-admin",
+    "description": "US module",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.2",
+        "userstory/component-autoconfig": ">=0.2 <1.0",
+        "userstory/component-helpers": ">=0.2 <1.0",
+        "userstory/user": "^1.0.0",
+        "userstory/module-mailer": ">=0.2 <1.0",
+        "userstory/module-admin": ">=0.3 <1.0",
+        "userstory/competing-view-admin": ">=0.2 <1.0",
+        "userstory/module-sms": ">=0.2 <1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Userstory\\UserAdmin\\": ""
+        }
+    }
+}

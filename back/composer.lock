@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7397b9ed30ceb06970a8b3e2424519f8",
+    "content-hash": "87ab61a86db680d42f2f29f9ca22deca",
     "packages": [
         {
             "name": "2amigos/yii2-tinymce-widget",
@@ -1486,6 +1486,33 @@
             "description": "US module for mail delivery"
         },
         {
+            "name": "userstory/module-sms",
+            "version": "0.3.1",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.userstory.ru:userstory/module-sms.git",
+                "reference": "18a3b70ac70a7314606f68284d691df75d96abc0"
+            },
+            "require": {
+                "php": ">=7.0",
+                "userstory/component-autoconfig": ">=0.2.3 <1.0",
+                "userstory/component-helpers": ">=0.2.30  <1.0",
+                "userstory/component-log": ">=0.2.4 <1.0",
+                "yiisoft/yii2": ">=2.0.8",
+                "yiisoft/yii2-httpclient": "~2.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Userstory\\ModuleSms\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "US sms communicator"
+        },
+        {
             "name": "userstory/user",
             "version": "1.1.0",
             "source": {
@@ -1507,6 +1534,35 @@
             "autoload": {
                 "psr-4": {
                     "Userstory\\User\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "US module"
+        },
+        {
+            "name": "userstory/user-admin",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.userstory.ru:userstory/user-admin.git",
+                "reference": "1bcea67350af41a783cee6253e27b464201eaabb"
+            },
+            "require": {
+                "php": ">=7.2",
+                "userstory/competing-view-admin": ">=0.2 <1.0",
+                "userstory/component-autoconfig": ">=0.2 <1.0",
+                "userstory/component-helpers": ">=0.2 <1.0",
+                "userstory/module-admin": ">=0.3 <1.0",
+                "userstory/module-mailer": ">=0.2 <1.0",
+                "userstory/module-sms": ">=0.2 <1.0",
+                "userstory/user": "^1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Userstory\\UserAdmin\\": ""
                 }
             },
             "license": [

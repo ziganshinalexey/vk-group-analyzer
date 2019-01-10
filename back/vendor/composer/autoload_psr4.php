@@ -29,6 +29,8 @@ return array(
     'Userstory\\Yii2Exceptions\\' => array($vendorDir . '/userstory/yii2-exceptions'),
     'Userstory\\Yii2Cache\\' => array($vendorDir . '/userstory/yii2-cache'),
     'Userstory\\User\\' => array($vendorDir . '/userstory/user'),
+    'Userstory\\UserAdmin\\' => array($vendorDir . '/userstory/user-admin'),
+    'Userstory\\ModuleSms\\' => array($vendorDir . '/userstory/module-sms'),
     'Userstory\\ModuleMailer\\' => array($vendorDir . '/userstory/module-mailer'),
     'Userstory\\ModuleAdmin\\' => array($vendorDir . '/userstory/module-admin'),
     'Userstory\\I18n\\' => array($vendorDir . '/userstory/i18n'),

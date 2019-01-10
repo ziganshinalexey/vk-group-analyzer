@@ -1,0 +1,169 @@
+stages:
+  - common
+  - validator-pre
+  - cpd
+  - tests
+  - php7.2
+  - validator-manual
+  - validator-post
+  - tag
+
+ci-config-check:
+  stage: common
+  script: /pub/ci/ci_config.py
+
+changelog-check:
+  stage: common
+  script: /pub/ci/changelog.py
+
+validator-pre-php:
+  stage: validator-pre
+  variables:
+    TYPE: pre-php
+  script: /pub/ci/validator.py
+  allow_failure: false
+
+validator-pre-js:
+  stage: validator-pre
+  variables:
+    TYPE: pre-js
+  script: /pub/ci/validator.py
+
+validator-pre-css:
+  stage: validator-pre
+  variables:
+    TYPE: pre-css
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+cpd-php:
+  stage: cpd
+  variables:
+    LANGUAGE: php
+  script: /pub/ci/cpd.py
+  allow_failure: false
+
+phpmnd:
+  stage: cpd
+  script: /pub/ci/mnd.py
+  allow_failure: true
+
+cpd-js:
+  stage: cpd
+  variables:
+    LANGUAGE: es
+  script: /pub/ci/cpd.py
+  allow_failure: true
+
+cpd-css:
+  stage: cpd
+  variables:
+    LANGUAGE: less
+  script: /pub/ci/cpd.py
+  allow_failure: true
+
+tests-exists-api:
+  stage: tests
+  script: /pub/ci/tests_exists_api.py
+
+tests-check-skip:
+  stage: tests
+  script: /pub/ci/tests_check_skip.py
+  allow_failure: true
+
+swagger-legacy:
+  stage: tests
+  script: /pub/ci/api_swagger_legacy.py
+  allow_failure: true
+
+tests-exists-legacy:
+  stage: tests
+  script: /pub/ci/api_tests_exists_legacy.py
+  allow_failure: true
+
+vendors-versions-php7.2:
+  stage: php7.2
+  variables:
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/vendors_versions.py
+  allow_failure: true
+
+php7.2-mysql5.7:
+  stage: php7.2
+  variables:
+    DB_VERSION: 'mysql5.7'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: false
+
+php7.2-mysql8.0:
+  stage: php7.2
+  variables:
+    DB_VERSION: 'mysql8.0'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: false
+
+php7.2-pgsql9.5:
+  stage: php7.2
+  variables:
+    DB_VERSION: 'pgsql9.5'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: false
+
+php7.2-pgsql10:
+  stage: php7.2
+  variables:
+    DB_VERSION: 'pgsql10'
+    PHP_VERSION: 'php7.2'
+  script: /pub/ci/backend.py
+  allow_failure: false
+
+validator-manual-php:
+  stage: validator-manual
+  variables:
+    TYPE: manual-php
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-manual-js:
+  stage: validator-manual
+  variables:
+    TYPE: manual-js
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-manual-css:
+  stage: validator-manual
+  variables:
+    TYPE: manual-css
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-post-php:
+  stage: validator-post
+  variables:
+    TYPE: post-php
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-post-js:
+  stage: validator-post
+  variables:
+    TYPE: post-js
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+validator-post-css:
+  stage: validator-post
+  variables:
+    TYPE: post-css
+  script: /pub/ci/validator.py
+  allow_failure: true
+
+tag:
+  stage: tag
+  script: /pub/ci/tag.py
+  only:
+    - master
