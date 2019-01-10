@@ -20,6 +20,11 @@ class FindForm extends AbstractFindForm
     use KeywordComponentTrait;
     use KeywordAdminComponentTrait;
 
+    public $text;
+    public $ratio;
+    public $coincidenceCount;
+    public $personTypeId;
+
     /**
      * Возвращает объект админского компонента.
      *
@@ -81,6 +86,19 @@ class FindForm extends AbstractFindForm
         if (! $findOperation instanceof MultiFindOperationInterface) {
             throw new InvalidConfigException('$findOperation must implements of MultiFindOperationInterface');
         }
+
+        if ($this->text) {
+            $findOperation->byText((string)$this->text, 'ilike');
+        }
+        if ($this->ratio) {
+            $findOperation->byRatio((int)$this->ratio);
+        }
+        if ($this->coincidenceCount) {
+            $findOperation->byCoincidenceCount((int)$this->coincidenceCount);
+        }
+        if ($this->personTypeId) {
+            $findOperation->byPersonTypeId((int)$this->personTypeId);
+        }
     }
 
     /**
@@ -105,7 +123,7 @@ class FindForm extends AbstractFindForm
                     'personTypeId',
                 ],
                 'integer',
-                'min' => -2147483648,
+                'min' => - 2147483648,
                 'max' => 2147483647,
             ],
             [
