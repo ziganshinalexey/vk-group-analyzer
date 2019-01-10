@@ -48,8 +48,5 @@ $params = [
 </div>
 
 <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <?= Yii::t('Admin.Footer', 'madeIn', 'Made In') ?> <a href="https://userstory.ru/">USERSTORY</a>
-    </div>
-    <strong>©<?= Yii::$app->name . ' ' . Yii::t('Admin.Footer', 'Allrightsreserved', $params); ?></strong>
+    <strong>©<?= 'Лазарев Г. М. @ 2018 – ' . date('Y') ?></strong>
 </footer>
