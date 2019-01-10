@@ -6,7 +6,7 @@ return [
     'items' => [
         'admin' => [
             'keyword' => [
-                'title'      => 'Модуль ключевых фраз (ADMIN-модуль)',
+                'title'      => 'Ключевые фразы',
                 'icon'       => 'fa fa-sitemap',
                 'route'      => '/admin/keyword',
                 'permission' => 'Admin.Keyword.Keyword.List',

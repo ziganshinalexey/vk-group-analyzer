@@ -16,11 +16,8 @@ class m190109_151441_set_default_admin_permissions extends AbstractMigration
      */
     protected $permissionRoleList = [
         'admin' => [
-            'Admin.PersonType.PersonType.Create' => 1,
-            'Admin.PersonType.PersonType.Update' => 1,
-            'Admin.PersonType.PersonType.Delete' => 1,
-            'Admin.PersonType.PersonType.View'   => 1,
-            'Admin.PersonType.PersonType.List'   => 1,
+            'Admin.PersonType.PersonType.View' => 1,
+            'Admin.PersonType.PersonType.List' => 1,
         ],
     ];
 
