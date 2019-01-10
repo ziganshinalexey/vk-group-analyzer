@@ -24,6 +24,13 @@ const store = createStore(
     ),
 );
 
+// const LazyCommonRoutes = React.lazy(() => import('modules/common/routes'));
+// const SuspenseCommonRoutes = () => (
+//     <React.Suspense fallback={<Preloader />}>
+//         <LazyCommonRoutes />
+//     </React.Suspense>
+// );
+
 ReactDOM.render(
     <Provider store={store}>
         <Router history={history}>

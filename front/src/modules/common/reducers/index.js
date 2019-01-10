@@ -1,50 +1,31 @@
+import {ACTION_TYPE} from 'modules/common/constants';
 import {defaultReducer} from 'utils';
 
 export const initialState = {
     data: {},
     isLoading: false,
-    list: [],
 };
 
-const getReducer = {
-    ['@common/get start'](state) {
+const analyzeReducer = {
+    [ACTION_TYPE.ANALYZE_VK_START](state) {
         return {
             ...state,
             isLoading: true,
         };
     },
-    ['@common/get finish'](state, payload) {
+    [ACTION_TYPE.ANALYZE_VK_FINISH](state, payload) {
+        console.log(payload);
         return {
             ...state,
             data: {
                 ...state.data,
-                ...payload.data,
+                ...payload,
             },
             isLoading: false,
-            list: [
-                ...state.list,
-                ...payload.list,
-            ],
         };
     },
 };
 
-const sendReducer = {
-    ['@common/send start'](state) {
-        return {
-            ...state,
-            isLoading: true,
-        };
-    },
-    ['@common/send finish'](state) {
-        return {
-            ...state,
-            isLoading: false,
-        };
-    },
-};
-
-export const commonModuleReducer = defaultReducer(initialState, [
-    getReducer,
-    sendReducer,
-]);
+export const commonModuleReducer = defaultReducer(initialState, {
+    ...analyzeReducer,
+});

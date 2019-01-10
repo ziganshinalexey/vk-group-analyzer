@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import styles from './index.local.less';
+import loader from './loader.svg';
 import logo from './logo.svg';
 
 const SvgIcon = ({className, src: {id}}) => (
@@ -11,4 +12,5 @@ const SvgIcon = ({className, src: {id}}) => (
     </i>
 );
 
+export const LoaderSvg = (props) => <SvgIcon src={loader} {...props} />;
 export const LogoSvg = (props) => <SvgIcon src={logo} {...props} />;
