@@ -209,7 +209,7 @@ class Autoconfig
         foreach ($this->getPrefixesPsr4() as $namespace => $directory) {
             // Если имя пространства имен модуля начинается не с подстроки 'userstory', то перейти к следующему
             // элементу
-            if (0 !== stripos($namespace, 'userstory')) {
+            if (0 !== stripos($namespace, 'userstory') && 0 !== stripos($namespace, 'ziganshinalexey')) {
                 continue;
             }
 
