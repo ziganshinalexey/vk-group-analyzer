@@ -7,8 +7,8 @@ use Userstory\ModuleAdmin\widgets\GridView\GridView;
 use Userstory\ModuleAdmin\widgets\Modal;
 use yii\data\ArrayDataProvider;
 use yii\helpers\Html;
-use Ziganshinalexey\Keyword\dataTransferObjects\keyword\Keyword;
 use Ziganshinalexey\KeywordAdmin\forms\keyword\FindForm;
+use Ziganshinalexey\KeywordAdmin\forms\keyword\ViewForm;
 use Ziganshinalexey\PersonType\components\PersonTypeComponent;
 
 $this->title                   = Yii::t('Admin.Keyword.Keyword', 'title', 'Список ключевых фраз');
@@ -52,10 +52,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'coincidenceCount',
                     [
                         'attribute' => 'personTypeId',
-                        'value'     => function(Keyword $model) {
+                        'value'     => function(ViewForm $form) {
                             /* @var PersonTypeComponent $personTypeComponent */
-                            $personTypeComponent = Yii::$app->get('person-type');
-                            $personType          = $personTypeComponent->findOne()->byId((int)$model->getPersonTypeId())->doOperation();
+                            $personTypeComponent = Yii::$app->get('personType');
+                            $personType          = $personTypeComponent->findOne()->byId((int)$form->getDto()->getPersonTypeId())->doOperation();
                             return $personType ? $personType->getName() : null;
                         },
                     ],

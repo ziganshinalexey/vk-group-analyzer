@@ -177,10 +177,8 @@ class KeywordController extends AbstractController
         $model->setDto($item);
 
         return $this->defaultRender([
-            'personType'        => $this->getPersonTypeComponent()->findOne()->byId($item->getPersonTypeId())->doOperation(),
-            'creatorIdRelation' => $this->getUserProfileComponent()->findById($item->getCreatorId()),
-            'updaterIdRelation' => $this->getUserProfileComponent()->findById($item->getUpdaterId()),
-            'model'             => $model,
+            'personType' => $this->getPersonTypeComponent()->findOne()->byId($item->getPersonTypeId())->doOperation(),
+            'model'      => $model,
         ]);
     }
 
