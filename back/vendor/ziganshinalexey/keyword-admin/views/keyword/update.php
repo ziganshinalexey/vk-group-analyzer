@@ -6,7 +6,7 @@ use Userstory\CompetingViewAdmin\widgets\CompetingViewWidget;
 use Ziganshinalexey\KeywordAdmin\forms\keyword\UpdateForm;
 use Ziganshinalexey\PersonType\dataTransferObjects\persontype\PersonType;
 
-$this->title                   = Yii::t('Admin.Keyword.Keyword', 'updateKeyword', 'Обновить "Ключевое фраза"');
+$this->title                   = Yii::t('Admin.Keyword.Keyword', 'updateKeyword', 'Обновить ключевую фразу');
 $this->params['breadcrumbs'][] = [
     'label' => 'Keyword',
     'url'   => ['index'],

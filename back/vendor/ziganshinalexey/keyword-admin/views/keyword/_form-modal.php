@@ -34,7 +34,7 @@ $form = ActiveForm::begin([
         </button>
         
         <h4 class="modal-title">
-            <?= Yii::t('Admin.Keyword.Keyword', 'titleAddModal', 'Создать "Ключевое фраза"'); ?>
+            <?= Yii::t('Admin.Keyword.Keyword', 'titleAddModal', 'Создать ключевую фразу"'); ?>
         </h4>
     </div>
 
@@ -61,7 +61,7 @@ $form = ActiveForm::begin([
 
     <div class="modal-footer">
     <?php
-    echo $form->submitButton(Yii::t('Admin.Keyword.Keyword', 'addKeyword', 'Создать "Ключевое фраза"'), ['class' => 'btn btn-primary']);
+    echo $form->submitButton(Yii::t('Admin.Keyword.Keyword', 'addKeyword', 'Создать ключевую фразу"'), ['class' => 'btn btn-primary']);
 
     echo Html::a(Yii::t('Admin.Keyword.Keyword', 'closeAddModal', 'Закрыть'), ['keyword/index'], [
         'class'        => 'btn btn-default pull-left',

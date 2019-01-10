@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 use Ziganshinalexey\KeywordAdmin\forms\keyword\ViewForm;
 use Ziganshinalexey\PersonType\dataTransferObjects\persontype\PersonType;
 
-$this->title                   = Yii::t('Admin.Keyword.Keyword', 'view', 'Ключевое фраза X');
+$this->title                   = Yii::t('Admin.Keyword.Keyword', 'view', 'Ключевая фраза');
 $this->params['breadcrumbs'][] = [
     'label' => Yii::t('Admin.Keyword.Keyword', 'title', 'Список Ключевое фраза'),
     'url'   => ['index'],
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'personTypeId' => [
                         'attribute' => 'personTypeId',
                         'value'     => function() use ($personType) {
-                           return $personType->getId();
+                            return $personType->getId();
                         },
                     ],
                 ],

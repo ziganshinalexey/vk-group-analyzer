@@ -27,7 +27,7 @@ $form = ActiveForm::begin([
 
             ?>
             <h3 class="box-title">
-                <?= Yii::t('Admin.Keyword.Keyword', 'titleUpdate', 'Редактировать "Ключевое фраза"'); ?>
+                <?= Yii::t('Admin.Keyword.Keyword', 'titleUpdate', 'Редактировать ключевую фразу"'); ?>
             </h3>
             <?php
             echo $form->field($model, 'text')->widget(TinyMce::class, [

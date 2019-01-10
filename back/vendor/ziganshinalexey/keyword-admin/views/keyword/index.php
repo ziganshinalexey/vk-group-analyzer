@@ -11,7 +11,7 @@ use Ziganshinalexey\Keyword\dataTransferObjects\keyword\Keyword;
 use Ziganshinalexey\KeywordAdmin\forms\keyword\FindForm;
 use Ziganshinalexey\PersonType\components\PersonTypeComponent;
 
-$this->title                   = Yii::t('Admin.Keyword.Keyword', 'title', 'Список Ключевое фраза');
+$this->title                   = Yii::t('Admin.Keyword.Keyword', 'title', 'Список ключевых фраз');
 $this->params['contentTitle']  = $this->title;
 $this->params['breadcrumbs'][] = $this->title;
 

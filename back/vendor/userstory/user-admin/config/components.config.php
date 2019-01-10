@@ -4,13 +4,13 @@ use Userstory\ComponentBase\interfaces\ComponentWithFactoryInterface;
 use Userstory\UserAdmin\components\UserAdminComponent;
 use Userstory\UserAdmin\factories\UserAdminFactory as ModelsFactory;
 use Userstory\UserAdmin\forms\LoginForm;
-use Userstory\UserAdmin\forms\RecoveryForm;
-use Userstory\UserAdmin\operations\NotifyOperation;
-use Userstory\UserAdmin\operations\CommonOperation;
 use Userstory\UserAdmin\forms\PermissionForm;
+use Userstory\UserAdmin\forms\RecoveryForm;
 use Userstory\UserAdmin\forms\RoleForm;
-use yii\data\ActiveDataProvider;
 use Userstory\UserAdmin\forms\UserProfileForm;
+use Userstory\UserAdmin\operations\CommonOperation;
+use Userstory\UserAdmin\operations\NotifyOperation;
+use yii\data\ActiveDataProvider;
 
 return [
     'userAdmin'     => [
@@ -71,24 +71,6 @@ return [
     'urlManager'    => [
         'rules' => [
             'admin/profile' => 'profile',
-        ],
-    ],
-    'menu'          => [
-        'items' => [
-            'admin' => [
-                'user'      => [
-                    'title'      => 'Пользователи',
-                    'icon'       => 'fa fa-user',
-                    'route'      => '/admin/user',
-                    'permission' => 'User.Profile.Read',
-                ],
-                'auth-role' => [
-                    'title'      => 'Роли',
-                    'icon'       => 'fa fa-cogs',
-                    'route'      => '/admin/auth-role',
-                    'permission' => 'User.Role.Read',
-                ],
-            ],
         ],
     ],
 ];

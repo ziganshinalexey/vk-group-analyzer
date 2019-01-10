@@ -6,7 +6,7 @@ use Ziganshinalexey\KeywordAdmin\forms\keyword\CreateForm;
 use Ziganshinalexey\PersonType\dataTransferObjects\persontype\PersonType;
 
 $this->context->layout         = false;
-$this->title                   = Yii::t('Admin.Keyword.Keyword', 'addKeyword', 'Создать "Ключевое фраза"');
+$this->title                   = Yii::t('Admin.Keyword.Keyword', 'addKeyword', 'Создать ключевую фразу');
 $this->params['breadcrumbs'][] = [
     'label' => 'Keyword',
     'url'   => ['index'],
