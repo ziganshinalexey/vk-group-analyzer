@@ -53,7 +53,7 @@ class FindForm extends AbstractFindForm
                 'pageSize' => 10,
             ],
             'sort'       => [
-                'attributes' => [],
+                'attributes' => ['name'],
             ],
         ]);
     }
@@ -99,6 +99,7 @@ class FindForm extends AbstractFindForm
         if ($this->personTypeId) {
             $findOperation->byPersonTypeId((int)$this->personTypeId);
         }
+        $findOperation->sortById();
     }
 
     /**

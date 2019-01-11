@@ -2,7 +2,6 @@
 
 declare(strict_types = 1);
 
-use Userstory\CompetingViewAdmin\widgets\CompetingViewWidget;
 use Ziganshinalexey\KeywordAdmin\forms\keyword\UpdateForm;
 use Ziganshinalexey\PersonType\dataTransferObjects\persontype\PersonType;
 
@@ -12,12 +11,6 @@ $this->params['breadcrumbs'][] = [
     'url'   => ['index'],
 ];
 $this->params['breadcrumbs'][] = $this->title;
-
-/* @noinspection PhpUnhandledExceptionInspection */
-CompetingViewWidget::widget([
-    'entity' => 'keyword',
-    'eid'    => $model->id,
-]);
 ?>
 
 <div class="update">

@@ -56,7 +56,9 @@ class KeywordDatabaseHydrator implements HydratorInterface
         $object->setText((string)$data['text']);
         $object->setRatio((int)$data['ratio']);
         $object->setCoincidenceCount((int)$data['coincidenceCount']);
-        $object->setPersonTypeId((int)$data['personTypeId']);
+        if (isset($data['personTypeId'])) {
+            $object->setPersonTypeId((int)$data['personTypeId']);
+        }
 
         return $object;
     }

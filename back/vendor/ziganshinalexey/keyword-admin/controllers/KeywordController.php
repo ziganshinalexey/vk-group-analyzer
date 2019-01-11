@@ -111,8 +111,9 @@ class KeywordController extends AbstractController
         $provider = $form->run($params);
 
         return $this->defaultRender([
-            'dataProvider' => $provider,
-            'searchModel'  => $form,
+            'dataProvider'   => $provider,
+            'personTypeList' => $this->getPersonTypeComponent()->findMany()->sortById()->doOperation(),
+            'searchModel'    => $form,
         ]);
     }
 
