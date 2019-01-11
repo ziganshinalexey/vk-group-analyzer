@@ -61,7 +61,7 @@ class AnalyzeForm extends Model
      */
     public function customVkUrlValidate(string $attribute): void
     {
-        if (false === preg_match('/^https:\/\/vk.com\/[a-z0-9_]{5,32}$/i', $this->$attribute)) {
+        if (! preg_match('/^https:\/\/vk.com\/[a-z0-9_]{5,32}$/i', $this->$attribute)) {
             $this->addError($attribute, 'Ссылка неверно указана.');
         }
     }

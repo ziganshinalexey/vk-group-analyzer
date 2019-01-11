@@ -2967,5 +2967,45 @@
             "proprietary"
         ],
         "description": "Модуль типов личностей (REST-модуль)"
+    },
+    {
+        "name": "ziganshinalexey/yii2-vk-api",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ziganshinalexey/yii2-vk-api.git",
+            "reference": "9d0b716c4a2a45f6d320500d3731acad0022ae2e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ziganshinalexey/yii2-vk-api/zipball/9d0b716c4a2a45f6d320500d3731acad0022ae2e",
+            "reference": "9d0b716c4a2a45f6d320500d3731acad0022ae2e",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "~7.2.0",
+            "userstory/component-autoconfig": ">=0.2.3 <1.0",
+            "yiisoft/yii2": "~2.0.15"
+        },
+        "time": "2019-01-11T10:01:50+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Ziganshinalexey\\Yii2VkApi\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "proprietary"
+        ],
+        "description": "Модуль api vk"
     }
 ]

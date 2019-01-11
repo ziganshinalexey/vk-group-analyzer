@@ -4,7 +4,11 @@ declare(strict_types = 1);
 
 namespace app\api\v1\actions\vk;
 
+use app\api\v1\forms\vk\AnalyzeForm;
+use ReflectionException;
 use Userstory\ComponentApiServer\actions\AbstractApiAction;
+use yii;
+use yii\base\InvalidConfigException;
 
 /**
  * Класс AnalyzeAction Реализующий апи действие.
@@ -20,10 +24,21 @@ class AnalyzeAction extends AbstractApiAction
      * @inherit
      *
      * @return array
+     *
+     * @throws InvalidConfigException Если форматтер не указан.
+     * @throws ReflectionException Если при форматировании произошла беда.
      */
     public function run(array $routeParams = [], array $queryParams = []): array
     {
-        return [];
+        $form = new AnalyzeForm();
+        $form->load(Yii::$app->request->post(), '');
+
+        if (null === $data = $form->run()) {
+            $this->addModelErrors($form->getErrors(), false);
+            return [];
+        }
+
+        return $this->getFormatter()->format($data);
     }
 
     /**
