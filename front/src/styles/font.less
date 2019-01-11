@@ -1,9 +1,0 @@
-.generate-font(32);
-
-.generate-font(@n, @i: 0) when (@i =< @n) {
-    .fs-@{i} {
-        font-size: ~'@{i}px';
-    }
-
-    .generate-font(@n, (@i + 1));
-}

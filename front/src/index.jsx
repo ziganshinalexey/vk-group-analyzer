@@ -9,7 +9,7 @@ import {Router} from 'react-router';
 import {Switch} from 'react-router-dom';
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import './index.less';
+// import './index.less';
 
 const history = createBrowserHistory();
 const mainReducer = combineReducers({

@@ -67,10 +67,8 @@ function getCssLoader(options = {}, loaders = []) {
     return [isProd ? MiniCssExtractPlugin.loader : 'style-loader', {loader: 'css-loader', options}, 'postcss-loader', ...loaders];
 }
 
-const cssLocalIdentName = isProd ? '[hash:base64]' : '[path][name]__[local]--[hash:base64:8]';
-
 module.exports = {
-    context: paths.src,
+    context: path.resolve(__dirname),
     devServer: {
         contentBase: paths.public,
         disableHostCheck: true,
@@ -80,17 +78,27 @@ module.exports = {
     },
     devtool: isProd ? 'source-map' : 'cheap-module-source-map',
     entry: {
-        main: ['./index.less', './index'],
+        main: ['./dist/build/css/atom.min.css', './src/styles.less', './src/index.jsx'],
     },
     module: {
         rules: [
+            {
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                loader: 'webpack-atomizer-loader',
+                query: {
+                    minimize: true,
+                    configPath: [
+                        path.resolve('./atomCssConfig.js'),
+                    ],
+                },
+            },
             {
                 exclude: /node_modules/,
                 test: /\.(js|jsx)$/,
                 use: ['babel-loader'],
             },
             {
-                exclude: /\.local\.css$/,
                 test: /\.css$/,
                 use: getCssLoader({
                     importLoaders: 1,
@@ -98,16 +106,6 @@ module.exports = {
                 }),
             },
             {
-                test: /\.local\.css$/,
-                use: getCssLoader({
-                    importLoaders: 1,
-                    localIdentName: cssLocalIdentName,
-                    modules: true,
-                    sourceMap: true,
-                }),
-            },
-            {
-                exclude: /\.local\.less$/,
                 test: /\.less$/,
                 use: getCssLoader(
                     {
@@ -121,26 +119,7 @@ module.exports = {
                                 javascriptEnabled: true,
                             },
                         },
-                    ]
-                ),
-            },
-            {
-                test: /\.local\.less$/,
-                use: getCssLoader(
-                    {
-                        importLoaders: 1,
-                        localIdentName: cssLocalIdentName,
-                        modules: true,
-                        sourceMap: true,
-                    },
-                    [
-                        {
-                            loader: 'less-loader',
-                            options: {
-                                javascriptEnabled: true,
-                            },
-                        },
-                    ]
+                    ],
                 ),
             },
             {

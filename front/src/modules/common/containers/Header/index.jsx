@@ -1,15 +1,14 @@
 import {LogoSvg} from 'modules/common/components/Svg';
 import * as React from 'react';
-import styles from './index.local.less';
 
 export class Header extends React.Component {
     render() {
         return (
-            <div className="d-f ai-c p-10 bgc-primary">
+            <div className="D(f) Ai(c) P(10px) Bgc(#ffa6bd)">
                 <div>
-                    <LogoSvg className={styles.logo} />
+                    <LogoSvg className="H(60px) W(60px)" />
                 </div>
-                <div className="fg-1 fs-24 pl-20 pr-20">
+                <div className="Fxg(1) Fz(24px) Pstart(20px) Pend(20px)">
                     Гуманитарий или технарь?
                 </div>
             </div>

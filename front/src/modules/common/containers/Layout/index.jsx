@@ -5,9 +5,9 @@ import * as React from 'react';
 export class Layout extends React.Component {
     render() {
         return (
-            <div className="d-f fd-c h-full">
+            <div className="D(f) Fxd(c) H(100%)">
                 <Header />
-                <div className="fg-1">{this.props.children}</div>
+                <div className="Fxg(1)">{this.props.children}</div>
                 <Footer />
             </div>
         );

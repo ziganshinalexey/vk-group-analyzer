@@ -14,7 +14,7 @@ function getVkResultFinish({payload}) {
     };
 }
 
-export function getVkResult({link}) {
+export function getVkResult(data) {
     return (dispatch) => {
         const req = new XMLHttpRequest();
 
@@ -32,8 +32,6 @@ export function getVkResult({link}) {
             dispatch(getVkResultFinish({payload: parsedRes}));
         });
         req.open('POST', '/v1/analyze-vk');
-        req.send({
-            link,
-        });
+        req.send(JSON.stringify(data));
     };
 }

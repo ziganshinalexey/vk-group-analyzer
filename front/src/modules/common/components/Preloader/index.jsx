@@ -31,7 +31,7 @@ export class Preloader extends React.Component {
 
     render() {
         return (
-            <div className="h-full d-f ai-c jc-c" dangerouslySetInnerHTML={{__html: `Loading${this.renderDots()}`}} />
+            <div className="H(100%) D(f) Ai(c) Jc(c)" dangerouslySetInnerHTML={{__html: `Loading${this.renderDots()}`}} />
         );
     }
 }

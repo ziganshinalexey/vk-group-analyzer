@@ -1,12 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
-import styles from './index.local.less';
 import loader from './loader.svg';
 import logo from './logo.svg';
 
 const SvgIcon = ({className, src: {id}}) => (
-    <i className={cn(styles.container, className)}>
-        <svg>
+    <i className={cn('D(ib) H(1em) W(1em)', className)}>
+        <svg className="H(100%) W(100%)">
             <use xlinkHref={`#${id}`} />
         </svg>
     </i>
