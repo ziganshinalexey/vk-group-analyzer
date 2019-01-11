@@ -19,6 +19,7 @@ return array(
     'rmrevin\\yii\\fontawesome\\' => array($vendorDir . '/rmrevin/yii2-fontawesome'),
     'dosamigos\\tinymce\\' => array($vendorDir . '/2amigos/yii2-tinymce-widget/src'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
+    'Ziganshinalexey\\Yii2VkApi\\' => array($vendorDir . '/ziganshinalexey/yii2-vk-api'),
     'Ziganshinalexey\\PersonType\\' => array($vendorDir . '/ziganshinalexey/person-type'),
     'Ziganshinalexey\\PersonTypeRest\\' => array($vendorDir . '/ziganshinalexey/person-type-rest'),
     'Ziganshinalexey\\PersonTypeAdmin\\' => array($vendorDir . '/ziganshinalexey/person-type-admin'),

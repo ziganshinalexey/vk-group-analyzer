@@ -35,7 +35,8 @@
         "ziganshinalexey/person-type-admin": "^1.0",
         "ziganshinalexey/person-type-rest": "^1.0",
         "userstory/user-admin": "^1.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "ziganshinalexey/yii2-vk-api": "^1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

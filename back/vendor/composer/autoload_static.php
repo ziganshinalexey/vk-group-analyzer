@@ -97,6 +97,7 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         ),
         'Z' => 
         array (
+            'Ziganshinalexey\\Yii2VkApi\\' => 26,
             'Ziganshinalexey\\PersonType\\' => 27,
             'Ziganshinalexey\\PersonTypeRest\\' => 31,
             'Ziganshinalexey\\PersonTypeAdmin\\' => 32,
@@ -200,6 +201,10 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
+        ),
+        'Ziganshinalexey\\Yii2VkApi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ziganshinalexey/yii2-vk-api',
         ),
         'Ziganshinalexey\\PersonType\\' => 
         array (
