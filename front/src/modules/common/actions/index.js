@@ -31,8 +31,9 @@ export function getVkResult(data) {
 
             dispatch(getVkResultFinish({payload: parsedRes}));
         });
-        req.open('POST', '/api/v1/analyze');
+        req.open('POST', 'http://person-analyzer.local/api/v1/analyze');
         req.setRequestHeader('x-http-method-override', 'GET');
+        req.withCredentials = true;
         req.send(JSON.stringify(data));
     };
 }

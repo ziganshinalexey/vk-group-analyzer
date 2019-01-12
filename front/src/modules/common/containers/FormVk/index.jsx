@@ -2,7 +2,7 @@ import {getVkResult} from 'modules/common/actions';
 import {Button} from 'modules/common/components/Button';
 import {Field} from 'modules/common/components/Field';
 import {Input} from 'modules/common/components/Input';
-import {getCommonModuleIsLoading, getCommonModuleState} from 'modules/common/selectors';
+import {getCommonModuleIsLoading} from 'modules/common/selectors';
 import {createForm} from 'rc-form';
 import * as React from 'react';
 import {connect} from 'react-redux';
@@ -35,9 +35,9 @@ class FormVk extends React.Component {
             <div>
                 <Field
                     component={Input}
-                    errors={errors['link']}
+                    errors={errors['vkUrl']}
                     type="text"
-                    {...getFieldProps('link', {
+                    {...getFieldProps('vkUrl', {
                         initialValue: '',
                         rules: [{
                             message: 'Это поле обязательное!',
@@ -45,15 +45,13 @@ class FormVk extends React.Component {
                         }],
                     })}
                 />
-                <p>
-                    <Button
-                        disabled={isLoading}
-                        onClick={this.handleSubmit}
-                        type="button"
-                    >
-                        Анализировать
-                    </Button>
-                </p>
+                <Button
+                    disabled={isLoading}
+                    onClick={this.handleSubmit}
+                    type="button"
+                >
+                    Анализировать
+                </Button>
             </div>
         );
     }
