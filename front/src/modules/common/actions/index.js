@@ -31,7 +31,8 @@ export function getVkResult(data) {
 
             dispatch(getVkResultFinish({payload: parsedRes}));
         });
-        req.open('POST', '/v1/analyze-vk');
+        req.open('POST', '/api/v1/analyze');
+        req.setRequestHeader('x-http-method-override', 'GET');
         req.send(JSON.stringify(data));
     };
 }

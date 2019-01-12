@@ -9,6 +9,13 @@ module.exports = {
             md: '@media screen and (min-width: 1000px)',
             lg: '@media screen and (min-width: 1200px)'
         },
-        classNames: []
+        classNames: [],
+        custom: {
+            'Ff(roboto)': '"Roboto", sans-serif',
+            'cPrimary': '#ffa6bd',
+            'cPrimaryDark': '#cc8598',
+            'cError': '#ff0000',
+            'cText': '#000000'
+        }
     }
 };

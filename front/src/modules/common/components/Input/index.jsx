@@ -8,24 +8,28 @@ export class Input extends React.Component {
         return (
             <input
                 {...restProps}
-                className={cn('Bgc(#ffffff) ' +
+                className={cn(
+                    'Bgc(#ffffff) ' +
                     'Bdw(2px) ' +
-                    'Bdc(#ffa6bd) ' +
-                    'Bdc(#cc8598):a ' +
+                    'Bdc(cPrimary) ' +
+                    'Bdc(cPrimaryDark):a ' +
                     'Bds(s) ' +
                     'Cur(t) ' +
-                    'C(#000000) ' +
-                    'Ff("Roboto", sans-serif) ' +
+                    'C(cText) ' +
+                    'Ff(roboto) ' +
                     'Fz(14px) ' +
                     'Fw(300) ' +
                     'H(40px) ' +
                     'P(10px) ' +
-                    'Ta(l) ' +
-                    'Trs("opacity 0.5s ease") ' +
+                    'Ta(start) ' +
+                    'Trsp(a) ' +
+                    'Trsdu(.5s) ' +
+                    'Trstf(e) ' +
                     'Miw(300px) ' +
                     'Op(.8):h ' +
-                    'O(n):f' +
-                    '', className)}
+                    'Op(.5)!:di ' +
+                    'O(n):f',
+                    className)}
             />
         );
     }

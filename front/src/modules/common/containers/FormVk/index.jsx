@@ -47,7 +47,7 @@ class FormVk extends React.Component {
                 />
                 <p>
                     <Button
-                        loading={isLoading}
+                        disabled={isLoading}
                         onClick={this.handleSubmit}
                         type="button"
                     >

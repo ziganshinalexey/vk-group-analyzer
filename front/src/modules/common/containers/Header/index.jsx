@@ -4,7 +4,7 @@ import * as React from 'react';
 export class Header extends React.Component {
     render() {
         return (
-            <div className="D(f) Ai(c) P(10px) Bgc(#ffa6bd)">
+            <div className="D(f) Ai(c) P(10px) Bgc(cPrimary)">
                 <div>
                     <LogoSvg className="H(60px) W(60px)" />
                 </div>
