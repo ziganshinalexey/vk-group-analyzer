@@ -25,5 +25,5 @@ interface WithHttpClientInterface
      *
      * @return static
      */
-    public function setHttpClient(Client $httpClient): self;
+    public function setHttpClient(Client $httpClient);
 }
