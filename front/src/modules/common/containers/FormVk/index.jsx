@@ -37,6 +37,7 @@ class FormVk extends React.Component {
                     component={Input}
                     errors={errors['vkUrl']}
                     type="text"
+                    placeholder="https://vk.com/id"
                     {...getFieldProps('vkUrl', {
                         initialValue: '',
                         rules: [{
