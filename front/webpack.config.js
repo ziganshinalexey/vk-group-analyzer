@@ -78,21 +78,10 @@ module.exports = {
     },
     devtool: isProd ? 'source-map' : 'cheap-module-source-map',
     entry: {
-        main: ['./dist/build/css/atom.min.css', './src/styles.less', './src/index.jsx'],
+        main: ['./src/styles.less', './src/index.jsx'],
     },
     module: {
         rules: [
-            {
-                test: /\.jsx$/,
-                exclude: /node_modules/,
-                loader: 'webpack-atomizer-loader',
-                query: {
-                    minimize: true,
-                    configPath: [
-                        path.resolve('./atomCssConfig.js'),
-                    ],
-                },
-            },
             {
                 exclude: /node_modules/,
                 test: /\.(js|jsx)$/,

@@ -1,9 +1,25 @@
 import * as React from 'react';
+import injectSheet from 'react-jss';
 
-export class Footer extends React.Component {
+const styles = (theme) => ({
+    container: {
+        backgroundColor: theme.COLOR_PRIMARY,
+        textAlign: 'center',
+        fontSize: 12,
+        padding: 10,
+    },
+});
+
+class Footer extends React.Component {
     render() {
+        const {classes} = this.props;
+
         return (
-            <div className="Ta(c) Fz(12px) P(10px) Bgc(cPrimary)">Лазарев Г. М. @ 2018 – {new Date().getFullYear()}</div>
+            <div className={classes.container}>Лазарев Г. М. @ 2018 – {new Date().getFullYear()}</div>
         );
     }
 }
+
+const styledFooter = injectSheet(styles)(Footer);
+
+export {styledFooter as Footer};

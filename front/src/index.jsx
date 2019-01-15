@@ -9,7 +9,8 @@ import {Router} from 'react-router';
 import {Switch} from 'react-router-dom';
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-// import './index.less';
+import {THEME} from 'utils/constants';
+import {ThemeProvider} from 'react-jss';
 
 const history = createBrowserHistory();
 const mainReducer = combineReducers({
@@ -33,11 +34,13 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={history}>
-            <Switch>
-                <CommonRoutes />
-            </Switch>
-        </Router>
+        <ThemeProvider theme={THEME}>
+            <Router history={history}>
+                <Switch>
+                    <CommonRoutes />
+                </Switch>
+            </Router>
+        </ThemeProvider>
     </Provider>,
     document.getElementById('root'),
 );

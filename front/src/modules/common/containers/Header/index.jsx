@@ -1,17 +1,43 @@
 import {LogoSvg} from 'modules/common/components/Svg';
 import * as React from 'react';
+import injectSheet from 'react-jss';
 
-export class Header extends React.Component {
+const styles = (theme) => ({
+    container: {
+        alignItems: 'center',
+        backgroundColor: theme.COLOR_PRIMARY,
+        display: 'flex',
+        padding: 10,
+    },
+    logo: {
+        height: 60,
+        width: 60,
+    },
+    title: {
+        flexGrow: 1,
+        fontSize: 24,
+        paddingLeft: 20,
+        paddingRight: 20,
+    },
+});
+
+class Header extends React.Component {
     render() {
+        const {classes} = this.props;
+
         return (
-            <div className="D(f) Ai(c) P(10px) Bgc(cPrimary)">
+            <div className={classes.container}>
                 <div>
-                    <LogoSvg className="H(60px) W(60px)" />
+                    <LogoSvg className={classes.logo} />
                 </div>
-                <div className="Fxg(1) Fz(24px) Pstart(20px) Pend(20px)">
+                <div className={classes.title}>
                     Гуманитарий или технарь?
                 </div>
             </div>
         );
     }
 }
+
+const styledHeader = injectSheet(styles)(Header);
+
+export {styledHeader as Header};
