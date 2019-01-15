@@ -8,11 +8,12 @@ use Userstory\ComponentHydrator\interfaces\ObjectWithDtoHydratorInterface;
 use Userstory\Yii2Dto\interfaces\results\DtoListResultInterface;
 use Userstory\Yii2Dto\interfaces\WithDtoInterface;
 use Userstory\Yii2Dto\interfaces\WithDtoListResultInterface;
+use Ziganshinalexey\Yii2VkApi\interfaces\WithHttpClientInterface;
 
 /**
  * Интерфейс операции, реализующей логику поиска сущности.
  */
-interface MultiFindOperationInterface extends WithDtoInterface, WithDtoListResultInterface, ObjectWithDtoHydratorInterface
+interface MultiFindOperationInterface extends WithDtoInterface, WithDtoListResultInterface, ObjectWithDtoHydratorInterface, WithHttpClientInterface
 {
     /**
      * Метод задает идентификатор пользователя.

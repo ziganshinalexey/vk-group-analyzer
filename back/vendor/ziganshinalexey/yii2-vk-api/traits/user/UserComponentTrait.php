@@ -30,7 +30,7 @@ trait UserComponentTrait
     public function getUserComponent(): ComponentInterface
     {
         if (! $this->userComponent) {
-            $this->userComponent = Yii::$app->get('user');
+            $this->userComponent = Yii::$app->get('vkUser');
         }
         return $this->userComponent;
     }

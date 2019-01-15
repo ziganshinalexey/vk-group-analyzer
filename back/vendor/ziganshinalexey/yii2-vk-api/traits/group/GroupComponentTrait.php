@@ -30,7 +30,7 @@ trait GroupComponentTrait
     public function getGroupComponent(): ComponentInterface
     {
         if (! $this->groupComponent) {
-            $this->groupComponent = Yii::$app->get('group');
+            $this->groupComponent = Yii::$app->get('vkGroup');
         }
         return $this->groupComponent;
     }
