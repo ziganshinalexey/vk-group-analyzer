@@ -1,0 +1,167 @@
+packageNamespace: ziganshinalexey/yii2-vk-api
+packageTitle: Модуль работы с апи vk
+type: logic
+tables:
+  users:
+    __options:
+      type: entity
+      entityName: User
+      entityTitle: ВК пользователь
+      tableComment: Пользователи
+      tableUseTableAlias: true
+      tableAllowExistsTable: false
+      tableAppendSystemFields: false
+      createTableMigration: migrations/m190115_110052_create_user_table.php
+    id:
+      type: primaryKey
+      comment: Идентификатор
+    firstName:
+      type: string
+      size: 255
+      "null": true
+      comment: Имя
+    lastName:
+      type: string
+      size: 255
+      "null": true
+      comment: Фамилия
+    universityName:
+      type: string
+      size: 255
+      "null": true
+      comment: Университет
+    facultyName:
+      type: string
+      size: 255
+      "null": true
+      comment: Факультет
+    photo:
+      type: string
+      size: 255
+      "null": true
+      comment: Факультет
+    __relations: []
+  group:
+    __options:
+      type: entity
+      entityName: Group
+      entityTitle: ВК группа
+      tableComment: Группа
+      tableUseTableAlias: true
+      tableAllowExistsTable: false
+      tableAppendSystemFields: false
+      createTableMigration: migrations/m190115_110053_create_group_table.php
+    id:
+      type: primaryKey
+      comment: Идентификатор
+    name:
+      type: string
+      size: 255
+      "null": true
+      comment: Название
+    activity:
+      type: string
+      size: 255
+      "null": true
+      comment: Название
+    description:
+      type: text
+      "null": true
+      comment: Название
+    __relations: []
+admin:
+  users:
+    fieldTypes: []
+    indexColumns: []
+    viewPage: []
+  group:
+    fieldTypes: []
+    indexColumns: []
+    viewPage: []
+fileHashList:
+  Autoconfig.php: 84cd374cf185528f0df5ba92ed9dc0f381a9616285e386ad852f315ae5f5d4f4
+  interfaces/user/ComponentInterface.php: d234740bf05a029715f5b7ae5a765800dde333369ae295c61dcbad3d01795534
+  interfaces/user/QueryInterface.php: 92be7ba9d20c87b73c53c9992286c9de9ff98d723f8e857f6ec2dcc7a71c1073
+  interfaces/user/FactoryInterface.php: a36050f301f3e0f1d8c8b598c89908e545831ef4dce89b7e080e96b538f4d063
+  interfaces/user/dto/OperationListResultInterface.php: 8f557d3cb19b8e2e3f9e8185de735ccf686b19fb1a64f0c8c104ba2338096170
+  interfaces/user/dto/OperationResultInterface.php: e0167b13ea1ce88a01eab7c2f62fb2b23593ec29a1c57da7985bfc3902903f7e
+  interfaces/user/operations/BaseFindOperationInterface.php: 466abf8e5a1cf98f16e805d51cbbe3b8e6d25a9adfa2016398df7ac8e394ddbf
+  interfaces/user/operations/MultiDeleteOperationInterface.php: 40ff674bc4a440b8f1603df3388f2eb68c0b613724eb1d1d8f39effbf4bb88de
+  interfaces/user/operations/MultiFindOperationInterface.php: 0711065c764e139b3d7504fd35ae19c4d409a064ff6b64560e55341aab88c861
+  interfaces/user/operations/SingleCreateOperationInterface.php: 7caabfdd332c197c3329bb32070a5324e41351087d57f5fd29721990ad3b9584
+  interfaces/user/operations/SingleFindOperationInterface.php: 4d8e9db279a4c503a2a3cfd1dd6c9ae50edf603c683a9253a3a03b9de3283f0b
+  interfaces/user/operations/SingleUpdateOperationInterface.php: 7cd0efe4331292d2da02697d61a0bc8a0bbc05af53ad8e8d09d415c858ac0824
+  interfaces/user/filters/BaseFilterInterface.php: 742ea66a1508ff9c9b6ee9c5f609a5fe3dd83f9c8f80d92e1de84c1bce72623a
+  interfaces/user/filters/BaseFilterOperationInterface.php: ea5282f298bc5a7cb59d9acc661922fa1a2c6674e3d5b413fb22b5a8679e5e23
+  interfaces/user/filters/MultiFilterInterface.php: 143e510a5fbca9036380e2643339f881aae9bcd451cc5fbd43b8c7d00a6e19c6
+  interfaces/user/filters/MultiFilterOperationInterface.php: 3e50560acd1e281b38c95ff36c75f4534b069038e0bced5822eedae7313795a8
+  interfaces/user/filters/SingleFilterInterface.php: 7d53454b6a1d6e4021f0ec7e4b8cad57379213fde4ab9f984a7b4e9ecb38eb89
+  interfaces/user/filters/SingleFilterOperationInterface.php: 400507696b7ca14cedb05b2297bd822fbd46104e097a50ebb2988f0bd86f6fa5
+  migrations/m190115_110052_create_user_table.php: bbae3e77c3d218517ed712d018d3b7b9bf236930b8f7eef59d464725bc6a0d90
+  queries/UserQuery.php: ddd5d4679994da31256bcd98af29d24050adf8ad7e11ae2551e1de477d27b804
+  entities/UserActiveRecord.php: 643efeb42c700588ef4158a57072196feb3dd1f1f4678edeedf8fa870eb418b8
+  dataTransferObjects/user/OperationResult.php: 788ea5844b3645f752690a13205cda1550115ed8090791bd4c000fde560ad670
+  dataTransferObjects/user/OperationListResult.php: ecab06a69d5cb3826bd775a02f971750ba21d313dd31b6be88054c8346fea4d9
+  hydrators/UserDatabaseHydrator.php: a5caa5e7fe86b14bae2d8b0f031a92b3579c664e3a34253aed02f90a726342d4
+  traits/user/DatabaseHydratorTrait.php: cdec118c55f3e7390b801dbac0a411bb5527aa4dd47f7cb6a6e372cd2ca4584a
+  traits/user/UserComponentTrait.php: 04026493c196e485fc631b3a9844f1359d227f2fbccd03f7d8a0a915375925fc
+  factories/UserFactory.php: 1ee816389248fc5e37c9b40ab1f858e72dd1699285d63bfab111dfd847d53494
+  operations/user/SingleUpdateOperation.php: 27a5e5831cdaedb37807e1dfffd374e8b9f8e7e5290129e068a92f8d699403c4
+  operations/user/MultiDeleteOperation.php: dbd6e00fcf4313c604a6ba5fa1e33d28d8bd136d07dd69092942a1facf9ded30
+  operations/user/SingleCreateOperation.php: 1d8b4e88fb9ad0e608a0571494376494b72fe9e6086da73b60b0925d2dd34e53
+  operations/user/BaseFindOperation.php: cd85d0b08deb44b02537baf80ff43b49b2f35bf39d9bb2701eb1dd33124ab835
+  operations/user/SingleFindOperation.php: 182ff1817fe08a9b6e4fc3a954c0075bae1f45acf25db7808026fd1d0b2a200a
+  operations/user/MultiFindOperation.php: f3e14505fd2e24a78670ceb823d79dc38485232bbca56556f72577173b4c675a
+  filters/user/BaseFilter.php: a86db8d9dd5df99490788fbbceafc43fe6e9183c3a6b12c58cc55e74ddafc1f7
+  filters/user/SingleFilter.php: b360a21bec388e8344bf17f790d3f224f0d24cf25c4bc0ddcc5c3b0d625a52a4
+  filters/user/MultiFilter.php: 752e322d2fc1c688aeb4e3f2b2819e14177d93f5bc24c845b2200c255a85c3ac
+  validators/user/UserFilterValidator.php: f2366af40a20fc2605e59d652fb6e8c890c9b654aa22f50d7111871a950b8266
+  components/UserComponent.php: 5f3b3b8d9e484195789893b21db7a9c1386bf3bf76cd5b320e72e1d110d1fc33
+  dataTransferObjects/user/User.php: d431dd57670337de591adf59b0d0897e0c686450ed60f7892ff2bdd93ca36d35
+  interfaces/user/dto/UserInterface.php: c68e26b2b8bbac0b84e06547ce465ea1ffe617b87697fcf0a8c05767a36f975f
+  validators/user/UserValidator.php: 835624d12545baf3a0fedd0d4bfa08a1ca2ea96548e6a3aced813d881cd8461f
+  interfaces/group/ComponentInterface.php: 687ad4e5654e1381bc46121cc53ddcc1abf788ef8f9d4ebf67f19f12e1ffb798
+  interfaces/group/QueryInterface.php: 1bb79cab1bb781b2478d8205d8158f6d1c7694cfbe49952da57e1fda30d48ecc
+  interfaces/group/FactoryInterface.php: 0e72e1815fb0678e842ff69c7b7e9b365f7f8fbbd05743fcbe895c0f4b0a563b
+  interfaces/group/dto/OperationListResultInterface.php: 9e83f0e96eeb88707af334c3764ef97c5a6230c33f0710bc4e17a11d3f9892a8
+  interfaces/group/dto/OperationResultInterface.php: 8ac3a58744c0aae428c078ccabe7713d0d7042e6a8d2105443f1446bf0d8e9d2
+  interfaces/group/operations/BaseFindOperationInterface.php: 864a38dff23a9cdcd48cdce7d4117ff08ef870a41a3a10a0399885251e76eb9e
+  interfaces/group/operations/MultiDeleteOperationInterface.php: 13799b3e81c671f6d43f47c4b06ff28a4fbfe9f76d3d5f4f2aa924e54338cae4
+  interfaces/group/operations/MultiFindOperationInterface.php: 42cdc5c2c24ae0c38260bf1f29489a43ed2175510305eb8c8e848d4a677172a4
+  interfaces/group/operations/SingleCreateOperationInterface.php: fd8c53d92c7fd3aa4ae929c99f36c03a6820b3fee3fb0b22caa25d96eadbe62f
+  interfaces/group/operations/SingleFindOperationInterface.php: cc602017396b7ea8a01b270b941133d8c37f0ab7fde59481506f6cdd636aba22
+  interfaces/group/operations/SingleUpdateOperationInterface.php: f074b09ff49409ad3f9db8f0eb031885a900cccad38eb007dfb0771f10ea214d
+  interfaces/group/filters/BaseFilterInterface.php: e393132191dbad0e1b270b8521ec419c0b19afae8fc80baa764ba086bf3833af
+  interfaces/group/filters/BaseFilterOperationInterface.php: 1f764b031ece616acfa68f77f21edd11230c20dddcb6a87e2e4a198b56da06a7
+  interfaces/group/filters/MultiFilterInterface.php: 2f95b248922c05afc64288fe1c6be234cbe4f70c4d4eb4b914cc12119555024b
+  interfaces/group/filters/MultiFilterOperationInterface.php: 7db030664af00e11e729121e2c76b71b3d9eb46872b908e36aba695782ce8e81
+  interfaces/group/filters/SingleFilterInterface.php: 943225dd80f9dcc20bc5db33bc4bfdcca81c0bff33c2edeec7384e5452dc31d7
+  interfaces/group/filters/SingleFilterOperationInterface.php: f7c1679450113351068f0021586392e25b340fd0f41b48c7b20ab4fe28240a64
+  migrations/m190115_110053_create_group_table.php: 7b354e8b2ea5e7eb6edab04375f5fb706ff5c411000f809f121137fe3b26debb
+  queries/GroupQuery.php: 7a62df9b96f9a8a1f5d741d91db67f36890e75039ce108578558989c095a483c
+  entities/GroupActiveRecord.php: 6cce60eaba18b31127363aaf25f6b27a812ed6657b0229ec96668e67424afbfc
+  dataTransferObjects/group/OperationResult.php: 0a400ba17335b1c9ab60bb8260d8094a59d5388fa8b10c1d7830646f564baa2d
+  dataTransferObjects/group/OperationListResult.php: 952a0210f2e61e46f6bb588558ab4e40d6ba724963c7fdcac6d4ab6ae89f3b38
+  hydrators/GroupDatabaseHydrator.php: d6e489f030a472529f4f896b3ba5884abe329a2857f077c6fcfd3fb04ed219bc
+  traits/group/DatabaseHydratorTrait.php: 1c1e4a2473ed2c0c0877e68f7bb839328172c063f112736398efc42c168ba2c4
+  traits/group/GroupComponentTrait.php: 507f12ad9dc9fced213e3ad0535ad514854dc5ef48ded4d022586d910b8dd8c3
+  factories/GroupFactory.php: 832ecb1398ed36945c99f3c2aa0b9a9155d5647ef77d2843b3e54cb56af4eeb7
+  operations/group/SingleUpdateOperation.php: 62081f34a11d3b31b64e3a6005a708c175e5ba5f3ba92965b78e35639a2894d7
+  operations/group/MultiDeleteOperation.php: 71c5c40a115f42013b5693378d1f99d26618f448208912c5a0de8456afc5d905
+  operations/group/SingleCreateOperation.php: 13592ce1dc340cbf957c655aa9f779fc3b0dfd4fc2a7bb4d7a0f91a910fe419c
+  operations/group/BaseFindOperation.php: 943f92f2932c45348f5e466c0bb2050f89d9bae2ba1084aede7f21c7be3ec239
+  operations/group/SingleFindOperation.php: b5b130b2fe8f934a7ad307f45ecec0234a3d262ab213dfad3ac2cab1014a068a
+  operations/group/MultiFindOperation.php: e678b770552d3708c116004bc80335b858ab7922b5c2f98a073550ec2988a42e
+  filters/group/BaseFilter.php: 6995bfdd2c13cbb1791038847963769e243551288d77bf53b0032326c2f1f3be
+  filters/group/SingleFilter.php: 93b82e17a5e3c4f7c86ad7cd1bb79de946d74281cb36e7e85433aa459fb2db9f
+  filters/group/MultiFilter.php: 850e52e3db251bcd74e8dbf660037c249a662261a9f16031f405b6cc8c642b20
+  validators/group/GroupFilterValidator.php: f0ee6df4621480685bd627b9e7f787adb599a25763f050b9fe50ae79d7378362
+  components/GroupComponent.php: 8d8821acf233e35bf64b9a186c73fa775a3f08392a253a57bc7ef8b60238628a
+  dataTransferObjects/group/Group.php: 6f84bc9f03da9f281fd6928f1f4aecdae064a32e1d70455d1d01f37b5cc724ac
+  interfaces/group/dto/GroupInterface.php: a7b7196b66b14cc4823812837a6758012418e12d6e8fbe731879cd2a187b5b23
+  validators/group/GroupValidator.php: 35eb14c6bfe4fabe1dd3d4d1209dd2ec2f233ff54ed4db64bcfc4355519f9c2e
+  composer.json: 5cc1ff1926cd1429aed2e1a82a1330e5a771bf17f6f977410a34babf500ac339
+  config/user.component.global.php: b1cf3c504d1da3e9da05e5ae148689269038e2d5d5d042ba07c3f1ce8e09f5a1
+  config/group.component.global.php: 4c589d24054a6463a6bacdc331c33e86b5f2798f143115eef4b2196bcf1303ca
+  config/console.config.php: 206278e03f37782825e02e2535a6c7c1f5c4722fd195a327a544d9b6839562ff
+  config/web.config.php: 3e80e8a5356d9c275cab92d1f276df384af07722b434a2e345b494842e85bf14

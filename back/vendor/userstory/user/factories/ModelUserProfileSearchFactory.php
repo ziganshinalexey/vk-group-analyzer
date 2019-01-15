@@ -2,7 +2,7 @@
 
 namespace Userstory\User\factories;
 
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Userstory\ComponentBase\models\ModelsFactory;
 use Userstory\ComponentHelpers\helpers\ArrayHelper;
 use Userstory\User\interfaces\UserProfileSearchFactoryInterface;

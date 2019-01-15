@@ -3,7 +3,7 @@
 namespace Userstory\UserAdmin\forms;
 
 use Exception as GlobalException;
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Userstory\User\entities\AuthRoleActiveRecord as AuthRole;
 use Userstory\UserAdmin\traits\UserAdminComponentTrait;
 use yii;

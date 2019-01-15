@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Ziganshinalexey\PersonType\dataTransferObjects\personType;
 
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Ziganshinalexey\PersonType\interfaces\personType\dto\OperationListResultInterface;
 use Ziganshinalexey\PersonType\interfaces\personType\dto\PersonTypeInterface;
 
