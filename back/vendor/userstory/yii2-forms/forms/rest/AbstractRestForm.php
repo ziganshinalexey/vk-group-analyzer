@@ -6,7 +6,7 @@ namespace Userstory\Yii2Forms\forms\rest;
 
 use InvalidArgumentException;
 use Userstory\ComponentBase\interfaces\DataTransferObjectInterface;
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Userstory\ComponentHydrator\interfaces\HydratorInterface;
 use Userstory\Yii2Forms\interfaces\rest\AbstractFormInterface;
 use yii\base\InvalidConfigException;

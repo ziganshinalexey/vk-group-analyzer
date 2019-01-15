@@ -4,14 +4,12 @@ declare(strict_types = 1);
 
 namespace Ziganshinalexey\Yii2VkApi\interfaces\user\dto;
 
-use Userstory\ComponentBase\interfaces\DataTransferObjectInterface;
-use Userstory\ComponentBase\interfaces\ObjectWithErrorsInterface;
-use Userstory\ComponentBase\interfaces\PrototypeInterface;
+use Userstory\Yii2Dto\interfaces\BaseDtoInterface;
 
 /**
  * Интерфейс требует методы доступа для объекта DTO.
  */
-interface UserInterface extends PrototypeInterface, ObjectWithErrorsInterface, DataTransferObjectInterface
+interface UserInterface extends BaseDtoInterface
 {
     /**
      * Метод возвращает атрибут "Факультет" сущности "ВК пользователь".

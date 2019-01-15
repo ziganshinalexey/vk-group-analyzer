@@ -2,7 +2,7 @@
 
 namespace Userstory\User\models;
 
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Userstory\User\entities\UserProfileActiveRecord;
 use Userstory\User\queries\UserProfileQuery;
 use yii;

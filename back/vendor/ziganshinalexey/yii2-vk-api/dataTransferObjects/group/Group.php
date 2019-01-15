@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace Ziganshinalexey\Yii2VkApi\dataTransferObjects\group;
 
-use Userstory\ComponentBase\models\Model;
+use Userstory\Yii2Dto\dataTransferObjects\BaseDto;
 use Ziganshinalexey\Yii2VkApi\interfaces\group\dto\GroupInterface;
 
 /**
  * Реализует логику DTO "ВК группа" для хранения и обмена данными с другими компонентами системы.
  */
-class Group extends Model implements GroupInterface
+class Group extends BaseDto implements GroupInterface
 {
     /**
      * Свойство хранит атрибут "Название" сущности "ВК группа".

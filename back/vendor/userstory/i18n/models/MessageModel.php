@@ -2,7 +2,7 @@
 
 namespace Userstory\I18n\models;
 
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Userstory\I18n\interfaces\LanguageInterface;
 use Userstory\I18n\interfaces\MessageInterface;
 use Userstory\I18n\interfaces\SourceMessageInterface;

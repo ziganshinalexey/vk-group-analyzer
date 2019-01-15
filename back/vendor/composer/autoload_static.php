@@ -67,6 +67,7 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         '75c79eb1b25749b05a47976f32b0d8a2' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/operations/divideby.php',
         '6ab8ad87a734f276a6bcd5a0fe1289be' => __DIR__ . '/..' . '/markbaker/matrix/classes/src/operations/divideinto.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -107,8 +108,11 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         ),
         'U' => 
         array (
+            'Userstory\\Yii2Validators\\' => 25,
             'Userstory\\Yii2Forms\\' => 20,
             'Userstory\\Yii2Exceptions\\' => 25,
+            'Userstory\\Yii2Errors\\' => 21,
+            'Userstory\\Yii2Dto\\' => 18,
             'Userstory\\Yii2Cache\\' => 20,
             'Userstory\\User\\' => 15,
             'Userstory\\UserAdmin\\' => 20,
@@ -141,6 +145,10 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         'F' => 
         array (
             'Faker\\' => 6,
+        ),
+        'D' => 
+        array (
+            'DeepCopy\\' => 9,
         ),
         'C' => 
         array (
@@ -230,6 +238,10 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         array (
             0 => __DIR__ . '/..' . '/ziganshinalexey/keyword-admin',
         ),
+        'Userstory\\Yii2Validators\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/userstory/yii2-validators',
+        ),
         'Userstory\\Yii2Forms\\' => 
         array (
             0 => __DIR__ . '/..' . '/userstory/yii2-forms',
@@ -237,6 +249,14 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         'Userstory\\Yii2Exceptions\\' => 
         array (
             0 => __DIR__ . '/..' . '/userstory/yii2-exceptions',
+        ),
+        'Userstory\\Yii2Errors\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/userstory/yii2-errors',
+        ),
+        'Userstory\\Yii2Dto\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/userstory/yii2-dto',
         ),
         'Userstory\\Yii2Cache\\' => 
         array (
@@ -329,6 +349,10 @@ class ComposerStaticInitd900dab927ef94405a10b08494e2e679
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'DeepCopy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
         'Composer\\Installers\\' => 
         array (

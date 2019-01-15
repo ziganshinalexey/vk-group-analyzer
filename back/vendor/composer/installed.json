@@ -880,6 +880,62 @@
         ]
     },
     {
+        "name": "myclabs/deep-copy",
+        "version": "1.8.1",
+        "version_normalized": "1.8.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/myclabs/DeepCopy.git",
+            "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+            "reference": "3e01bdad3e18354c3dce54466b7fbe33a9f9f7f8",
+            "shasum": "",
+            "mirrors": [
+                {
+                    "url": "https://toran.userstory.ru/repo/packagist/dists/%package%/%version%/%reference%.%type%",
+                    "preferred": true
+                }
+            ]
+        },
+        "require": {
+            "php": "^7.1"
+        },
+        "replace": {
+            "myclabs/deep-copy": "self.version"
+        },
+        "require-dev": {
+            "doctrine/collections": "^1.0",
+            "doctrine/common": "^2.6",
+            "phpunit/phpunit": "^7.1"
+        },
+        "time": "2018-06-11T23:09:50+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "DeepCopy\\": "src/DeepCopy/"
+            },
+            "files": [
+                "src/DeepCopy/deep_copy.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Create deep copies (clones) of your objects",
+        "keywords": [
+            "clone",
+            "copy",
+            "duplicate",
+            "object",
+            "object graph"
+        ]
+    },
+    {
         "name": "phpoffice/phpspreadsheet",
         "version": "1.6.0",
         "version_normalized": "1.6.0.0",
@@ -2003,6 +2059,66 @@
         "description": "Пакет для упрощения работы с кэшем Yii2"
     },
     {
+        "name": "userstory/yii2-dto",
+        "version": "2.2.0",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/yii2-dto.git",
+            "reference": "07571b2642835b02cf7ce89820e317f5a6a52c69"
+        },
+        "require": {
+            "myclabs/deep-copy": "^1.8.0",
+            "php": ">=7.2",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/yii2-errors": "^2.0.0",
+            "userstory/yii2-exceptions": ">=0.4 <1.0",
+            "userstory/yii2-validators": "^2.0.0",
+            "yiisoft/yii2": "^2.0.13"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\Yii2Dto\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US пакет базовых dto"
+    },
+    {
+        "name": "userstory/yii2-errors",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/yii2-errors.git",
+            "reference": "637a72a92fe2c13699ce7db01755d55f923ee4fb"
+        },
+        "require": {
+            "myclabs/deep-copy": "^1.8.0",
+            "php": ">=7.2",
+            "userstory/component-autoconfig": ">=0.2.2 <1.0",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/component-hydrator": ">=0.2.2 <1.0",
+            "userstory/yii2-exceptions": ">=0.1.2 <1.0",
+            "yiisoft/yii2": "^2.0.13"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\Yii2Errors\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "Функционал для организации работы с ошибками/нотисами"
+    },
+    {
         "name": "userstory/yii2-exceptions",
         "version": "0.5.1",
         "version_normalized": "0.5.1.0",
@@ -2050,6 +2166,35 @@
             "proprietary"
         ],
         "description": "US module"
+    },
+    {
+        "name": "userstory/yii2-validators",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "git@gitlab.userstory.ru:userstory/yii2-validators.git",
+            "reference": "cabf2d18451194a32312525be84a783b95f49b62"
+        },
+        "require": {
+            "myclabs/deep-copy": "^1.8.0",
+            "php": ">=7.2",
+            "userstory/component-base": ">=0.2.55 <1.0",
+            "userstory/yii2-errors": "^2.0.0",
+            "userstory/yii2-exceptions": ">=0.4 <1.0",
+            "yiisoft/yii2": "^2.0.13"
+        },
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Userstory\\Yii2Validators\\": ""
+            }
+        },
+        "license": [
+            "proprietary"
+        ],
+        "description": "US validators"
     },
     {
         "name": "yiisoft/yii2",

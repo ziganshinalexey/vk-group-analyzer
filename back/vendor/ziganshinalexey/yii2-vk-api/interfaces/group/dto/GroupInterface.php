@@ -4,14 +4,12 @@ declare(strict_types = 1);
 
 namespace Ziganshinalexey\Yii2VkApi\interfaces\group\dto;
 
-use Userstory\ComponentBase\interfaces\DataTransferObjectInterface;
-use Userstory\ComponentBase\interfaces\ObjectWithErrorsInterface;
-use Userstory\ComponentBase\interfaces\PrototypeInterface;
+use Userstory\Yii2Dto\interfaces\BaseDtoInterface;
 
 /**
  * Интерфейс требует методы доступа для объекта DTO.
  */
-interface GroupInterface extends PrototypeInterface, ObjectWithErrorsInterface, DataTransferObjectInterface
+interface GroupInterface extends BaseDtoInterface
 {
     /**
      * Метод возвращает атрибут "Название" сущности "ВК группа".

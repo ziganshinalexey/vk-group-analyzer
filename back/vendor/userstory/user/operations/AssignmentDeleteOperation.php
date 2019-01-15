@@ -2,7 +2,7 @@
 
 namespace Userstory\User\operations;
 
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Userstory\User\entities\AuthAssignmentActiveRecord;
 
 /**

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Ziganshinalexey\Keyword\dataTransferObjects\keyword;
 
-use Userstory\ComponentBase\models\Model;
+use yii\base\Model;
 use Ziganshinalexey\Keyword\interfaces\keyword\dto\KeywordInterface;
 use Ziganshinalexey\Keyword\interfaces\keyword\dto\OperationResultInterface;
 

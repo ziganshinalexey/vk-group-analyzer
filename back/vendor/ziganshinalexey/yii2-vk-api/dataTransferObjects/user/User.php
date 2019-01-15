@@ -4,13 +4,13 @@ declare(strict_types = 1);
 
 namespace Ziganshinalexey\Yii2VkApi\dataTransferObjects\user;
 
-use Userstory\ComponentBase\models\Model;
+use Userstory\Yii2Dto\dataTransferObjects\BaseDto;
 use Ziganshinalexey\Yii2VkApi\interfaces\user\dto\UserInterface;
 
 /**
  * Реализует логику DTO "ВК пользователь" для хранения и обмена данными с другими компонентами системы.
  */
-class User extends Model implements UserInterface
+class User extends BaseDto implements UserInterface
 {
     /**
      * Свойство хранит атрибут "Факультет" сущности "ВК пользователь".
