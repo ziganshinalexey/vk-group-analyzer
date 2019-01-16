@@ -78,6 +78,7 @@ module.exports = {
     },
     devtool: isProd ? 'source-map' : 'cheap-module-source-map',
     entry: {
+        'global-vendors': ['@babel/polyfill', 'whatwg-fetch'],
         main: ['./src/styles.less', './src/index.jsx'],
     },
     module: {

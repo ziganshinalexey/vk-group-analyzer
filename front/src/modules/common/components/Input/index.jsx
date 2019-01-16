@@ -1,13 +1,10 @@
 import * as React from 'react';
-import cn from 'classnames';
 import injectSheet from 'react-jss';
 
 const styles = (theme) => ({
     container: {
         backgroundColor: theme.COLOR_WHITE,
-        borderColor: theme.COLOR_PRIMARY,
-        borderStyle: 'solid',
-        borderWidth: 2,
+        border: `2px solid ${theme.COLOR_PRIMARY}`,
         color: theme.COLOR_TEXT,
         cursor: 'text',
         fontFamily: theme.FONT_FAMILY,
@@ -17,9 +14,8 @@ const styles = (theme) => ({
         minWidth: 300,
         padding: 10,
         textAlign: 'left',
-        transitionDuration: 500,
-        transitionProperty: 'all',
-        transitionTimingFunction: 'ease',
+        transition: `all .5s ease`,
+        width: '100%',
         '&:active': {
             borderColor: theme.COLOR_PRIMARY_DARK,
         },
@@ -41,12 +37,12 @@ const styles = (theme) => ({
 
 class Input extends React.Component {
     render() {
-        const {classes, className, ...restProps} = this.props;
+        const {classes, theme, ...restProps} = this.props;
 
         return (
             <input
                 {...restProps}
-                className={cn(classes.container, className)}
+                className={classes.container}
             />
         );
     }

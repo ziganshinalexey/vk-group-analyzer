@@ -27,9 +27,7 @@ class Header extends React.Component {
 
         return (
             <div className={classes.container}>
-                <div>
-                    <LogoSvg className={classes.logo} />
-                </div>
+                <LogoSvg className={classes.logo} />
                 <div className={classes.title}>
                     Гуманитарий или технарь?
                 </div>

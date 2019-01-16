@@ -7,8 +7,9 @@
     "history": "^4.7.2",
     "lodash-es": "^4.17.11",
     "normalizr": "^3.3.0",
-    "query-string": "^6.2.0",
+    "querystring": "^0.2.0",
     "rc-form": "^2.4.0",
+    "rc-notification": "^3.3.0",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-helmet": "^5.2.0",
@@ -25,6 +26,7 @@
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
@@ -51,7 +53,8 @@
     "url-loader": "^1.1.1",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -p --mode production --progress",

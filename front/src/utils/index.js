@@ -1,3 +1,5 @@
+import {Notification} from 'modules/common/components/Notification';
+
 export function defaultReducer(initialState, reducerList) {
     return (state = initialState, {type, payload}) => {
         const reducer = reducerList[type];
@@ -10,16 +12,24 @@ export function defaultReducer(initialState, reducerList) {
     };
 }
 
-export function getXHRBody(xhr) {
-    const text = xhr.responseText || xhr.response;
+function normalizeFormErrors(errors) {
+    return Object.entries(errors).reduce((acc, [name, error]) => ({
+        ...acc,
+        [name]: {
+            errors: [error],
+        },
+    }), {});
+}
 
-    if (!text) {
-        return text;
-    }
 
-    try {
-        return JSON.parse(text);
-    } catch (e) {
-        return text;
+export function displayFormErrorsNotification({errors, setFields}) {
+    if (errors) {
+        const isFieldErrors = !!Object.entries(errors.data).length;
+
+        if (isFieldErrors) {
+            setFields(normalizeFormErrors(errors.data));
+        } else if (errors.title) {
+            Notification({noticeProps: {content: errors.title}});
+        }
     }
 }

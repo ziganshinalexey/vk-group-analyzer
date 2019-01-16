@@ -8,9 +8,6 @@ const styles = () => ({
     container: {
         display: 'flex',
     },
-    section: {
-        marginTop: 30,
-    },
     wrapper: {
         padding: 20,
         width: '100%',
@@ -34,13 +31,7 @@ class Main extends React.Component {
                         Специфичность Вашей активности в соцсетях может рассказать о том, к чему лежит Ваша душа, в частности: <b>гуманитарий</b> Вы
                         или <b>технарь</b>.
                     </p>
-                    <section className={classes.section}>
-                        <h4>Анализ ВКонтакте</h4>
-                        <p>
-                            Введите ссылку на ваш профиль:
-                        </p>
-                        <FormVk />
-                    </section>
+                    <FormVk />
                 </div>
             </div>
         );

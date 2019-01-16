@@ -7,3 +7,11 @@ export function getCommonModuleState(state) {
 export function getCommonModuleIsLoading(state) {
     return getCommonModuleState(state).isLoading;
 }
+
+export function getCommonModuleData(state) {
+    return getCommonModuleState(state).data;
+}
+
+export function getCommonModuleUser(state) {
+    return getCommonModuleData(state).user;
+}

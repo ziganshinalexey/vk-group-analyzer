@@ -1,8 +1,9 @@
 export const THEME = {
-    COLOR_PRIMARY: '#ffa6bd',
-    COLOR_PRIMARY_DARK: '#cc8598',
-    COLOR_ERROR: '#ff0000',
+    COLOR_PRIMARY: '#c3ddf4',
+    COLOR_PRIMARY_DARK: '#abbfea',
+    COLOR_ERROR: '#ff394d',
     COLOR_TEXT: '#000000',
+    COLOR_SHADOW: 'rgba(0,0,0,0.15)',
     COLOR_WHITE: '#ffffff',
     FONT_FAMILY: '"Roboto", sans-serif',
 };

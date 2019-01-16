@@ -1,13 +1,10 @@
 import * as React from 'react';
-import cn from 'classnames';
 import injectSheet from 'react-jss';
 
 const styles = (theme) => ({
     container: {
         backgroundColor: theme.COLOR_PRIMARY,
-        borderColor: theme.COLOR_PRIMARY,
-        borderStyle: 'solid',
-        borderWidth: 2,
+        border: `2px solid ${theme.COLOR_PRIMARY}`,
         color: theme.COLOR_TEXT,
         cursor: 'pointer',
         fontFamily: theme.FONT_FAMILY,
@@ -16,9 +13,7 @@ const styles = (theme) => ({
         height: 40,
         padding: 10,
         textAlign: 'center',
-        transitionDuration: 500,
-        transitionProperty: 'all',
-        transitionTimingFunction: 'ease',
+        transition: `all .5s ease`,
         '&:active': {
             borderColor: theme.COLOR_PRIMARY_DARK,
         },
@@ -40,13 +35,13 @@ const styles = (theme) => ({
 
 class Button extends React.Component {
     render() {
-        const {children, classes, className, disabled, ...restProps} = this.props;
+        const {children, classes, disabled, theme, ...restProps} = this.props;
 
         return (
             <button
                 {...restProps}
                 disabled={disabled}
-                className={cn(classes.container, className)}
+                className={classes.container}
             >
                 {children}
             </button>

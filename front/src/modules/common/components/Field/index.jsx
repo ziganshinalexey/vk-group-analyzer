@@ -1,5 +1,4 @@
 import * as React from 'react';
-import cn from 'classnames';
 import injectSheet from 'react-jss';
 
 const styles = (theme) => ({
@@ -15,10 +14,10 @@ const styles = (theme) => ({
 
 class Field extends React.Component {
     render() {
-        const {classes, className, children, component: Component, errors, ...restProps} = this.props;
+        const {classes, children, component: Component, errors, theme, ...restProps} = this.props;
 
         return (
-            <div className={cn(classes.container, className)}>
+            <div className={classes.container}>
                 <Component {...restProps}>{children}</Component>
                 {errors && (
                     <div className={classes.error}>{errors}</div>
