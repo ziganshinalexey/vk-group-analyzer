@@ -1,17 +1,33 @@
 import * as React from 'react';
 import cn from 'classnames';
+import injectSheet from 'react-jss';
 
-export class Field extends React.Component {
+const styles = (theme) => ({
+    container: {
+        marginBottom: 10,
+    },
+    error: {
+        color: theme.COLOR_ERROR,
+        fontSize: 12,
+        marginTop: 5
+    }
+});
+
+class Field extends React.Component {
     render() {
-        const {className, children, component: Component, errors, ...restProps} = this.props;
+        const {classes, className, children, component: Component, errors, ...restProps} = this.props;
 
         return (
-            <div className={cn('Mb(10px)', className)}>
+            <div className={cn(classes.container, className)}>
                 <Component {...restProps}>{children}</Component>
                 {errors && (
-                    <div className="Mt(5px) C(#ff0000) Fz(12px)">{errors}</div>
+                    <div className={classes.error}>{errors}</div>
                 )}
             </div>
         );
     }
 }
+
+const styledField = injectSheet(styles)(Field);
+
+export {styledField as Field};

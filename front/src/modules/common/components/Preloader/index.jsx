@@ -1,6 +1,16 @@
 import * as React from 'react';
+import injectSheet from 'react-jss';
 
-export class Preloader extends React.Component {
+const styles = () => ({
+    container: {
+        alignItems: 'center',
+        display: 'flex',
+        height: '100%',
+        justifyContent: 'center'
+    },
+});
+
+class Preloader extends React.Component {
     state = {
         time: 0
     };
@@ -30,8 +40,14 @@ export class Preloader extends React.Component {
     };
 
     render() {
+        const {classes} = this.props;
+
         return (
-            <div className="H(100%) D(f) Ai(c) Jc(c)" dangerouslySetInnerHTML={{__html: `Loading${this.renderDots()}`}} />
+            <div className={classes.container} dangerouslySetInnerHTML={{__html: `Loading${this.renderDots()}`}} />
         );
     }
 }
+
+const styledPreloader = injectSheet(styles)(Preloader);
+
+export {styledPreloader as Preloader};

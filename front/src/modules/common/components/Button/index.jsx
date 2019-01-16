@@ -1,39 +1,59 @@
 import * as React from 'react';
 import cn from 'classnames';
+import injectSheet from 'react-jss';
 
-export class Button extends React.Component {
+const styles = (theme) => ({
+    container: {
+        backgroundColor: theme.COLOR_PRIMARY,
+        borderColor: theme.COLOR_PRIMARY,
+        borderStyle: 'solid',
+        borderWidth: 2,
+        color: theme.COLOR_TEXT,
+        cursor: 'pointer',
+        fontFamily: theme.FONT_FAMILY,
+        fontSize: 14,
+        fontWeight: 400,
+        height: 40,
+        padding: 10,
+        textAlign: 'center',
+        transitionDuration: 500,
+        transitionProperty: 'all',
+        transitionTimingFunction: 'ease',
+        '&:active': {
+            borderColor: theme.COLOR_PRIMARY_DARK,
+        },
+        '&:disabled': {
+            cursor: 'not-allowed',
+            opacity: 0.5,
+            '&:hover': {
+                opacity: 0.5
+            },
+        },
+        '&:hover': {
+            opacity: 0.8,
+        },
+        '&:focus': {
+            outline: 'none',
+        },
+    },
+});
+
+class Button extends React.Component {
     render() {
-        const {children, className, disabled, ...restProps} = this.props;
+        const {children, classes, className, disabled, ...restProps} = this.props;
 
         return (
             <button
                 {...restProps}
                 disabled={disabled}
-                className={cn(
-                    'Bgc(cPrimary) ' +
-                    'Bdw(2px) ' +
-                    'Bdc(cPrimary) ' +
-                    'Bdc(cPrimaryDark):a ' +
-                    'Bds(s) ' +
-                    'Cur(p) ' +
-                    'Cur(na):di ' +
-                    'C(cText) ' +
-                    'Ff(roboto) ' +
-                    'Fz(14px) ' +
-                    'Fw(400) ' +
-                    'H(40px) ' +
-                    'P(10px) ' +
-                    'Ta(c) ' +
-                    'Trsp(a) ' +
-                    'Trsdu(.5s) ' +
-                    'Trstf(e) ' +
-                    'Op(.8):h ' +
-                    'Op(.5)!:di ' +
-                    'O(n):f',
-                    className)}
+                className={cn(classes.container, className)}
             >
                 {children}
             </button>
         );
     }
 }
+
+const styledButton = injectSheet(styles)(Button);
+
+export {styledButton as Button};
