@@ -8,19 +8,19 @@ use yii\httpclient\Client;
 
 /**
  * Трейт WithHttpClientTrait.
- * Трейт содержит общую логику объекта, работающего с гидратором ДТО.
+ * Трейт содержит общую логику объекта, работающего с клиент для http запросов.
  */
 trait WithHttpClientTrait
 {
     /**
-     * Объект гидратора ДТО для работы.
+     * Свойство хранит клиент для http запросов.
      *
      * @var Client|null
      */
     protected $httpClient;
 
     /**
-     * Метод возвращает гидаратор ДТО.
+     * Метод возвращает клиент для http запросов.
      *
      * @return Client
      */
@@ -30,13 +30,13 @@ trait WithHttpClientTrait
     }
 
     /**
-     * Метод устанавливает гидратор ДТО.
+     * Метод устанавливает клиент для http запросов.
      *
      * @param Client $httpClient Новое значение.
      *
      * @return static
      */
-    public function setHttpClient(Client $httpClient)
+    public function setHttpClient(Client $httpClient): self
     {
         $this->httpClient = $httpClient;
         return $this;

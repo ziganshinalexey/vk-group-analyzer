@@ -4,13 +4,20 @@ declare(strict_types = 1);
 
 namespace app\api\v1\forms\vk;
 
+use yii\base\InvalidConfigException;
 use yii\base\Model;
+use Ziganshinalexey\Yii2VkApi\traits\user\UserComponentTrait;
+use function preg_match;
+use function strripos;
+use function substr;
 
 /**
  * Форма данных для REST-метода выборки сущности "Ключевое фраза".
  */
 class AnalyzeForm extends Model
 {
+    use UserComponentTrait;
+
     /**
      * Свойство содержит урл пользователя в вк.
      *
@@ -69,14 +76,31 @@ class AnalyzeForm extends Model
     /**
      * Осуществлет основное действие формы - просмотр элемента.
      *
-     * @return null
+     * @return array|null
+     *
+     * @throws InvalidConfigException Если компонент не зарегистрирован.
      */
-    public function run()
+    public function run(): ?array
     {
         if (! $this->validate()) {
             return null;
         }
 
-        return null;
+        $userId = $this->parseUserScreenName();
+        $result = $this->getUserComponent()->findMany()->setUserScreenName($userId)->doOperation();
+        if (! $result->isSuccess()) {
+            $this->addErrors($result->getYiiErrors());
+            return null;
+        }
+
+        $userList = $result->getDtoList();
+        return [
+            'user' => array_shift($userList),
+        ];
+    }
+
+    protected function parseUserScreenName()
+    {
+        return substr((string)$this->getVkUrl(), strripos((string)$this->getVkUrl(), '/') + 1);
     }
 }

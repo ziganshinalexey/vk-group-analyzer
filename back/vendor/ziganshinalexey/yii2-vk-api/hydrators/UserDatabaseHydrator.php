@@ -53,12 +53,34 @@ class UserDatabaseHydrator implements HydratorInterface
             throw new ExtendsMismatchException('Object must implement ' . UserInterface::class);
         }
 
-        $object->setId((int)$data['id']);
-        $object->setFirstName((string)$data['firstName']);
-        $object->setLastName((string)$data['lastName']);
-        $object->setUniversityName((string)$data['universityName']);
-        $object->setFacultyName((string)$data['facultyName']);
-        $object->setPhoto((string)$data['photo']);
+        if (is_array($data)) {
+            $data = array_shift($data);
+        }
+        if (! is_array($data)) {
+            return $object;
+        }
+
+        if (isset($data['id'])) {
+            $object->setId((int)$data['id']);
+        }
+        if (isset($data['first_name'])) {
+            $object->setFirstName((string)$data['first_name']);
+        }
+        if (isset($data['last_name'])) {
+            $object->setLastName((string)$data['last_name']);;
+        }
+        if (isset($data['universityName'])) {
+            $object->setUniversityName((string)$data['universityName']);
+        }
+        if (isset($data['facultyName'])) {
+            $object->setFacultyName((string)$data['facultyName']);
+        }
+        if (isset($data['id'])) {
+            $object->setId((int)$data['id']);
+        }
+        if (isset($data['photo_max'])) {
+            $object->setPhoto((string)$data['photo_max']);
+        }
 
         return $object;
     }

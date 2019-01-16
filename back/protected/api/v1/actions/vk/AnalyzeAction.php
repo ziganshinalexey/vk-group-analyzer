@@ -34,7 +34,7 @@ class AnalyzeAction extends AbstractApiAction
         $form->load(Yii::$app->request->post(), '');
 
         if (null === $data = $form->run()) {
-            $this->addModelErrors($form->getErrors(), false);
+            $this->addModelErrors($form->getErrors(), true);
             return [];
         }
 

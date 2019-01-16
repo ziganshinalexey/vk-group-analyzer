@@ -28,13 +28,19 @@ $config = [
             'rules'           => [],
         ],
         'apiServer'    => [
-            'actions' => [
+            'actions'        => [
                 'v1' => [
                     'analyze/index' => [
                         'class'     => AnalyzeAction::class,
                         'formatter' => Formatter::class,
                     ],
                 ],
+            ],
+            'defaultHeaders' => [
+                'Access-Control-Allow-Origin'      => null,
+                'Access-Control-Allow-Method'      => null,
+                'Access-Control-Allow-Headers'     => null,
+                'Access-Control-Allow-Credentials' => null,
             ],
         ],
     ],
