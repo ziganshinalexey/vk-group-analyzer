@@ -37,7 +37,7 @@ const optimizePlugin = new OptimizeCssAssetsPlugin({
     },
 });
 const favIconPlugin = new FaviconsWebpackPlugin({
-    background: '#000000',
+    background: '#c3ddf4',
     emitStats: false,
     icons: {
         android: true,
