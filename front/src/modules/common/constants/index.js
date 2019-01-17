@@ -7,4 +7,6 @@ export const ACTION_TYPE = {
     GET_ACCESS_TOKEN_VK_FAIL: '@common/get access token VK fail',
     GET_ACCESS_TOKEN_VK_FINISH: '@common/get access token VK finish',
     GET_ACCESS_TOKEN_VK_START: '@common/get access token VK start',
+    FORM_STORE_FIELDS: '@common/form store fields',
+    FORM_STORE_VALUES: '@common/form store values',
 };

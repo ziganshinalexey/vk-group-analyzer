@@ -1,15 +1,8 @@
 import {ACTION_TYPE} from 'modules/common/constants';
+import {VK_PARAM} from 'modules/common/containers/FormVk';
 
 export function saveToLocalStorage(name, value) {
     localStorage.setItem(name, value);
-}
-
-export function saveMultipleToLocalStorage(list) {
-    list.forEach((item) => {
-        if (item[0]) {
-            localStorage.setItem(item[0], item[1]);
-        }
-    });
 }
 
 export function getFromLocalStorage(name) {
@@ -42,8 +35,13 @@ function getVkResultFail({payload}) {
 
 export function getVkResult(options) {
     return async(dispatch) => {
-        saveMultipleToLocalStorage(Object.entries(options));
         dispatch(getVkResultStart());
+
+        const {vkUrl} = options;
+
+        if (vkUrl) {
+            saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_URL_NAME, vkUrl);
+        }
 
         try {
             const response = await fetch('http://person-analyzer.local/api/v1/analyze', {
@@ -70,20 +68,20 @@ export function getVkResult(options) {
     };
 }
 
-function getVkAccessTokentStart() {
+function getVkAccessTokenStart() {
     return {
         type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_START,
     };
 }
 
-function getVkAccessTokentFinish({payload}) {
+function getVkAccessTokenFinish({payload}) {
     return {
         payload,
         type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FINISH,
     };
 }
 
-function getVkAccessTokentFail({payload}) {
+function getVkAccessTokenFail({payload}) {
     return {
         payload,
         type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FAIL,
@@ -92,7 +90,7 @@ function getVkAccessTokentFail({payload}) {
 
 export function getVkAccessToken(options) {
     return async(dispatch) => {
-        dispatch(getVkAccessTokentStart());
+        dispatch(getVkAccessTokenStart());
 
         try {
             const response = await fetch('http://person-analyzer.local/api/v1/access-token', {
@@ -107,9 +105,17 @@ export function getVkAccessToken(options) {
             const {data, errors} = await response.json();
 
             if (!errors.length) {
-                dispatch(getVkAccessTokentFinish({payload: data}));
+                dispatch(getVkAccessTokenFinish({payload: data}));
+
+                const {accessToken} = data;
+
+                if (accessToken) {
+                    saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME, accessToken);
+                }
             } else {
-                dispatch(getVkAccessTokentFail({payload: errors[0]}));
+                dispatch(getVkAccessTokenFail({payload: errors[0]}));
+                removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME);
+                removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME);
 
                 return errors[0];
             }
