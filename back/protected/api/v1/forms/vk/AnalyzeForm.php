@@ -26,13 +26,30 @@ class AnalyzeForm extends Model
     protected $vkUrl;
 
     /**
+     * Свойство содержит ключ доступа к апи.
+     *
+     * @var string|null
+     */
+    protected $accessToken;
+
+    /**
      * Метод возвращает урл пользователя в вк.
      *
      * @return string|null
      */
-    public function getVkUrl(): ?string
+    public function getVkUrl()
     {
         return $this->vkUrl;
+    }
+
+    /**
+     * Метод возвращает ключ доступа к апи.
+     *
+     * @return string|null
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
     }
 
     /**
@@ -44,11 +61,17 @@ class AnalyzeForm extends Model
     {
         return [
             [
-                'vkUrl',
+                [
+                    'vkUrl',
+                    'accessToken',
+                ],
                 'required',
             ],
             [
-                'vkUrl',
+                [
+                    'vkUrl',
+                    'accessToken',
+                ],
                 'string',
                 'max' => 255,
             ],
@@ -87,7 +110,7 @@ class AnalyzeForm extends Model
         }
 
         $userId = $this->parseUserScreenName();
-        $result = $this->getUserComponent()->findMany()->setUserScreenName($userId)->doOperation();
+        $result = $this->getUserComponent()->findMany()->setUserScreenName($userId)->setAccessToken($this->getAccessToken())->doOperation();
         if (! $result->isSuccess()) {
             $this->addErrors($result->getYiiErrors());
             return null;

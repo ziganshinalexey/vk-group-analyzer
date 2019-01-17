@@ -69,11 +69,11 @@ class UserDatabaseHydrator implements HydratorInterface
         if (isset($data['last_name'])) {
             $object->setLastName((string)$data['last_name']);;
         }
-        if (isset($data['universityName'])) {
-            $object->setUniversityName((string)$data['universityName']);
+        if (isset($data['university_name'])) {
+            $object->setUniversityName((string)$data['university_name']);
         }
-        if (isset($data['facultyName'])) {
-            $object->setFacultyName((string)$data['facultyName']);
+        if (isset($data['faculty_name'])) {
+            $object->setFacultyName((string)$data['faculty_name']);
         }
         if (isset($data['id'])) {
             $object->setId((int)$data['id']);
