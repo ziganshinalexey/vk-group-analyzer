@@ -178,7 +178,7 @@ class AnalyzeForm extends Model
 
         foreach ($groupList as $group) {
             foreach ($keywordList as $keyword) {
-                if ($count = mb_substr_count($group->getName() . $group->getDescription(), $keyword->getText())) {
+                if ($count = mb_substr_count(strtolower($group->getName() . $group->getDescription()), strtolower($keyword->getText()))) {
                     if ($keyword->getPersonTypeId()) {
                         $result[$keyword->getPersonTypeId()]['count'] += $count;
                         $result[$keyword->getPersonTypeId()]['ratio'] += $count * $keyword->getRatio();
