@@ -44,8 +44,12 @@ export function getVkResult(options) {
         }
 
         try {
+            const accessToken = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME);
             const response = await fetch('http://person-analyzer.local/api/v1/analyze', {
-                body: JSON.stringify(options),
+                body: JSON.stringify({
+                    ...options,
+                    accessToken,
+                }),
                 headers: {
                     'content-type': 'application/json',
                     'x-http-method-override': 'GET',
@@ -59,63 +63,6 @@ export function getVkResult(options) {
                 dispatch(getVkResultFinish({payload: data}));
             } else {
                 dispatch(getVkResultFail({payload: errors[0]}));
-
-                return errors[0];
-            }
-        } catch (e) {
-            console.warn(e);
-        }
-    };
-}
-
-function getVkAccessTokenStart() {
-    return {
-        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_START,
-    };
-}
-
-function getVkAccessTokenFinish({payload}) {
-    return {
-        payload,
-        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FINISH,
-    };
-}
-
-function getVkAccessTokenFail({payload}) {
-    return {
-        payload,
-        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FAIL,
-    };
-}
-
-export function getVkAccessToken(options) {
-    return async(dispatch) => {
-        dispatch(getVkAccessTokenStart());
-
-        try {
-            const response = await fetch('http://person-analyzer.local/api/v1/access-token', {
-                body: JSON.stringify(options),
-                headers: {
-                    'content-type': 'application/json',
-                    'x-http-method-override': 'GET',
-                },
-                method: 'POST',
-                mode: 'cors',
-            });
-            const {data, errors} = await response.json();
-
-            if (!errors.length) {
-                dispatch(getVkAccessTokenFinish({payload: data}));
-
-                const {accessToken} = data;
-
-                if (accessToken) {
-                    saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME, accessToken);
-                }
-            } else {
-                dispatch(getVkAccessTokenFail({payload: errors[0]}));
-                removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME);
-                removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME);
 
                 return errors[0];
             }
