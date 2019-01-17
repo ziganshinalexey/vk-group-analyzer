@@ -7,6 +7,7 @@ import {
 import {Button} from 'modules/common/components/Button';
 import {Field} from 'modules/common/components/Field';
 import {Input} from 'modules/common/components/Input';
+import {Preloader} from 'modules/common/components/Preloader';
 import {ResultChart} from 'modules/common/components/ResultChart';
 import {UserCard} from 'modules/common/components/UserCard';
 import {VK_PARAM} from 'modules/common/constants';
@@ -111,6 +112,7 @@ class FormVk extends React.Component {
                             />
                             <Button disabled={isLoading}>Анализировать</Button>
                         </form>
+                        {isLoading && <Preloader />}
                         {userData && userData.user && <UserCard {...userData.user} />}
                         {userData && userData.analyzeResult && <ResultChart data={userData.analyzeResult} />}
                     </React.Fragment>

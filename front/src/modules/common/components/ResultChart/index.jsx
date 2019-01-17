@@ -2,15 +2,17 @@ import * as React from 'react';
 import injectSheet from 'react-jss';
 
 const styles = (theme) => ({
-    container: {
-        margin: '30px 20px',
+    chart: {
+        margin: '30px 20px 45px',
         position: 'relative',
     },
-    scale: {
-        background: `linear-gradient(90deg, ${theme.COLOR_ACCENT_WARM}, ${theme.COLOR_ACCENT_COOL})`,
-        display: 'flex',
-        justifyContent: 'space-between',
-        padding: 10,
+    dash: {
+        backgroundColor: theme.COLOR_ACCENT_COLD,
+        bottom: -5,
+        left: '50%',
+        position: 'absolute',
+        top: -5,
+        width: 1,
     },
     item: {
         fontSize: 14,
@@ -24,20 +26,18 @@ const styles = (theme) => ({
         top: 0,
         width: 40,
     },
-    dash: {
-        backgroundColor: theme.COLOR_ACCENT_COLD,
-        bottom: -5,
-        left: '50%',
-        position: 'absolute',
-        top: -5,
-        width: 1,
-    },
     result: {
         fontSize: 14,
         position: 'absolute',
         textAlign: 'center',
         top: 'calc(100% + 5px)',
         width: '100%',
+    },
+    scale: {
+        background: `linear-gradient(90deg, ${theme.COLOR_ACCENT_WARM}, ${theme.COLOR_ACCENT_COOL})`,
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: 10,
     },
 });
 
@@ -70,7 +70,7 @@ class ResultChart extends React.Component {
         const {data} = this.props;
         const dataValues = Object.values(data);
         const total = dataValues.reduce((acc, {ratio}) => acc + ratio, 0);
-        const percent = 100 * dataValues[0].ratio / total;
+        const percent = total ? 100 * dataValues[0].ratio / total : 0;
 
         this.setState({
             percent,
@@ -95,21 +95,26 @@ class ResultChart extends React.Component {
 
     render() {
         const {classes, data} = this.props;
-        const {percent, value} = this.state;
+        const {percent, total, value} = this.state;
 
         return (
-            <div className={classes.container}>
-                <div className={classes.scale}>
-                    {Object.entries(data).map(([id, {name}]) => (
-                        <div className={classes.item} key={id}>
-                            {name}
-                        </div>
-                    ))}
+            <div>
+                <div className={classes.chart}>
+                    <div className={classes.scale}>
+                        {Object.entries(data).map(([id, {name}]) => (
+                            <div className={classes.item} key={id}>
+                                {name}
+                            </div>
+                        ))}
+                    </div>
+                    <div className={classes.pointer} style={{left: `${percent}%`}}>
+                        <div className={classes.dash} />
+                        <div className={classes.result}>{`${Math.round(value)}%`}</div>
+                    </div>
                 </div>
-                <div className={classes.pointer} style={{left: `${percent}%`}}>
-                    <div className={classes.dash} />
-                    <div className={classes.result}>{`${Math.round(value)}%`}</div>
-                </div>
+                {!total && (
+                    <div>Недостаточно данных для анализа типа личности :(</div>
+                )}
             </div>
         );
     }

@@ -43,7 +43,7 @@ class Preloader extends React.Component {
         const {classes} = this.props;
 
         return (
-            <div className={classes.container} dangerouslySetInnerHTML={{__html: `Loading${this.renderDots()}`}} />
+            <div className={classes.container} dangerouslySetInnerHTML={{__html: `Загрузка${this.renderDots()}`}} />
         );
     }
 }
