@@ -12,7 +12,7 @@ import {compose} from 'redux';
 import {displayFormErrorsNotification} from 'utils';
 import queryString from 'querystring';
 
-const VK_PARAM = {
+export const VK_PARAM = {
     ACCESS_TOKEN_PATH: '/access_token',
     AUTH_PATH: '/authorize',
     CLIENT_ID: 6821075,
@@ -51,19 +51,6 @@ class FormVk extends React.Component {
         })}`);
     }
 
-    async handleAccessTokenRedirect(code) {
-        const response = await fetch(`${VK_PARAM.OAUTH_URL}${VK_PARAM.ACCESS_TOKEN_PATH}?${queryString.stringify({
-            client_id: VK_PARAM.CLIENT_ID,
-            client_secret: VK_PARAM.SECURE_KEY,
-            code,
-            redirect_uri: window.location.origin,
-        })}`, {
-            mode: 'cors',
-        });
-
-        console.log(response);
-    }
-
     componentDidMount() {
         const {
             location: {search},
@@ -72,8 +59,6 @@ class FormVk extends React.Component {
 
         if (code) {
             saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME, code);
-
-            this.handleAccessTokenRedirect(code);
         } else if (error) {
             removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME);
         }

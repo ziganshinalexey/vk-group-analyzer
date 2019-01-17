@@ -1,4 +1,5 @@
 import {ACTION_TYPE} from 'modules/common/constants';
+import {VK_PARAM} from 'modules/common/containers/FormVk';
 
 export function saveToLocalStorage(name, value) {
     localStorage.setItem(name, value);
@@ -47,7 +48,10 @@ export function getVkResult(options) {
 
         try {
             const response = await fetch('http://person-analyzer.local/api/v1/analyze', {
-                body: JSON.stringify(options),
+                body: JSON.stringify({
+                    vkCode: getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME),
+                    ...options,
+                }),
                 headers: {
                     'content-type': 'application/json',
                     'x-http-method-override': 'GET',
