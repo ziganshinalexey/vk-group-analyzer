@@ -1,4 +1,7 @@
 export const THEME = {
+    COLOR_ACCENT_WARM: '#fba034',
+    COLOR_ACCENT_COOL: '#50c0d5',
+    COLOR_ACCENT_COLD: '#2f4d85',
     COLOR_PRIMARY: '#c3ddf4',
     COLOR_PRIMARY_DARK: '#abbfea',
     COLOR_ERROR: '#ff394d',

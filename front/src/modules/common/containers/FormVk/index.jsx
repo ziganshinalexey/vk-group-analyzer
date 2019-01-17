@@ -7,9 +7,10 @@ import {
 import {Button} from 'modules/common/components/Button';
 import {Field} from 'modules/common/components/Field';
 import {Input} from 'modules/common/components/Input';
+import {ResultChart} from 'modules/common/components/ResultChart';
 import {UserCard} from 'modules/common/components/UserCard';
 import {VK_PARAM} from 'modules/common/constants';
-import {getCommonModuleIsLoading, getCommonModuleUser} from 'modules/common/selectors';
+import {getCommonModuleData, getCommonModuleIsLoading} from 'modules/common/selectors';
 import {createForm} from 'rc-form';
 import * as React from 'react';
 import {connect} from 'react-redux';
@@ -71,7 +72,7 @@ class FormVk extends React.Component {
             },
             isLoading,
             location: {hash},
-            user,
+            userData,
         } = this.props;
         const errors = getFieldsError();
         const {[VK_PARAM.URL_ACCESS_TOKEN]: urlAccessToken} = queryString.parse(parseHash(hash));
@@ -110,7 +111,8 @@ class FormVk extends React.Component {
                             />
                             <Button disabled={isLoading}>Анализировать</Button>
                         </form>
-                        {user && <UserCard {...user} />}
+                        {userData && userData.user && <UserCard {...userData.user} />}
+                        {userData && userData.analyzeResult && <ResultChart data={userData.analyzeResult} />}
                     </React.Fragment>
                 )}
             </div>
@@ -123,7 +125,7 @@ const FormVkWrapped = compose(
     connect(
         (state) => ({
             isLoading: getCommonModuleIsLoading(state),
-            user: getCommonModuleUser(state),
+            userData: getCommonModuleData(state),
         }),
         {
             getVkResult,

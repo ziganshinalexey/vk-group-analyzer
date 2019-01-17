@@ -11,7 +11,3 @@ export function getCommonModuleIsLoading(state) {
 export function getCommonModuleData(state) {
     return getCommonModuleState(state).data;
 }
-
-export function getCommonModuleUser(state) {
-    return getCommonModuleData(state).user;
-}
