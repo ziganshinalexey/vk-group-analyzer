@@ -1,6 +1,5 @@
 import {
     getFromLocalStorage,
-    getVkAccessToken,
     getVkResult,
     removeFromLocalStorage,
     saveToLocalStorage,
@@ -9,6 +8,7 @@ import {Button} from 'modules/common/components/Button';
 import {Field} from 'modules/common/components/Field';
 import {Input} from 'modules/common/components/Input';
 import {UserCard} from 'modules/common/components/UserCard';
+import {VK_PARAM} from 'modules/common/constants';
 import {getCommonModuleIsLoading, getCommonModuleUser} from 'modules/common/selectors';
 import {createForm} from 'rc-form';
 import * as React from 'react';
@@ -17,17 +17,6 @@ import {withRouter} from 'react-router';
 import {compose} from 'redux';
 import {displayFormErrorsNotification, parseHash} from 'utils';
 import queryString from 'querystring';
-
-export const VK_PARAM = {
-    APP_ID: 6821075,
-    AUTH_PATH: '/authorize',
-    URL_ACCESS_TOKEN: 'access_token',
-    URL_ERROR: 'error',
-    LOCAL_STORAGE_ACCESS_TOKEN_NAME: 'vkAccessToken',
-    LOCAL_STORAGE_URL_NAME: 'vkUrl',
-    OAUTH_URL: 'https://oauth.vk.com',
-    VERSION: '5.92',
-};
 
 class FormVk extends React.Component {
     handleSubmit = (e) => {

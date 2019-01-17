@@ -7,6 +7,7 @@ const styles = (theme) => ({
         alignItems: 'center',
         backgroundColor: theme.COLOR_PRIMARY,
         display: 'flex',
+        flexShrink: 0,
         padding: 10,
     },
     logo: {

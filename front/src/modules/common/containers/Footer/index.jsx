@@ -5,6 +5,7 @@ const styles = (theme) => ({
     container: {
         backgroundColor: theme.COLOR_PRIMARY,
         textAlign: 'center',
+        flexShrink: 0,
         fontSize: 12,
         padding: 10,
     },

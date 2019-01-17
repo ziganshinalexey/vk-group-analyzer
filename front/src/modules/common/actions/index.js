@@ -1,5 +1,4 @@
-import {ACTION_TYPE} from 'modules/common/constants';
-import {VK_PARAM} from 'modules/common/containers/FormVk';
+import {ACTION_TYPE, VK_PARAM} from 'modules/common/constants';
 
 export function saveToLocalStorage(name, value) {
     localStorage.setItem(name, value);
