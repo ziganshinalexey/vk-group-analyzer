@@ -175,10 +175,10 @@ class AnalyzeForm extends Model
                 'name'  => $personType->getName(),
             ];
         }
-
         foreach ($groupList as $group) {
+            $text = $this->prepareText($group);
             foreach ($keywordList as $keyword) {
-                if ($count = mb_substr_count(mb_strtolower($group->getName() . $group->getDescription()), mb_strtolower($keyword->getText()))) {
+                if ($count = mb_substr_count($text, mb_strtolower($keyword->getText()))) {
                     if ($keyword->getPersonTypeId()) {
                         $result[$keyword->getPersonTypeId()]['count'] += $count;
                         $result[$keyword->getPersonTypeId()]['ratio'] += $count * $keyword->getRatio();
@@ -196,5 +196,18 @@ class AnalyzeForm extends Model
         }
 
         return $result;
+    }
+
+    protected function prepareText(GroupInterface $group)
+    {
+        $text = $group->getName() . ' ' . $group->getDescription();
+        $text = preg_replace('/\\n|\\t|[.,\/#!?$%\^&\*;:{}=\-_`~()]|\d/', ' ', $text);
+        $text = str_replace([
+            '\n',
+            '\r',
+            '\t',
+        ], ' ', $text);
+        $text = preg_replace('/ {2,}/', ' ', $text);
+        return mb_strtolower($text);
     }
 }
