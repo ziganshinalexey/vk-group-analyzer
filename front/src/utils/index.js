@@ -33,3 +33,11 @@ export function displayFormErrorsNotification({errors, setFields}) {
         }
     }
 }
+
+export function parseHash(hash = '') {
+    return hash.split('#')[1];
+}
+
+export function parseSearch(search = '') {
+    return search.split('?')[1];
+}
