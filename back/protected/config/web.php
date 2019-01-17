@@ -2,6 +2,7 @@
 
 declare(strict_types = 1);
 
+use app\api\v1\actions\vk\AccessTokenAction;
 use app\api\v1\actions\vk\AnalyzeAction;
 use app\api\v1\formatters\vk\Formatter;
 
@@ -30,9 +31,12 @@ $config = [
         'apiServer'    => [
             'actions'        => [
                 'v1' => [
-                    'analyze/index' => [
+                    'analyze/index'      => [
                         'class'     => AnalyzeAction::class,
                         'formatter' => Formatter::class,
+                    ],
+                    'access-token/index' => [
+                        'class' => AccessTokenAction::class,
                     ],
                 ],
             ],
