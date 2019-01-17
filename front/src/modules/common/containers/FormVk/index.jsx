@@ -1,4 +1,4 @@
-import {getFromLocalStorage, getVkResult, removeFromLocalStorage, saveToLocalStorage} from 'modules/common/actions';
+import {getFromLocalStorage, getVkAccessToken, getVkResult, removeFromLocalStorage, saveToLocalStorage} from 'modules/common/actions';
 import {Button} from 'modules/common/components/Button';
 import {Field} from 'modules/common/components/Field';
 import {Input} from 'modules/common/components/Input';
@@ -14,8 +14,8 @@ import queryString from 'querystring';
 
 export const VK_PARAM = {
     ACCESS_TOKEN_PATH: '/access_token',
+    APP_ID: 6821075,
     AUTH_PATH: '/authorize',
-    CLIENT_ID: 6821075,
     CODE: 'code',
     ERROR: 'error',
     LOCAL_STORAGE_CODE_NAME: 'vkCode',
@@ -42,7 +42,7 @@ class FormVk extends React.Component {
 
     handleAuthRedirect() {
         window.location.replace(`${VK_PARAM.OAUTH_URL}${VK_PARAM.AUTH_PATH}?${queryString.stringify({
-            client_id: VK_PARAM.CLIENT_ID,
+            client_id: VK_PARAM.APP_ID,
             display: 'popup',
             redirect_uri: window.location.origin,
             response_type: 'code',
@@ -53,12 +53,18 @@ class FormVk extends React.Component {
 
     componentDidMount() {
         const {
+            getVkAccessToken,
             location: {search},
         } = this.props;
         const {[VK_PARAM.CODE]: code, [VK_PARAM.ERROR]: error} = queryString.parse(search.split('?')[1]);
 
         if (code) {
             saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME, code);
+
+            getVkAccessToken({
+                code,
+                redirectUrl: window.location.origin,
+            });
         } else if (error) {
             removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME);
         }
@@ -130,6 +136,7 @@ const FormVkWrapped = compose(
             user: getCommonModuleUser(state),
         }),
         {
+            getVkAccessToken,
             getVkResult,
         },
     ),

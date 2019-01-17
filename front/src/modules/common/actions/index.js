@@ -1,5 +1,4 @@
 import {ACTION_TYPE} from 'modules/common/constants';
-import {VK_PARAM} from 'modules/common/containers/FormVk';
 
 export function saveToLocalStorage(name, value) {
     localStorage.setItem(name, value);
@@ -48,10 +47,7 @@ export function getVkResult(options) {
 
         try {
             const response = await fetch('http://person-analyzer.local/api/v1/analyze', {
-                body: JSON.stringify({
-                    vkCode: getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE_NAME),
-                    ...options,
-                }),
+                body: JSON.stringify(options),
                 headers: {
                     'content-type': 'application/json',
                     'x-http-method-override': 'GET',
@@ -65,6 +61,55 @@ export function getVkResult(options) {
                 dispatch(getVkResultFinish({payload: data}));
             } else {
                 dispatch(getVkResultFail({payload: errors[0]}));
+
+                return errors[0];
+            }
+        } catch (e) {
+            console.warn(e);
+        }
+    };
+}
+
+function getVkAccessTokentStart() {
+    return {
+        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_START,
+    };
+}
+
+function getVkAccessTokentFinish({payload}) {
+    return {
+        payload,
+        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FINISH,
+    };
+}
+
+function getVkAccessTokentFail({payload}) {
+    return {
+        payload,
+        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FAIL,
+    };
+}
+
+export function getVkAccessToken(options) {
+    return async(dispatch) => {
+        dispatch(getVkAccessTokentStart());
+
+        try {
+            const response = await fetch('http://person-analyzer.local/api/v1/access-token', {
+                body: JSON.stringify(options),
+                headers: {
+                    'content-type': 'application/json',
+                    'x-http-method-override': 'GET',
+                },
+                method: 'POST',
+                mode: 'cors',
+            });
+            const {data, errors} = await response.json();
+
+            if (!errors.length) {
+                dispatch(getVkAccessTokentFinish({payload: data}));
+            } else {
+                dispatch(getVkAccessTokentFail({payload: errors[0]}));
 
                 return errors[0];
             }
