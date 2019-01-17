@@ -6,7 +6,8 @@ const styles = () => ({
         alignItems: 'center',
         display: 'flex',
         height: '100%',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        margin: 20,
     },
 });
 

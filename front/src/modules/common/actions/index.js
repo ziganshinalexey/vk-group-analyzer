@@ -1,4 +1,5 @@
 import {ACTION_TYPE, VK_PARAM} from 'modules/common/constants';
+import {CONFIG} from 'utils/constants';
 
 export function saveToLocalStorage(name, value) {
     localStorage.setItem(name, value);
@@ -43,30 +44,34 @@ export function getVkResult(options) {
         }
 
         try {
-            const accessToken = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME);
-            const response = await fetch('http://person-analyzer.local/api/v1/analyze', {
-                body: JSON.stringify({
-                    ...options,
-                    accessToken,
-                }),
-                headers: {
-                    'content-type': 'application/json',
-                    'x-http-method-override': 'GET',
-                },
-                method: 'POST',
-                mode: 'cors',
-            });
-            const {data, errors} = await response.json();
+            const backEndHost = getFromLocalStorage(CONFIG.LOCAL_STORAGE_BACK_END_HOST);
 
-            if (!errors.length) {
-                dispatch(getVkResultFinish({payload: data}));
-            } else {
-                dispatch(getVkResultFail({payload: errors[0]}));
+            if (backEndHost) {
+                const accessToken = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME);
+                const {data, errors} = await (await fetch(`${backEndHost}/api/v1/analyze`, {
+                    body: JSON.stringify({
+                        ...options,
+                        accessToken,
+                    }),
+                    headers: {
+                        'content-type': 'application/json',
+                        'x-http-method-override': 'GET',
+                    },
+                    method: 'POST',
+                    mode: 'cors',
+                })).json();
 
-                return errors[0];
+                if (!errors.length) {
+                    dispatch(getVkResultFinish({payload: data}));
+                } else {
+                    dispatch(getVkResultFail({payload: errors[0]}));
+
+                    return errors[0];
+                }
             }
         } catch (e) {
             console.warn(e);
+            getVkResultFail({payload: e})
         }
     };
 }

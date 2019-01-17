@@ -1,0 +1,8 @@
+{
+  "backEndHost": "http://back.k-koykov.office.userstory.ru",
+  "vk": {
+    "apiVersion": "5.92",
+    "applicationId": 6822629,
+    "oauthUrl": "https://oauth.vk.com/authorize"
+  }
+}

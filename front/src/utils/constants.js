@@ -10,3 +10,7 @@ export const THEME = {
     COLOR_WHITE: '#ffffff',
     FONT_FAMILY: '"Roboto", sans-serif',
 };
+
+export const CONFIG = {
+    LOCAL_STORAGE_BACK_END_HOST: 'backEndHost',
+};

@@ -40,14 +40,20 @@ class FormVk extends React.Component {
     };
 
     handleAuthRedirect() {
-        window.location.replace(`${VK_PARAM.OAUTH_URL}${VK_PARAM.AUTH_PATH}?${queryString.stringify({
-            client_id: VK_PARAM.APP_ID,
-            display: 'page',
-            redirect_uri: window.location.origin,
-            response_type: 'token',
-            scope: 'groups',
-            v: VK_PARAM.VERSION,
-        })}`);
+        const apiVersion = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_API_VERSION);
+        const applicationId = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_APPLICATION_ID);
+        const oauthUrl = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_OAUTH_URL);
+
+        if (apiVersion && applicationId && oauthUrl) {
+            window.location.replace(`${oauthUrl}?${queryString.stringify({
+                client_id: applicationId,
+                display: 'page',
+                redirect_uri: window.location.origin,
+                response_type: 'token',
+                scope: 'groups',
+                v: apiVersion,
+            })}`);
+        }
     }
 
     componentDidMount() {

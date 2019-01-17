@@ -12,12 +12,11 @@ export const ACTION_TYPE = {
 };
 
 export const VK_PARAM = {
-    APP_ID: 6822629,
-    AUTH_PATH: '/authorize',
+    LOCAL_STORAGE_ACCESS_TOKEN_NAME: 'vkAccessToken',
+    LOCAL_STORAGE_API_VERSION: 'vkApiVersion',
+    LOCAL_STORAGE_APPLICATION_ID: 'vkApplicationId',
+    LOCAL_STORAGE_OAUTH_URL: 'vkOauthUrl',
+    LOCAL_STORAGE_URL_NAME: 'vkUrl',
     URL_ACCESS_TOKEN: 'access_token',
     URL_ERROR: 'error',
-    LOCAL_STORAGE_ACCESS_TOKEN_NAME: 'vkAccessToken',
-    LOCAL_STORAGE_URL_NAME: 'vkUrl',
-    OAUTH_URL: 'https://oauth.vk.com',
-    VERSION: '5.92',
 };
