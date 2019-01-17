@@ -25,6 +25,15 @@ interface MultiFindOperationInterface extends WithDtoInterface, WithDtoListResul
     public function setUserId(int $value): MultiFindOperationInterface;
 
     /**
+     * Метод задает ключ доступа к апи.
+     *
+     * @param string $value
+     *
+     * @return MultiFindOperationInterface
+     */
+    public function setAccessToken(string $value): MultiFindOperationInterface;
+
+    /**
      * Метод возвращает все сущности по заданному фильтру.
      *
      * @return DtoListResultInterface

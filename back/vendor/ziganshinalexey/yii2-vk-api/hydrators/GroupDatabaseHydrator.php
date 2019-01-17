@@ -51,10 +51,18 @@ class GroupDatabaseHydrator implements HydratorInterface
             throw new ExtendsMismatchException('Object must implement ' . GroupInterface::class);
         }
 
-        $object->setId((int)$data['id']);
-        $object->setName((string)$data['name']);
-        $object->setActivity((string)$data['activity']);
-        $object->setDescription((string)$data['description']);
+        if (isset($data['id'])) {
+            $object->setId((int)$data['id']);
+        }
+        if (isset($data['name'])) {
+            $object->setName((string)$data['name']);
+        }
+        if (isset($data['activity'])) {
+            $object->setActivity((string)$data['activity']);
+        }
+        if (isset($data['description'])) {
+            $object->setDescription((string)$data['description']);
+        }
 
         return $object;
     }

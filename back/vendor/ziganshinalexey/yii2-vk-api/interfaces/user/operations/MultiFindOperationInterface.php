@@ -29,7 +29,7 @@ interface MultiFindOperationInterface extends WithDtoInterface, WithDtoListResul
      *
      * @param string $value
      *
-     * @return string|null
+     * @return MultiFindOperationInterface
      */
     public function setAccessToken(string $value): MultiFindOperationInterface;
 

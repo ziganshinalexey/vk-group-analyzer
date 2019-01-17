@@ -38,7 +38,8 @@
         "ext-json": "*",
         "ziganshinalexey/yii2-vk-api": "^1.0",
         "userstory/yii2-dto": "^2.2",
-        "yiisoft/yii2-authclient": "^2.1"
+        "yiisoft/yii2-authclient": "^2.1",
+        "ext-mbstring": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

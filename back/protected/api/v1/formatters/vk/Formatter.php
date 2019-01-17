@@ -6,6 +6,7 @@ namespace app\api\v1\formatters\vk;
 
 use ReflectionException;
 use Userstory\ComponentHydrator\formatters\ArrayFormatter;
+use Ziganshinalexey\Yii2VkApi\interfaces\group\dto\GroupInterface;
 use Ziganshinalexey\Yii2VkApi\interfaces\user\dto\UserInterface;
 
 /**
@@ -26,10 +27,16 @@ class Formatter extends ArrayFormatter
      */
     public function format($object): array
     {
-        ['user' => $user] = $object;
+        [
+            'user'          => $user,
+            'groupList'     => $groupList,
+            'analyzeResult' => $analyzeResult,
+        ] = $object;
 
         return [
-            'user' => $this->formatUser($user),
+            'analyzeResult' => $analyzeResult,
+            'user'          => $this->formatUser($user),
+            'groupList'     => $this->formatGroupList($groupList),
         ];
     }
 
@@ -50,5 +57,27 @@ class Formatter extends ArrayFormatter
             'facultyName'    => $user->getFacultyName(),
             'universityName' => $user->getUniversityName(),
         ];
+    }
+
+    /**
+     * Метод возвращает данные по группам.
+     *
+     * @param GroupInterface[] $groupList
+     *
+     * @return array
+     */
+    protected function formatGroupList(array $groupList): array
+    {
+        $result = [];
+        foreach ($groupList as $group) {
+            $result[] = [
+                'id'          => $group->getId(),
+                'name'        => $group->getName(),
+                'activity'    => $group->getActivity(),
+                'description' => $group->getDescription(),
+            ];
+        }
+
+        return $result;
     }
 }
