@@ -62,7 +62,7 @@ class MultiFindOperation extends Model implements MultiFindOperationInterface
      *
      * @param string $value
      *
-     * @return string|null
+     * @return MultiFindOperationInterface
      */
     public function setAccessToken(string $value): MultiFindOperationInterface
     {
@@ -125,7 +125,7 @@ class MultiFindOperation extends Model implements MultiFindOperationInterface
             'user_ids'     => $this->getUserScreenName(),
             'v'            => static::VERSION,
             'access_token' => $this->getAccessToken(),
-            'fields'       => implode(',', $this->getUserFieldList()),
+            'fields'       => $this->getUserFieldList(),
         ])->send();
 
         $data = $response->getData();

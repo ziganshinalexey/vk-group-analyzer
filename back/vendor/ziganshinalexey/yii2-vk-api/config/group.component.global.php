@@ -29,7 +29,13 @@ return [
                 GroupFactory::OBJECT_TYPE_KEY => Group::class,
             ],
             GroupFactory::HTTP_CLIENT                           => [
-                GroupFactory::OBJECT_TYPE_KEY => Client::class,
+                GroupFactory::OBJECT_TYPE_KEY => [
+                    'class'         => Client::class,
+                    'requestConfig' => [
+                        'method' => 'GET',
+                        'url'    => 'https://api.vk.com/method/groups.get',
+                    ],
+                ],
             ],
         ],
     ],

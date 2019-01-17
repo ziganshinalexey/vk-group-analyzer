@@ -6,6 +6,11 @@ namespace app\api\v1\forms\vk;
 
 use yii\base\InvalidConfigException;
 use yii\base\Model;
+use Ziganshinalexey\Keyword\traits\keyword\KeywordComponentTrait;
+use Ziganshinalexey\PersonType\traits\personType\PersonTypeComponentTrait;
+use Ziganshinalexey\Yii2VkApi\interfaces\group\dto\GroupInterface;
+use Ziganshinalexey\Yii2VkApi\interfaces\user\dto\UserInterface;
+use Ziganshinalexey\Yii2VkApi\traits\group\GroupComponentTrait;
 use Ziganshinalexey\Yii2VkApi\traits\user\UserComponentTrait;
 use function preg_match;
 use function strripos;
@@ -17,6 +22,9 @@ use function substr;
 class AnalyzeForm extends Model
 {
     use UserComponentTrait;
+    use GroupComponentTrait;
+    use KeywordComponentTrait;
+    use PersonTypeComponentTrait;
 
     /**
      * Свойство содержит урл пользователя в вк.
@@ -117,13 +125,76 @@ class AnalyzeForm extends Model
         }
 
         $userList = $result->getDtoList();
+        /* @var UserInterface $user */
+        $user = array_shift($userList);
+
+        $result = $this->getGroupComponent()->findMany()->setUserId($user->getId())->setAccessToken($this->getAccessToken())->doOperation();
+        if (! $result->isSuccess()) {
+            $this->addErrors($result->getYiiErrors());
+            return null;
+        }
+        $groupList = $result->getDtoList();
+
         return [
-            'user' => array_shift($userList),
+            'user'          => $user,
+            'groupList'     => $groupList,
+            'analyzeResult' => $this->analyze($groupList),
         ];
     }
 
-    protected function parseUserScreenName()
+    /**
+     * Метод парсит имя пользователя.
+     *
+     * @return null|string
+     */
+    protected function parseUserScreenName(): ?string
     {
-        return substr((string)$this->getVkUrl(), strripos((string)$this->getVkUrl(), '/') + 1);
+        return (string)substr((string)$this->getVkUrl(), strripos((string)$this->getVkUrl(), '/') + 1);
+    }
+
+    /**
+     * Метод возвращает список совпадений.
+     *
+     * @param GroupInterface[] $groupList
+     *
+     * @return array
+     *
+     * @throws InvalidConfigException
+     */
+    protected function analyze(array $groupList): array
+    {
+        $result      = [];
+        $keywordList = $this->getKeywordComponent()->findMany()->doOperation();
+
+        $personTypeList = $this->getPersonTypeComponent()->findMany()->doOperation();
+
+        foreach ($personTypeList as $personType) {
+            $result[$personType->getId()] = [
+                'count' => 0,
+                'ratio' => 0,
+                'name'  => $personType->getName(),
+            ];
+        }
+
+        foreach ($groupList as $group) {
+            foreach ($keywordList as $keyword) {
+                if ($count = mb_substr_count($group->getName() . $group->getDescription(), $keyword->getText())) {
+                    if ($keyword->getPersonTypeId()) {
+                        $result[$keyword->getPersonTypeId()]['count'] += $count;
+                        $result[$keyword->getPersonTypeId()]['ratio'] += $count * $keyword->getRatio();
+                    }
+                    $keyword->setCoincidenceCount($keyword->getCoincidenceCount() + $count);
+                }
+            }
+        }
+
+        foreach ($keywordList as $keyword) {
+            $resultOperation = $this->getKeywordComponent()->updateOne($keyword)->doOperation();
+            if (! $resultOperation->isSuccess()) {
+                throw new InvalidConfigException('keyword update was failed');
+            }
+        }
+
+        return $result;
     }
 }

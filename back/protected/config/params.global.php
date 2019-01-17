@@ -12,5 +12,10 @@ return [
             'personal',
             'interests',
         ],
+        'vkGroupFieldList' => [
+            'name',
+            'description',
+            'activity',
+        ],
     ],
 ];
