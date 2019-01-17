@@ -43,10 +43,12 @@ class Formatter extends ArrayFormatter
     protected function formatUser(UserInterface $user): array
     {
         return [
-            'id'        => $user->getId(),
-            'photo'     => $user->getPhoto(),
-            'firstName' => $user->getFirstName(),
-            'lastName'  => $user->getLastName(),
+            'id'             => $user->getId(),
+            'photo'          => $user->getPhoto(),
+            'firstName'      => $user->getFirstName(),
+            'lastName'       => $user->getLastName(),
+            'facultyName'    => $user->getFacultyName(),
+            'universityName' => $user->getUniversityName(),
         ];
     }
 }

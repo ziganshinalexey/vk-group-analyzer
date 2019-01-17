@@ -38,6 +38,13 @@ class MultiFindOperation extends Model implements MultiFindOperationInterface
     protected $userScreenName;
 
     /**
+     * Свойство содержит ключ доступа к апи.
+     *
+     * @var string|null
+     */
+    protected $accessToken;
+
+    /**
      * Метод задает идентификатор пользователя.
      *
      * @param string $value
@@ -47,6 +54,19 @@ class MultiFindOperation extends Model implements MultiFindOperationInterface
     public function setUserScreenName(string $value): MultiFindOperationInterface
     {
         $this->userScreenName = $value;
+        return $this;
+    }
+
+    /**
+     * Метод задает ключ доступа к апи.
+     *
+     * @param string $value
+     *
+     * @return string|null
+     */
+    public function setAccessToken(string $value): MultiFindOperationInterface
+    {
+        $this->accessToken = $value;
         return $this;
     }
 
@@ -69,10 +89,7 @@ class MultiFindOperation extends Model implements MultiFindOperationInterface
      */
     protected function getAccessToken(): string
     {
-        if (! isset(Yii::$app->params['vkAccessToken'])) {
-            throw new InvalidConfigException('access token doesn\'t exists.');
-        }
-        return (string)Yii::$app->params['vkAccessToken'];
+        return (string)$this->accessToken;
     }
 
     /**
