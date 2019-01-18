@@ -82,8 +82,8 @@ class ResultChart extends React.Component {
 
                 return ({
                     duration: prevDuration + this.step,
-                    valueLeft: prevTotal ? prevValueLeft - delta : prevValueLeft,
-                    valueRight: prevTotal ? prevValueRight + delta : prevValueRight,
+                    valueLeft: prevTotal ? prevValueLeft + delta : prevValueLeft,
+                    valueRight: prevTotal ? prevValueRight - delta : prevValueRight,
                 });
             }
         });
