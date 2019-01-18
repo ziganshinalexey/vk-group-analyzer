@@ -11,13 +11,18 @@ const styles = () => ({
         background: 'no-repeat center/cover',
         height: 100,
         marginRight: 10,
+        minHeight: 100,
+        minWidth: 100,
         width: 100,
     },
+    text: {
+        fontSize: 14,
+    }
 });
 
 class UserCard extends React.Component {
     render() {
-        const {classes, id, firstName, lastName, photo} = this.props;
+        const {classes, id, facultyName, firstName, lastName, photo, universityName} = this.props;
 
         return (
             <section>
@@ -26,7 +31,7 @@ class UserCard extends React.Component {
                     {photo && (
                         <div className={classes.photo} style={{backgroundImage: `url(${photo})`}} />
                     )}
-                    <div>
+                    <div className={classes.text}>
                         {id && (
                             <div>Id: <b>{id}</b></div>
                         )}
@@ -35,6 +40,12 @@ class UserCard extends React.Component {
                         )}
                         {lastName && (
                             <div>Фамилия: <b>{lastName}</b></div>
+                        )}
+                        {universityName && (
+                            <div>ВУЗ: <b>{universityName}</b></div>
+                        )}
+                        {facultyName && (
+                            <div>Факультет: <b>{facultyName}</b></div>
                         )}
                     </div>
                 </div>

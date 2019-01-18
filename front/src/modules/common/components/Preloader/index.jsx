@@ -27,7 +27,9 @@ class Preloader extends React.Component {
     }
 
     componentWillUnmount() {
-        this.interval = null;
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
     }
 
     renderDots = () => {

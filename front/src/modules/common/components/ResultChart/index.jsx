@@ -3,13 +3,12 @@ import injectSheet from 'react-jss';
 
 const styles = (theme) => ({
     chart: {
-        margin: '30px 20px 45px',
+        margin: '30px 30px 45px',
         position: 'relative',
     },
     dash: {
         backgroundColor: theme.COLOR_ACCENT_COLD,
-        bottom: -5,
-        left: '50%',
+        bottom: -23,
         position: 'absolute',
         top: -5,
         width: 1,
@@ -19,19 +18,26 @@ const styles = (theme) => ({
     },
     pointer: {
         bottom: 0,
-        left: 0,
         position: 'absolute',
-        transform: 'translateX(-50%)',
         transition: 'left 1s ease-in-out',
         top: 0,
-        width: 40,
+        width: 1,
     },
-    result: {
+    resultLeft: {
         fontSize: 14,
         position: 'absolute',
-        textAlign: 'center',
+        right: 'calc(50% + 5px)',
+        textAlign: 'right',
         top: 'calc(100% + 5px)',
-        width: '100%',
+        whiteSpace: 'nowrap',
+    },
+    resultRight: {
+        fontSize: 14,
+        left: 'calc(50% + 5px)',
+        position: 'absolute',
+        textAlign: 'left',
+        top: 'calc(100% + 5px)',
+        whiteSpace: 'nowrap',
     },
     scale: {
         background: `linear-gradient(90deg, ${theme.COLOR_ACCENT_WARM}, ${theme.COLOR_ACCENT_COOL})`,
@@ -44,9 +50,10 @@ const styles = (theme) => ({
 class ResultChart extends React.Component {
     state = {
         duration: 0,
-        percent: 0,
+        percent: 50,
+        start: false,
         total: 0,
-        value: 0,
+        value: 50,
     };
 
     delay = 500;
@@ -56,24 +63,32 @@ class ResultChart extends React.Component {
     step = 20;
 
     calculateValue = () => {
-        const {duration} = this.state;
+        this.setState((prevState) => {
+            const {
+                duration: prevDuration,
+                percent: prevPercent,
+                total: prevTotal,
+                value: prevValue,
+            } = prevState;
 
-        if (duration < this.duration) {
-            this.setState((prevState) => ({
-                duration: prevState.duration + this.step,
-                value: prevState.value + prevState.percent / (this.duration / this.step),
-            }));
-        }
+            if (prevDuration < this.duration) {
+                return ({
+                    duration: prevDuration + this.step,
+                    value: prevTotal ? prevValue - prevPercent / (this.duration / this.step) / 2 : prevValue,
+                });
+            }
+        });
     };
 
     animatePointer = () => {
         const {data} = this.props;
         const dataValues = Object.values(data);
         const total = dataValues.reduce((acc, {ratio}) => acc + ratio, 0);
-        const percent = total ? 100 * dataValues[0].ratio / total : 0;
+        const percent = total ? 100 * dataValues[0].ratio / total : 50;
 
         this.setState({
             percent,
+            start: true,
             total,
         });
         this.interval = setInterval(this.calculateValue, this.step);
@@ -95,7 +110,9 @@ class ResultChart extends React.Component {
 
     render() {
         const {classes, data} = this.props;
-        const {percent, total, value} = this.state;
+        const {percent, start, total, value} = this.state;
+        const leftValue = Math.round(value);
+        const rightValue = 100 - leftValue;
 
         return (
             <div>
@@ -109,10 +126,11 @@ class ResultChart extends React.Component {
                     </div>
                     <div className={classes.pointer} style={{left: `${percent}%`}}>
                         <div className={classes.dash} />
-                        <div className={classes.result}>{`${Math.round(value)}%`}</div>
+                        <div className={classes.resultLeft}>{`${leftValue}%`}</div>
+                        <div className={classes.resultRight}>{`${rightValue}%`}</div>
                     </div>
                 </div>
-                {!total && (
+                {start && !total && (
                     <div>Недостаточно данных для анализа типа личности :(</div>
                 )}
             </div>

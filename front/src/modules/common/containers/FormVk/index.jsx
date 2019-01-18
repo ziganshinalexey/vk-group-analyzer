@@ -17,7 +17,7 @@ import * as React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router';
 import {compose} from 'redux';
-import {displayFormErrorsNotification, parseHash} from 'utils';
+import {displayFormErrorsNotification} from 'utils';
 import queryString from 'querystring';
 
 class FormVk extends React.Component {
@@ -29,10 +29,7 @@ class FormVk extends React.Component {
         validateFields(async(errors, values) => {
             if (!errors) {
                 const {getVkResult} = this.props;
-                const errors = await getVkResult({
-                    accessToken: getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME),
-                    ...values,
-                });
+                const errors = await getVkResult(values);
 
                 displayFormErrorsNotification({errors, setFields});
             }
@@ -49,7 +46,7 @@ class FormVk extends React.Component {
                 client_id: applicationId,
                 display: 'page',
                 redirect_uri: window.location.origin,
-                response_type: 'token',
+                response_type: 'code',
                 scope: 'groups',
                 v: apiVersion,
             })}`);
@@ -59,15 +56,15 @@ class FormVk extends React.Component {
     componentDidMount() {
         const {
             history: {push},
-            location: {hash},
+            location: {search},
         } = this.props;
-        const {[VK_PARAM.URL_ACCESS_TOKEN]: accessToken, [VK_PARAM.URL_ERROR]: error} = queryString.parse(parseHash(hash));
+        const {[VK_PARAM.URL_CODE]: code, [VK_PARAM.URL_ERROR]: error} = queryString.parse(search.split('?')[1]);
 
-        if (accessToken) {
-            saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME, accessToken);
+        if (code) {
+            saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE, code);
             push('/');
         } else if (error) {
-            removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME);
+            removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE);
         }
     }
 
@@ -78,17 +75,17 @@ class FormVk extends React.Component {
                 getFieldsError,
             },
             isLoading,
-            location: {hash},
+            location: {search},
             userData,
         } = this.props;
         const errors = getFieldsError();
-        const {[VK_PARAM.URL_ACCESS_TOKEN]: urlAccessToken} = queryString.parse(parseHash(hash));
-        const accessToken = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME) || urlAccessToken;
+        const {[VK_PARAM.URL_CODE]: urlCode} = queryString.parse(search.split('?')[1]);
+        const code = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE) || urlCode;
 
         return (
             <div>
                 <h4>Анализ ВКонтакте</h4>
-                {!accessToken && (
+                {!code && (
                     <React.Fragment>
                         <p>
                             Для детального анализа необходимо разрешение ВКонтакте:
@@ -96,7 +93,7 @@ class FormVk extends React.Component {
                         <Button onClick={this.handleAuthRedirect}>Дать разрешение</Button>
                     </React.Fragment>
                 )}
-                {accessToken && (
+                {code && (
                     <React.Fragment>
                         <form onSubmit={this.handleSubmit}>
                             <p>

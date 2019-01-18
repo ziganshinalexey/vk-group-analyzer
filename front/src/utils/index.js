@@ -1,5 +1,3 @@
-import {Notification} from 'modules/common/components/Notification';
-
 export function defaultReducer(initialState, reducerList) {
     return (state = initialState, {type, payload}) => {
         const reducer = reducerList[type];
@@ -28,12 +26,6 @@ export function displayFormErrorsNotification({errors, setFields}) {
 
         if (isFieldErrors) {
             setFields(normalizeFormErrors(errors.data));
-        } else if (errors.title) {
-            Notification({noticeProps: {content: errors.title}});
         }
     }
-}
-
-export function parseHash(hash = '') {
-    return hash.split('#')[1];
 }

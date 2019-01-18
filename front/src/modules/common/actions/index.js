@@ -1,3 +1,4 @@
+import {Notification} from 'modules/common/components/Notification';
 import {ACTION_TYPE, VK_PARAM} from 'modules/common/constants';
 import {CONFIG} from 'utils/constants';
 
@@ -46,8 +47,13 @@ export function getVkResult(options) {
         try {
             const backEndHost = getFromLocalStorage(CONFIG.LOCAL_STORAGE_BACK_END_HOST);
 
-            if (backEndHost) {
-                const accessToken = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN_NAME);
+            if (!getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN)) {
+                await dispatch(getVkAccessToken());
+            }
+
+            const accessToken = getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN);
+
+            if (accessToken) {
                 const {data, errors} = await (await fetch(`${backEndHost}/api/v1/analyze`, {
                     body: JSON.stringify({
                         ...options,
@@ -65,13 +71,73 @@ export function getVkResult(options) {
                     dispatch(getVkResultFinish({payload: data}));
                 } else {
                     dispatch(getVkResultFail({payload: errors[0]}));
+                    Notification({noticeProps: {content: errors[0].title}});
 
                     return errors[0];
                 }
+            } else {
+                dispatch(getVkResultFail({payload: {}}));
             }
         } catch (e) {
             console.warn(e);
-            getVkResultFail({payload: e})
+            getVkResultFail({payload: e});
+        }
+    };
+}
+
+function getVkAccessTokenStart() {
+    return {
+        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_START,
+    };
+}
+
+function getVkAccessTokenFinish({payload}) {
+    return {
+        payload,
+        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FINISH,
+    };
+}
+
+function getVkAccessTokenFail({payload}) {
+    return {
+        payload,
+        type: ACTION_TYPE.GET_ACCESS_TOKEN_VK_FAIL,
+    };
+}
+
+function getVkAccessToken() {
+    return async(dispatch) => {
+        dispatch(getVkAccessTokenStart());
+
+        try {
+            const backEndHost = getFromLocalStorage(CONFIG.LOCAL_STORAGE_BACK_END_HOST);
+            const {data, errors} = await (await fetch(`${backEndHost}/api/v1/access-token`, {
+                body: JSON.stringify({
+                    code: getFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE),
+                    redirectUrl: window.location.origin,
+                }),
+                headers: {
+                    'content-type': 'application/json',
+                    'x-http-method-override': 'GET',
+                },
+                method: 'POST',
+                mode: 'cors',
+            })).json();
+
+            if (!errors.length) {
+                saveToLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN, data.accessToken);
+                dispatch(getVkAccessTokenFinish({payload: data}));
+            } else {
+                dispatch(getVkAccessTokenFail({payload: errors[0]}));
+                Notification({noticeProps: {content: errors[0].title}});
+                removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE);
+                removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN);
+
+                return errors[0];
+            }
+        } catch (e) {
+            console.warn(e);
+            getVkAccessTokenFail({payload: e});
         }
     };
 }
