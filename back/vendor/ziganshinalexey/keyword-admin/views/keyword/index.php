@@ -83,6 +83,10 @@ function drawInputWithLabel($name, $value, $entryId, $optionId, $label)
                     ],
                     [
                         'attribute'      => 'personTypeId',
+                        'filter'         => Html::activeDropDownList($searchModel, 'personTypeId', ArrayHelper::map($personTypeList, 'id', 'name'), [
+                            'class'  => 'form-control',
+                            'prompt' => 'Никакой',
+                        ]),
                         'value'          => function(ViewForm $form) {
                             /* @var PersonTypeComponent $personTypeComponent */
                             $personTypeComponent = Yii::$app->get('personType');

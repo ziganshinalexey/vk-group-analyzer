@@ -37,7 +37,6 @@ $form = ActiveForm::begin([
             <?= Yii::t('Admin.Keyword.Keyword', 'titleAddModal', 'Создать ключевую фразу'); ?>
         </h4>
     </div>
-
     <div class="modal-body">
         <?php
         /* @var CreateForm $model */
@@ -47,18 +46,12 @@ $form = ActiveForm::begin([
         echo $form->field($model, 'ratio')->textInput([
             'maxlength' => true,
         ]);
-        echo $form->field($model, 'personTypeId')->dropDownList(
-            ArrayHelper::map($personTypeList, 'id', 'name'),
-            [
-                'prompt' => '',
-            ]);
+        echo $form->field($model, 'personTypeId')->dropDownList(ArrayHelper::map($personTypeList, 'id', 'name'));
         ?>
     </div>
-
     <div class="modal-footer">
         <?php
         echo $form->submitButton(Yii::t('Admin.Keyword.Keyword', 'addKeyword', 'Создать ключевую фразу"'), ['class' => 'btn btn-primary']);
-
         echo Html::a(Yii::t('Admin.Keyword.Keyword', 'closeAddModal', 'Закрыть'), ['keyword/index'], [
             'class'        => 'btn btn-default pull-left',
             'data-dismiss' => 'modal',

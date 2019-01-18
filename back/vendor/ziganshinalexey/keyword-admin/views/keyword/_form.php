@@ -34,11 +34,7 @@ $form = ActiveForm::begin([
             echo $form->field($model, 'coincidenceCount')->textInput([
                 'maxlength' => true,
             ]);
-            echo $form->field($model, 'personTypeId')->dropDownList(
-                ArrayHelper::map($personTypeList, 'id', 'name'),
-                [
-                    'prompt' => '',
-                ]);
+            echo $form->field($model, 'personTypeId')->dropDownList(ArrayHelper::map($personTypeList, 'id', 'name'));
             ?>
         </div>
 

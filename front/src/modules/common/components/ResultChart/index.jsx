@@ -50,31 +50,40 @@ const styles = (theme) => ({
 class ResultChart extends React.Component {
     state = {
         duration: 0,
-        percent: 50,
+        left: 50,
         start: false,
         total: 0,
-        value: 50,
+        valueLeft: 50,
+        valueRight: 50,
     };
 
     delay = 500;
 
     duration = 1000;
 
+    offset = 50;
+
     step = 20;
+
+    framesCount = this.duration / this.step;
 
     calculateValue = () => {
         this.setState((prevState) => {
             const {
                 duration: prevDuration,
-                percent: prevPercent,
+                left: prevLeft,
                 total: prevTotal,
-                value: prevValue,
+                valueLeft: prevValueLeft,
+                valueRight: prevValueRight,
             } = prevState;
 
             if (prevDuration < this.duration) {
+                const delta = (this.offset - prevLeft) / this.framesCount;
+
                 return ({
                     duration: prevDuration + this.step,
-                    value: prevTotal ? prevValue - prevPercent / (this.duration / this.step) / 2 : prevValue,
+                    valueLeft: prevTotal ? prevValueLeft - delta : prevValueLeft,
+                    valueRight: prevTotal ? prevValueRight + delta : prevValueRight,
                 });
             }
         });
@@ -84,10 +93,10 @@ class ResultChart extends React.Component {
         const {data} = this.props;
         const dataValues = Object.values(data);
         const total = dataValues.reduce((acc, {ratio}) => acc + ratio, 0);
-        const percent = total ? 100 * dataValues[0].ratio / total : 50;
+        const left = total ? 100 * dataValues[1].ratio / total : this.offset;
 
         this.setState({
-            percent,
+            left,
             start: true,
             total,
         });
@@ -110,9 +119,7 @@ class ResultChart extends React.Component {
 
     render() {
         const {classes, data} = this.props;
-        const {percent, start, total, value} = this.state;
-        const leftValue = Math.round(value);
-        const rightValue = 100 - leftValue;
+        const {left, start, total, valueLeft, valueRight} = this.state;
 
         return (
             <div>
@@ -124,10 +131,10 @@ class ResultChart extends React.Component {
                             </div>
                         ))}
                     </div>
-                    <div className={classes.pointer} style={{left: `${percent}%`}}>
+                    <div className={classes.pointer} style={{left: `${left}%`}}>
                         <div className={classes.dash} />
-                        <div className={classes.resultLeft}>{`${leftValue}%`}</div>
-                        <div className={classes.resultRight}>{`${rightValue}%`}</div>
+                        <div className={classes.resultLeft}>{`${Math.round(valueLeft)}%`}</div>
+                        <div className={classes.resultRight}>{`${Math.round(valueRight)}%`}</div>
                     </div>
                 </div>
                 {start && !total && (
