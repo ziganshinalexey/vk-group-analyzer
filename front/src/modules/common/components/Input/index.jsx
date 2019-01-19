@@ -11,7 +11,6 @@ const styles = (theme) => ({
         fontSize: 14,
         fontWeight: 300,
         height: 40,
-        minWidth: 300,
         padding: 10,
         textAlign: 'left',
         transition: `all .5s ease`,

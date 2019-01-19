@@ -1,8 +1,6 @@
 import * as React from 'react';
-import {connect} from 'react-redux';
 import {FormVk} from 'modules/common/containers/FormVk';
 import injectSheet from 'react-jss';
-import {compose} from 'redux';
 
 const styles = () => ({
     container: {
@@ -28,8 +26,11 @@ class Main extends React.Component {
             <div className={classes.container}>
                 <div className={classes.wrapper}>
                     <p>
-                        Специфичность Вашей активности в соцсетях может рассказать о том, к чему лежит Ваша душа, в частности: <b>гуманитарий</b> Вы
-                        или <b>технарь</b>.
+                        Перед подростками старших классов стоит <b>проблема профессионального самоопределения</b>.<br />
+                        Это напрямую связано с противоречием внешних стимулов и системы реально действующих мотивов старшеклассников.<br />
+                        Количество различных специальностей на данный момент – несколько тысяч, у каждой есть своя специфика.<br />
+                        Чтобы не запутаться во всем этом многообразии и сузить поиски идеального направления, предлагаем воспользоваться нашим сайтом.<br />
+                        Надеемся, это поможет <b>сузить сферу поиска будущей профессии</b>!
                     </p>
                     <FormVk />
                 </div>
@@ -38,12 +39,6 @@ class Main extends React.Component {
     }
 }
 
-const MainWrapped = compose(
-    connect(
-        (state) => ({}),
-        {},
-    ),
-    injectSheet(styles),
-)(Main);
+const MainWrapped = injectSheet(styles)(Main);
 
 export {MainWrapped as Main};
