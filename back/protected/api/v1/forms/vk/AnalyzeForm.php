@@ -137,7 +137,6 @@ class AnalyzeForm extends Model
 
         return [
             'user'          => $user,
-            'groupList'     => $groupList,
             'analyzeResult' => $this->analyze($groupList),
         ];
     }
@@ -159,7 +158,7 @@ class AnalyzeForm extends Model
      *
      * @return array
      *
-     * @throws InvalidConfigException
+     * @throws InvalidConfigException Если компонент не зарегистрирован.
      */
     protected function analyze(array $groupList): array
     {
@@ -178,7 +177,8 @@ class AnalyzeForm extends Model
         foreach ($groupList as $group) {
             $text = $this->prepareText($group);
             foreach ($keywordList as $keyword) {
-                if ($count = mb_substr_count($text, mb_strtolower($keyword->getText()))) {
+                $text = str_replace(mb_strtolower($keyword->getText()), '', $text, $count);
+                if ($count) {
                     if ($keyword->getPersonTypeId()) {
                         $result[$keyword->getPersonTypeId()]['count'] += $count;
                         $result[$keyword->getPersonTypeId()]['ratio'] += $count * $keyword->getRatio();
@@ -186,6 +186,7 @@ class AnalyzeForm extends Model
                     $keyword->setCoincidenceCount($keyword->getCoincidenceCount() + $count);
                 }
             }
+            $this->addMissingKeywordList($text);
         }
 
         foreach ($keywordList as $keyword) {
@@ -207,7 +208,42 @@ class AnalyzeForm extends Model
             '\r',
             '\t',
         ], ' ', $text);
-        $text = preg_replace('/ {2,}/', ' ', $text);
-        return mb_strtolower($text);
+        $text = mb_strtolower(trim(preg_replace('/ {2,}/', ' ', $text)));
+
+        return ($text);
+    }
+
+    /**
+     * Метод сохраняет невстретивщиеся слова.
+     *
+     * @param string $text
+     *
+     * @return void
+     *
+     * @throws InvalidConfigException Если компонент не зарегистрирован.
+     */
+    protected function addMissingKeywordList(string $text): void
+    {
+        $text        = trim(preg_replace('/ {2,}/', ' ', $text));
+        $keywordList = explode(' ', $text);
+
+        $uniqueKeywordList = [];
+        foreach ($keywordList as $keyword) {
+            if (empty($keyword)) {
+                continue;
+            }
+            if (! isset($uniqueKeywordList[$keyword])) {
+                $uniqueKeywordList[$keyword] = 0;
+            }
+            $uniqueKeywordList[$keyword] ++;
+        }
+
+        foreach ($uniqueKeywordList as $keywordText => $coincidenceCount) {
+            $keywordDto = $this->getKeywordComponent()->getKeywordPrototype()->copy();
+            $keywordDto->setCoincidenceCount((int)$coincidenceCount);
+            $keywordDto->setText((string)$keywordText);
+
+            $this->getKeywordComponent()->createOne($keywordDto)->doOperation();
+        }
     }
 }

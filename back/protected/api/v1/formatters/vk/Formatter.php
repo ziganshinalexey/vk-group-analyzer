@@ -29,14 +29,12 @@ class Formatter extends ArrayFormatter
     {
         [
             'user'          => $user,
-            'groupList'     => $groupList,
             'analyzeResult' => $analyzeResult,
         ] = $object;
 
         return [
             'analyzeResult' => $analyzeResult,
             'user'          => $this->formatUser($user),
-            'groupList'     => $this->formatGroupList($groupList),
         ];
     }
 
