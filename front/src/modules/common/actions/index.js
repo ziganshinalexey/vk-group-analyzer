@@ -72,6 +72,8 @@ export function getVkResult(options) {
                 } else {
                     dispatch(getVkResultFail({payload: errors[0]}));
                     Notification({noticeProps: {content: errors[0].title}});
+                    removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_CODE);
+                    removeFromLocalStorage(VK_PARAM.LOCAL_STORAGE_ACCESS_TOKEN);
 
                     return errors[0];
                 }
