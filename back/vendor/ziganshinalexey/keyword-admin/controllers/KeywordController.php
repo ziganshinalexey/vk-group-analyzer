@@ -55,10 +55,7 @@ class KeywordController extends AbstractController
                 $translation = Yii::t($category, 'successfullyCreated', 'Ключевое фраза успешно создан');
                 Yii::$app->session->setFlash('success', $translation);
 
-                return $this->redirect([
-                    'update',
-                    'id' => $form->id,
-                ]);
+                return $this->redirect(['index']);
             }
         }
 
@@ -144,10 +141,7 @@ class KeywordController extends AbstractController
             $category    = KeywordActiveRecord::TRANSLATE_CATEGORY . '.Flash';
             $translation = Yii::t($category, 'successfullyUpdated', 'Ключевое фраза успешно обновлен.');
             Yii::$app->session->setFlash('success', $translation);
-            return $this->redirect([
-                'view',
-                'id' => $form->id,
-            ]);
+            return $this->redirect(['index']);
         }
 
         return $this->defaultRender([

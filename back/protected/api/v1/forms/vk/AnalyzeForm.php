@@ -4,8 +4,10 @@ declare(strict_types = 1);
 
 namespace app\api\v1\forms\vk;
 
+use Userstory\ComponentHelpers\helpers\ArrayHelper;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
+use Ziganshinalexey\Keyword\interfaces\keyword\dto\KeywordInterface;
 use Ziganshinalexey\Keyword\traits\keyword\KeywordComponentTrait;
 use Ziganshinalexey\PersonType\traits\personType\PersonTypeComponentTrait;
 use Ziganshinalexey\Yii2VkApi\interfaces\group\dto\GroupInterface;
@@ -162,11 +164,8 @@ class AnalyzeForm extends Model
      */
     protected function analyze(array $groupList): array
     {
-        $result      = [];
-        $keywordList = $this->getKeywordComponent()->findMany()->doOperation();
-
+        $result         = [];
         $personTypeList = $this->getPersonTypeComponent()->findMany()->doOperation();
-
         foreach ($personTypeList as $personType) {
             $result[$personType->getId()] = [
                 'count' => 0,
@@ -174,6 +173,7 @@ class AnalyzeForm extends Model
                 'name'  => $personType->getName(),
             ];
         }
+        $keywordList = $this->getKeywordComponent()->findMany()->doOperation();
         foreach ($groupList as $group) {
             $text = $this->prepareText($group);
             foreach ($keywordList as $keyword) {
@@ -186,7 +186,7 @@ class AnalyzeForm extends Model
                     $keyword->setCoincidenceCount($keyword->getCoincidenceCount() + $count);
                 }
             }
-            $this->addMissingKeywordList($text);
+            $keywordList = ArrayHelper::merge($keywordList, $this->addMissingKeywordList($text));
         }
 
         foreach ($keywordList as $keyword) {
@@ -218,14 +218,15 @@ class AnalyzeForm extends Model
      *
      * @param string $text
      *
-     * @return void
+     * @return KeywordInterface[]
      *
      * @throws InvalidConfigException Если компонент не зарегистрирован.
      */
-    protected function addMissingKeywordList(string $text): void
+    protected function addMissingKeywordList(string $text): array
     {
         $text        = trim(preg_replace('/ {2,}/', ' ', $text));
         $keywordList = explode(' ', $text);
+        $result      = [];
 
         $uniqueKeywordList = [];
         foreach ($keywordList as $keyword) {
@@ -242,8 +243,9 @@ class AnalyzeForm extends Model
             $keywordDto = $this->getKeywordComponent()->getKeywordPrototype()->copy();
             $keywordDto->setCoincidenceCount((int)$coincidenceCount);
             $keywordDto->setText((string)$keywordText);
-
-            $this->getKeywordComponent()->createOne($keywordDto)->doOperation();
+            $result[] = $this->getKeywordComponent()->createOne($keywordDto)->doOperation()->getKeyword();
         }
+
+        return $result;
     }
 }

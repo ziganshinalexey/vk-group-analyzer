@@ -50,10 +50,10 @@ class FindForm extends AbstractFindForm
             'allModels'  => $models,
             'key'        => 'id',
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 50,
             ],
             'sort'       => [
-                'attributes' => ['name'],
+                'attributes' => ['personTypeId'],
             ],
         ]);
     }
