@@ -33,20 +33,6 @@ class UpdateForm extends AbstractUpdateForm
     }
 
     /**
-     * @param array $data
-     * @param null  $formName
-     * @return bool
-     * @throws InvalidConfigException
-     * @throws \Userstory\Yii2Exceptions\exceptions\types\ExtendsMismatchException
-     */
-    public function load($data, $formName = null)
-    {
-        $hydrator = new KeywordDatabaseHydrator();
-        $hydrator->hydrate($data[$this->formName()], $this->getDto());
-        return true;
-    }
-
-    /**
      * Данный метод возвращает массив, содержащий правила валидации атрибутов.
      *
      * @return array

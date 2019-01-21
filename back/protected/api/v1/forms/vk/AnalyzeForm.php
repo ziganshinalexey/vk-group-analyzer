@@ -177,8 +177,7 @@ class AnalyzeForm extends Model
         foreach ($groupList as $group) {
             $text = $this->prepareText($group);
             foreach ($keywordList as $keyword) {
-                $text = str_replace(mb_strtolower($keyword->getText()), '', $text, $count);
-                if ($count) {
+                if ($count = mb_substr_count($text, strtolower($keyword->getText()))) {
                     if ($keyword->getPersonTypeId()) {
                         $result[$keyword->getPersonTypeId()]['count'] += $count;
                         $result[$keyword->getPersonTypeId()]['ratio'] += $count * $keyword->getRatio();
@@ -186,15 +185,15 @@ class AnalyzeForm extends Model
                     $keyword->setCoincidenceCount($keyword->getCoincidenceCount() + $count);
                 }
             }
-            $keywordList = ArrayHelper::merge($keywordList, $this->addMissingKeywordList($text));
+// $keywordList = ArrayHelper::merge($keywordList, $this->addMissingKeywordList($text));
         }
 
-        foreach ($keywordList as $keyword) {
-            $resultOperation = $this->getKeywordComponent()->updateOne($keyword)->doOperation();
-            if (! $resultOperation->isSuccess()) {
-                throw new InvalidConfigException('keyword update was failed');
-            }
-        }
+//        foreach ($keywordList as $keyword) {
+//            $resultOperation = $this->getKeywordComponent()->updateOne($keyword)->doOperation();
+//            if (! $resultOperation->isSuccess()) {
+//                throw new InvalidConfigException('keyword update was failed');
+//            }
+//        }
 
         return $result;
     }
